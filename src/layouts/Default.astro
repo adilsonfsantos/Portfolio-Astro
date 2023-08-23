@@ -1,0 +1,25 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Meta from "../components/Meta.astro";
+import { site_lang } from "../consts";
+const { title, description, image } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={site_lang}>
+<head>
+  <Meta title={title} description={description} image={image}/>
+</head>
+<body>
+  <Header />
+    <!-- Bypass Facebook tracking:
+    https://krausefx.com/blog/ios-privacy-instagram-and-facebook-can-track-anything-you-do-on-any-website-in-their-in-app-browser#how-to-protect-yourself-as-a-user -->
+  <span id="iab-pcm-sdk"></span>
+  <span id="iab-autofill-sdk"></span>
+  <main id="main">
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>
