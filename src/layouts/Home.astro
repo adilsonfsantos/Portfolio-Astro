@@ -1,0 +1,55 @@
+---
+import { getCollection } from "astro:content";
+import "../assets/css/home.scss";
+import Contact from "../components/Contact.astro";
+import Default from "./Default.astro";
+const { frontmatter } = Astro.props;
+const posts = (await getCollection("projetos")).sort(
+  (b, a) => a.data.date.valueOf() - b.data.date.valueOf()
+);
+const formatCategories = (values: string[]) =>
+  values.toString().replaceAll(",", " • ");
+---
+
+<Default title={frontmatter.title} description={frontmatter.description} image={frontmatter.image}>
+  <a class="skip-to-content-link" href="#projetos">Pular para o conteúdo</a>
+  <div class="noise"></div>
+  <section class="projetos" id="projetos">
+    <div class="grid--module">
+      <div class="projetos__header">
+        <h2 class="projetos__header--title">Principais projetos</h2>
+        <span class="projetos__header--subtitle"
+          >Ou algumas coisas legais que eu fiz.</span
+        >
+      </div>
+      <div class="projetos__principais">
+        {
+          posts.map((post) => (
+            <a href={`/projetos/${post.slug}/`} class="card">
+              <picture>
+                <source type="" srcset="" sizes="" />
+                <img
+                  class=""
+                  src=""
+                  width=""
+                  height=""
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+              <div class="card__description">
+                <div class="noise" />
+                <h3 class="card__description--title">{post.data.title}</h3>
+                <span class="card__description--tag">
+                  {formatCategories(post.data.categories)}
+                </span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+ <Contact />
+</Default>
