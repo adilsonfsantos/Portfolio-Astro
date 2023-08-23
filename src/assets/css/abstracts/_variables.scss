@@ -1,0 +1,110 @@
+// Brand Colors
+$black: #0F0F0F;
+$primary: #FD3A39;
+$secondary: #F4C947;
+$white: #EEE;
+
+// Variation Colors
+$black-10: #222;
+$black-20: #3A3A3A;
+$black-30: #5A5A5A;
+$white-80: #AEAEAE;
+$white-90: #CECECE;
+$primary-20: #6F0E10;
+$primary-40: #D40D1C;
+$secondary-90: #FDDB7D;
+
+// Sizes
+$base-size: 16px;
+$page-width: $base-size * 80;
+
+// Breakpoints
+$grid-breakpoints-map: (
+  default: (
+    width: 0,
+    column: 4,
+    margin: $base-size,
+    gap: 16px,
+  ),
+  xs-small: (
+    width: 319px,
+    column: 4,
+    margin: $base-size,
+    gap: 16px,
+  ),
+  xs-medium: (
+    width: 479px,
+    column: 4,
+    margin: $base-size * 1.5,
+    gap: 24px,
+  ),
+  xs-large: (
+    width: 639px,
+    column: 6,
+    margin: $base-size * 2.5,
+    gap: 24px,
+  ),
+  sm-small: (
+    width: 767px,
+    column: 6,
+    margin: $base-size * 3,
+    gap: 32px,
+  ),
+  sm-medium: (
+    width: 995px,
+    column: 6,
+    margin: $base-size * 4,
+    gap: 32px,
+  ),
+  md-small: (
+    width: 1199px,
+    column: 8,
+    margin: $base-size * 6,
+    gap: 40px,
+  ),
+  md-medium: (
+    width: 1280px,
+    column: 8,
+    margin: $base-size * 4,
+    gap: 48px,
+  ),
+);
+
+// Animation
+$animation-standard: cubic-bezier(0.22, 1, 0.36, 1) !default;
+
+// Font Size
+$font-size: $base-size;
+$type-map: (
+  scale-7: (
+    size: $base-size * 4,
+    spacing: -0.022rem,
+  ),
+  scale-6: (
+    size: $base-size * 3,
+    spacing: -0.022rem,
+  ),
+  scale-5: (
+    size: $base-size * 2.5,
+    spacing: -0.022rem,
+  ),
+  scale-4: (
+    size: $base-size * 2,
+    spacing: -0.022rem,
+  ),
+  scale-3: (
+    size: $base-size * 1.5,
+    spacing: -0.019rem,
+  ),
+  scale-2: (
+    size: $base-size * 1.125,
+    spacing: -0.017rem,
+  ),
+  scale-1: (
+    size: $base-size,
+    spacing: -0.011rem,
+  ),
+  scale-0: (
+    size: $base-size * 0.875,
+    spacing: -0.006rem,
+  ),);
