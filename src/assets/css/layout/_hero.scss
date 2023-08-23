@@ -1,0 +1,91 @@
+.hero {
+  @include grid;
+  @include grid-base;
+
+  height: 100%;
+  position: relative;
+
+  &__normal {
+    @include flex;
+    @include flex-column;
+
+    grid-column: 1/-1;
+    justify-content: end;
+    min-height: 96svh;
+    padding-bottom: $base-size * 0.5;
+    padding-top: $base-size * 3.5;
+    z-index: 2;
+
+    @include viewport(default, landscape) {
+      min-height: 100vh;
+    }
+
+    @include viewport(xs-small) {
+      min-height: 96svh;
+    }
+
+    @include viewport(xs-medium) {
+      min-height: 96svh;
+    }
+
+    @include viewport(sm-small) {
+      grid-column: span 6;
+    }
+
+    @include viewport(sm-medium) {
+      grid-column: span 6;
+    }
+
+    @include viewport(md-small) {
+      grid-column: span 8;
+      padding-bottom: $base-size * 5.5;
+    }
+
+    &--title {
+      @include typescale(scale-3, bold, headline);
+
+      color: $white;
+
+      @include viewport(xs-small) {
+        @include typescale(scale-4, bold, headline);
+
+      }
+
+      @include viewport(xs-medium) {
+        @include typescale(scale-4, bold, headline);
+      }
+
+      @include viewport(xs-large) {
+        @include typescale(scale-5, bold, headline);
+      }
+
+      @include viewport(sm-medium) {
+        @include typescale(scale-6, bold, headline);
+      }
+
+      @include viewport(md-small) {
+        @include typescale(scale-6, bold, headline);
+      }
+    }
+
+    &--subtitle {
+      @include typescale(scale-1, normal, text);
+
+      color: $white-80;
+
+      @include viewport(xs-small) {
+        @include typescale(scale-2, normal, text);
+      }
+
+      @include viewport(xs-medium) {
+        @include typescale(scale-2, normal, text);
+      }
+
+      @include viewport(sm-medium) {
+        @include typescale(scale-3, normal, text);
+      }
+    }
+  }
+}
+
+

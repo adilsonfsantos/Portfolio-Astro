@@ -1,0 +1,50 @@
+.postnav {
+  @include grid;
+  @include grid-base;
+
+  &--container {
+    @include grid;
+
+    padding: $base-size * 4 0;
+    grid-column: 2;
+  }
+
+  &__link {
+    @include typescale(scale-1, bold, text);
+    @include font-position(right);
+
+    color: $secondary;
+    margin-left: auto;
+
+    @include viewport(xs-small) {
+      @include typescale(scale-2, bold, text);
+    }
+
+    &--content {
+      color: $white;
+    }
+
+    &--title {
+      @include typescale(scale-2, bold, headline);
+      @include font-position(right);
+
+      color: $white;
+
+      @include viewport(xs-small) {
+        @include typescale(scale-3, bold, headline);
+      }
+    }
+
+    &--icon {
+      padding-left: $base-size;
+      position: relative;
+    }
+
+    &--forward {
+      display: block;
+      fill: $secondary;
+      height: $base-size * 1.5;
+      width: $base-size * 1.5;
+    }
+  }
+}

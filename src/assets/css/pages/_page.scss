@@ -1,0 +1,129 @@
+.page {
+  @include grid;
+  @include grid-base;
+
+  background: $black;
+  padding-bottom: $base-size * 5;
+  padding-top: $base-size * 3.5;
+
+  &__header {
+    @include grid;
+    @include grid-base;
+
+    grid-column: 1/-1;
+
+    &--container {
+      @include grid;
+      @include grid-post;
+
+      grid-column: 2;
+      padding-bottom: $base-size * 2;
+      padding-top: $base-size * 3;
+
+      @include viewport(xs-small) {
+        padding-top: $base-size * 6;
+      }
+    }
+
+    &--title {
+      @include typescale(scale-2, bold, headline);
+
+      color: $white;
+      grid-column: 1/-1;
+      margin-bottom: $base-size * 0.5;
+
+      @include viewport(xs-small) {
+        @include typescale(scale-3, bold, headline);
+      }
+
+      @include viewport(xs-large) {
+        @include typescale(scale-4, bold, headline);
+      }
+
+      @include viewport(sm-small) {
+        grid-column: 2;
+      }
+    }
+  }
+
+  &__content {
+    @include grid;
+    @include grid-base;
+
+    grid-column: 1/-1;
+
+    @include viewport(sm-small) {
+      &--container > * {
+        grid-column: 2;
+      }
+    }
+
+    &--container {
+      @include grid;
+      @include grid-post;
+
+      grid-column: 2;
+      row-gap: $base-size;
+    }
+
+    .headline-link {
+      color: $black-30;
+      text-decoration: underline;
+    }
+
+    h1 {
+      @include typescale(scale-2, bold, headline);
+
+      color: $white;
+      margin-top: $base-size * 3;
+
+      @include viewport(xs-small) {
+        @include typescale(scale-3, bold, headline);
+      }
+
+      @include viewport(xs-large) {
+        @include typescale(scale-4, bold, headline);
+      }
+    }
+
+    h2,
+    h3,
+    h4 {
+      @include typescale(scale-2, bold, headline);
+
+      color: $white;
+      margin-top: $base-size * 3;
+
+      @include viewport(xs-small) {
+        @include typescale(scale-3, bold, headline);
+      }
+    }
+
+    p {
+      @include typescale(scale-1, normal, text);
+
+      color: $black-30;
+    }
+
+    ul,
+    ol {
+      margin-bottom: $base-size * 1.5;
+      margin-left: $base-size;
+    }
+
+    li {
+      @include typescale(scale-1, normal, text);
+
+      color: $black-30;
+      margin-bottom: $base-size * 0.5;
+
+      > ul {
+        margin: ($base-size * 0.5);
+      }
+    }
+
+    li li:not(:last-child) {
+      margin-bottom: $base-size * 0.75;
+    }
+  }
+}

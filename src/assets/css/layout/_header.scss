@@ -1,0 +1,72 @@
+.header {
+  @include grid;
+  @include grid-base;
+
+  background-color: $black;
+  border-bottom: 1px solid $black-10;
+  position: fixed;
+  width: 100%;
+  z-index: 4;
+
+  .container {
+  grid-column: 1/-1;
+  position: relative;
+  }
+
+  &__content {
+    @include flex;
+
+    align-items: center;
+    grid-column: 1/-1;
+
+    &--logo {
+      color: $white;
+    }
+
+    &--logo > svg {
+      display: inherit;
+      fill: currentcolor;
+      height: $base-size * 1.25;
+      margin: $base-size 0;
+      width: auto;
+    }
+
+    &--spacer {
+      flex-grow: 1;
+    }
+
+    &__nav {
+      @include flex;
+
+      align-self: center;
+    }
+  }
+}
+
+.nav {
+  &__link {
+    @include typescale(scale-1, bold, text);
+    @include transition(color, 0.4s, $animation-standard);
+
+    color: $white-80;
+    line-height: 1.2;
+    padding: $base-size 0;
+
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+
+    &:not(:last-child) {
+      margin-right: $base-size;
+
+      @include viewport(xs-small) {
+        margin-right: $base-size;
+      }
+    }
+
+    &--active {
+      color: $white;
+    }
+  }
+}
