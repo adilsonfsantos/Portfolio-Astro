@@ -1,75 +1,65 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-// import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import { Picture } from 'astro:assets';
+import "../assets/css/post.scss";
+import Default from "./Default.astro";
 
-type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+
+
+// type Props = CollectionEntry<'projetos'>['data'];
+const { title, description, image, roles, date } = Astro.props;
+
 ---
 
-
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
-
-	<body>
-		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
+<Default title={title} description={description} image={image.src}>
+	<div class="noise"></div>
+	<article
+	class="post grid__module--site"
+	itemscope
+	itemtype="http://schema.org/BlogPosting"
+	role="article"
+	>
+	<div class="post__header">
+		<div class="post__header--container">
+			<h1 class="post__header--title" itemprop="name headline">
+				{ title }
+			</h1>
+		</div>
+		<div class="post__info">
+			<div class="function">
+				<h3 class="post__info--title">Minha Função</h3>
+					<p class="post__info--text">{ roles }</p>
+			</div>
+			 <!-- {%- if showteam == true -%}
+				{% include "team" %}
+				{%- endif -%} -->
+				<div class="year">
+					<h3 class="post__info--title">Data</h3>
+					<p class="post__info--text">{ date.getFullYear() }</p>
 				</div>
-				<div class="prose">
-					<div class="title">
-						<h1>{title}</h1>
-						<hr />
-					</div>
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</body>
-</html>
+		</div>
+		<div class="post__splash--container">
+		<Picture src={ image } alt={ description }
+              widths={[320, 480, 768, 1104, 1650, 1920]} class="post__splash--image" loading="lazy"
+                  decoding="async" formats={["webp", "jpg"]} />
+		</div>
+	</div>
+	<div class="post__content" itemprop="articleBody">
+		<div class="post__content--container">
+			<slot />
+	</div>
+	<hr>
+	</article>
+	<!-- <section class="postnav grid__module--site">
+    <div class="postnav--container">
+      {% assign previousPost = collections.post | getPreviousCollectionItem %}
+      {% if previousPost %}
+      <a href="{{ previousPost.url }}" class="postnav__link" rel="next">Próximo projeto →<br><span class="postnav__link--title">{{ previousPost.data.title }}</span>
+      </a>
+      {%- else -%}
+      <a href="{{ "/" | url }}" class="postnav__link" rel="prev">Sem mais projetos →<br><span class="postnav__link--title">Voltar para a home</span></a>
+      {% endif %}
+    </div>
+  </section> -->
+
+</Default>

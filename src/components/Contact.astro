@@ -1,15 +1,17 @@
 ---
-import { site_author_email } from "../consts";
+import { site_author_email, social } from "../consts";
 
+const value = social.links.find(link => link.name === "LinkedIn")
 ---
 <section class="contato" id="contato">
   <div class="contato__gradient"></div>
-  <div class="grid--module">
+  <div class="grid__module--site">
     <div class="contato__info">
       <div class="contato__call">
         <h2 class="contato__call--cta">Vamos conversar?</h2>
-        <p class="contato__call--subtitle">Ficarei feliz em ajudar no seu projeto ou em fazer parte da sua equipe.</p>
-        <a href={"mailto:" + site_author_email } class="contato__call--email">{ site_author_email }</a>
+        <p class="contato__call--subtitle">Me chama no <a href={ value?.url }>LinkedIn</a> ou manda um
+          email para
+        <a href={"mailto:" + site_author_email } class="contato__call--email">{ site_author_email }</a></p>
       </div>
     </div>
   </div>
