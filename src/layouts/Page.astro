@@ -1,14 +1,15 @@
 ---
 import "../assets/css/page.scss";
 import Contact from "../components/Contact.astro";
-import { site_name } from "../consts";
+import { site_description, site_image, site_name } from "../consts";
 import Default from "./Default.astro";
 
 const { frontmatter } = Astro.props;
 const title = [frontmatter.title, site_name].filter(Boolean).join(" | ")
 ---
-<Default title={title} description={frontmatter.description} image={frontmatter.image}>
-	<article class="page grid--module" role="article">
+<Default title={title} description={site_description} image={site_image}>
+	<div class="noise"></div>
+	<article class="page grid__module--blog" role="article">
 			<div class="page__header">
 			<div class="page__header--container"><h1 class="page__header--title" itemprop="name headline">{ frontmatter.title }</h1></div>
 		</div>
@@ -18,6 +19,5 @@ const title = [frontmatter.title, site_name].filter(Boolean).join(" | ")
 			</div>
 		</div>
 	</article>
-	<!-- {% include "contact" %} -->
 	<Contact />
 </Default>
