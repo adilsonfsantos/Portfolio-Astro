@@ -1,23 +1,21 @@
 ---
 const { title, description, image } = Astro.props;
 import { site_author, site_lang, site_name, social } from "../consts";
-// const urls = social.links.forEach(link => {
-//   JSON.stringify(link.url)
-// }) ;
 const urls = social.links.map(link => link.url) ;
+
 ---
 
 <link
   rel="preload"
   as="font"
-  href="/fonts/Inter-Regular.woff2"
+  href="/assets/fonts/Inter-Regular.woff2"
   type="font/woff2"
   crossorigin
 />
 <link
   rel="preload"
   as="font"
-  href="/fonts/Inter-Medium.woff2"
+  href="/assets/fonts/Inter-Medium.woff2"
   type="font/woff2"
   crossorigin
 />
@@ -34,17 +32,30 @@ const urls = social.links.map(link => link.url) ;
 <meta name="twitter:description" content={description} />
 <meta name="twitter:site" content={Astro.url} />
 <meta name="twitter:creator" content={site_author} />
-<meta name="twitter:image:src" content={new URL(image, Astro.url)} />
+<meta name="twitter:image:src" content={ image } />
 <meta name="twitter:dnt" content="on" />
 
 <!-- Open Graph -->
 <meta name="og:title" content={title} />
 <meta name="og:description" content={description} />
-<meta name="og:image" content={new URL(image, Astro.url)} />
+<meta name="og:image" content={ image } />
 <meta name="og:url" content={Astro.url} />
 <meta name="og:site_name" content={site_name} />
 <meta name="og:locale" content={site_lang} />
 <meta name="og:type" content="website" />
+
+<!-- Icons -->
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" />
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+<link href="/site.webmanifest" rel="application/manifest+json" />
+<link color="#0F0F0F" href="/safari-pinned-tab.svg" rel="mask-icon" />
+<meta content="#0F0F0F" name="msapplication-TileColor" />
+<meta content="/mstile-144x144.png" name="msapplication-TileImage" />
+<meta content="#0F0F0F" name="theme-color" />
+<meta content="/browserconfig.xml" name="msapplication-config" />
+<meta content="nopin" name="pinterest" />
+<meta name="generator" content={Astro.generator} />
 
 <!-- JSOn-LD Structured data -->
 <script type="application/ld+json" set:html={JSON.stringify({
@@ -60,16 +71,3 @@ const urls = social.links.map(link => link.url) ;
   },
   sameAs: urls,
 })}>
-
-<!-- Icons -->
-<link href="/apple-touch-icon.png" rel="apple-touch-icon" />
-<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
-<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
-<link href="/site.webmanifest" rel="application/manifest+json" />
-<link color="#0F0F0F" href="/safari-pinned-tab.svg" rel="mask-icon" />
-<meta content="#0F0F0F" name="msapplication-TileColor" />
-<meta content="/mstile-144x144.png" name="msapplication-TileImage" />
-<meta content="#0F0F0F" name="theme-color" />
-<meta content="/browserconfig.xml" name="msapplication-config" />
-<meta content="nopin" name="pinterest" />
-<meta name="generator" content={Astro.generator} />
