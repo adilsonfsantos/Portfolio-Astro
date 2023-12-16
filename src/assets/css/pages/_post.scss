@@ -1,175 +1,108 @@
+@use "../abstracts/variables";
+@use "../abstracts/mixins";
+
 .post {
   @include grid;
-  @include grid-base;
 
   background: $black;
-  padding-top: $base-size * 3.5;
+  padding-top: variables.$space-3xl;
 
   &__header {
-    @include grid;
-    @include grid-base;
-
-    grid-column: 1/-1;
     min-height: 55vh;
+    padding-top: variables.$space-xl;
 
     &--container {
-      @include grid;
-      @include grid-base;
-
-      grid-column: 2;
-      padding-top: $base-size * 3;
-      padding-bottom: $base-size * 2;
-
-      @include viewport(xs-small) {
-        padding-top: $base-size * 6;
-      }
+      margin-bottom: variables.$space-xl;
     }
 
     &--title {
-      @include typescale(scale-2, bold, headline);
+      @include typescale(scale-6, medium, headline);
 
       color: $white;
-      grid-column: 1/-1;
-      margin-bottom: $base-size * 0.5;
+      margin: 0;
+      max-width: 720px;
 
-      @include viewport(xs-small) {
-        @include typescale(scale-3, bold, headline);
-      }
-
-      @include viewport(xs-large) {
-        @include typescale(scale-4, bold, headline);
-      }
-
-      @include viewport(sm-small) {
-        grid-column: 2;
-      }
     }
 
     &--description {
-      @include typescale(scale-1, normal, text);
+      @include typescale(scale-0, normal, text);
 
-      // color: $black-30;
-
-      grid-column: 1/-1;
-
-      @include viewport(xs-small) {
-        @include typescale(scale-2, normal, text);
-      }
-
-      @include viewport(sm-small) {
-        grid-column: 2;
-      }
+      color: $white-80;
+      max-width: 720px;
     }
   }
 
   &__hero {
     @include grid;
-    @include grid-base;
-
-    grid-column: 1/-1;
 
     &--container {
       @include grid;
-      @include grid-post;
 
       border-bottom: 2px solid $black-30;
-      grid-column: 2;
     }
   }
 
   &__info {
     @include grid;
 
-    gap: $base-size * 1.5;
-    grid-column: 1/-1;
+    gap: variables.$space-xl;
     grid-template-columns: repeat(auto-fit, minmax(160px, auto));
-    margin: $base-size * 2 0;
-
-    @include viewport(sm-small) {
-      grid-column: 2;
-    }
+    margin-bottom: variables.$space-xl;
   }
 
   &__info--title {
-    @include typescale(scale-1, bold, text);
+    @include typescale(scale--2, medium, text);
 
+    border-top: solid $black-10 1px;
     color: $white;
-    margin-bottom: $base-size * 0.25;
-  }
-
-  &__info--list {
-    margin-bottom: $base-size * 1.5;
-    margin-left: $base-size;
+    padding-top: variables.$space-s;
+    text-transform: uppercase
   }
 
   &__info--text {
-    @include typescale(scale-1, normal, text);
+    @include typescale(scale--1, normal, text);
+    @include mixins.font-family("iA Writer");
 
-    color: $black-30;
+    color: $white-80;
   }
 
   &__splash {
-    @include grid;
-    @include grid-base;
-
-    display: grid;
-    grid-column: 1/-1;
-
-    @include viewport(sm-small) {
-      grid-column: 1/-1;
-    }
-
-    &--container {
-      @include grid;
-      @include grid-base;
-
-      grid-column: 1/-1;
-    }
-
     &--picture {
-      @include center-horizontal;
-      @include aspect-ratio(1920, 960);
-
-      grid-column: 2;
       overflow: hidden;
-      position: relative;
       width: 100%;
     }
 
     &--image {
       color: $white;
-      grid-column: 1/-1;
       height: auto;
       max-width: none;
-      position: absolute;
-      top: 0;
       width: 100%;
-
-      @include viewport(sm-small) {
-        grid-column: 2;
-      }
     }
   }
 
-  &__content {
-    @include grid;
-    @include grid-base;
+  hr {
+    border: none;
+    background-color: variables.$black-10;
+    height: 1px;
+    margin-top: variables.$space-xl;
+    }
 
-    grid-column: 1/-1;
+  &__content {
+    h1, h2, h3, h4, h5, h6, p, blockquote, ul, ol, li {
+      max-width: 720px;
+      margin: auto;
+      width: 100%;
+    }
 
     &--container {
       @include grid;
-      @include grid-post;
-
-      grid-column: 2;
-      row-gap: $base-size * 0.5;
     }
 
-    @include viewport(sm-small) {
-      &--container > * {
-        grid-column: 2;
-      }
-    }
+    // @include viewport(large) {
+    //   &--container > * {
+    //     grid-column: 2;
+    //   }
+    // }
 
     .headline-link {
       color: $white;
@@ -179,118 +112,114 @@
     h2,
     h3,
     h4 {
-      @include typescale(scale-2, bold, headline);
+      @include typescale(scale-4, medium, headline);
 
-      color: $white;
-      margin-top: $base-size * 3;
+      color: $white-90;
+      margin-top: variables.$space-2xl;
+      margin-bottom: variables.$space-xs;
+      width: 100%;
+    }
 
-      @include viewport(xs-small) {
-        @include typescale(scale-3, bold, headline);
+    &__photo {
+      @include center-horizontal;
+
+      max-width: $page-width;
+      overflow: hidden;
+      width: 100%;
+
+      + p {
+        margin-bottom: variables.$space-xl;
       }
     }
 
     p {
-      @include typescale(scale-1, normal, text);
+      @include typescale(scale-0, normal, text);
+      @include font-family("iA Writer");
 
-      color: $black-30;
+      color: $white-80;
 
-      @include viewport(md-medium) {
-        @include typescale(scale-2, normal, text);
+      + p {
+        margin-top: variables.$space-xs;
       }
+
+      + picture {
+        margin-top: variables.$space-xl;
+      }
+    }
+
+    picture + p {
+        margin-top: variables.$space-xl;
+    }
+
+    picture + picture {
+        margin-top: variables.$space-xl;
+      }
+
+
+    img {
+      @include center-horizontal;
+
+      border: 1px solid variables.$black-10;
+      height: auto;
+      max-width: $page-width;
+      overflow: hidden;
+      width: 100%;
+      margin-top: variables.$space-xl;
+      margin-bottom: variables.$space-xl;
+    }
+
+    p > img {
+      margin-top: variables.$space-l;
+      margin-bottom: variables.$space-l;
     }
 
     ul,
     ol {
-      @include typescale(scale-1, normal, text);
+      @include typescale(scale-0, normal, text);
 
-      margin-left: $base-size;
+      padding-left: variables.$space-xs;
+    }
+
+    p + ul, ol {
+        margin-top: variables.$space-xs;
     }
 
     li > ul {
-      margin: ($base-size * 0.5);
+      margin: variables.$space-2xs;
     }
 
     li {
-      @include typescale(scale-1, normal, text);
+      @include typescale(scale-0, normal, text);
+      @include font-family("iA Writer");
 
-      color: $black-30;
+      color: $white-80;
     }
 
     li:not(:last-child) {
-      margin-bottom: $base-size * 0.5;
+      margin-bottom: variables.$space-2xs;
     }
   }
 
   blockquote {
     border-left: 2px solid $primary;
-    color: $white;
-    padding-left: $base-size;
-    margin: $base-size * 2 0;
+    padding-left: variables.$space-m;
+    margin: variables.$space-m auto;
 
     p {
-      @include typescale(scale-1, normal, text);
+      @include typescale(scale-1, bold, text);
 
-      color: $white;
+      color: $white-90;
       margin: 0;
     }
 
-    h5 {
-      @include typescale(scale-2, bold, headline);
+    cite {
+      @include typescale(scale-0, normal, headline);
 
-      color: $white;
-      margin-top: $base-size;
+      font-style: normal;
+      color: $white-80;
+      margin-top: variables.$space-xs;
     }
   }
 
-  &__photo {
-    @include center-horizontal;
 
-    grid-column: 1/-1;
-    margin-top: $base-size * 3;
-    max-width: 1280px;
-    overflow: hidden;
-    width: 100%;
-  }
-
-  &__photo > img {
-    height: auto;
-  }
-
-  span {
-    grid-column: 1/-1;
-  }
-
-  &__photo--lazy {
-    @include aspect-ratio(1920, 1080);
-
-    grid-column: 1/-1;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-
-    // @include viewport(sm-medium) {
-    //   margin: $base-size * 1.5 0;
-    // }
-  }
-
-  &__photo--image--lazy {
-    color: $white;
-    height: auto;
-    max-width: none;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-
-  &__photo + &__photo {
-    margin-top: 0;
-  }
-
-  &__photo--lazy + &__photo--lazy {
-    margin-top: 0;
-  }
-
-  & noscript + p {
-    margin-top: $base-size;
-  }
 }

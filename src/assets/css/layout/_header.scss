@@ -1,34 +1,43 @@
-.header {
-  @include grid;
-  @include grid-base;
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
 
-  background-color: $black;
-  border-bottom: 1px solid $black-10;
+.header {
+  @include mixins.grid;
+
+  background-color: variables.$black;
+  border-bottom: 1px solid variables.$black-10;
   position: fixed;
-  width: 100%;
+  width: 100vw;
   z-index: 4;
 
-  .container {
-  grid-column: 1/-1;
-  position: relative;
+  @supports (backdrop-filter: none) {
+    background-color: rgba(variables.$black, .8);
+    backdrop-filter: saturate(180%) blur(variables.$base-size * 0.25);
+  }
+
+  &__container {
+    width: 100%;
   }
 
   &__content {
-    @include flex;
+    @include mixins.flex;
 
     align-items: center;
-    grid-column: 1/-1;
 
     &--logo {
-      color: $white;
+      color: variables.$white;
     }
 
     &--logo > svg {
       display: inherit;
       fill: currentcolor;
-      height: $base-size * 1.25;
-      margin: $base-size 0;
+      height: 18px;
+      margin: variables.$base-size 0;
       width: auto;
+
+      @include mixins.viewport(3xlarge) {
+        height: 24px;
+      }
     }
 
     &--spacer {
@@ -36,7 +45,7 @@
     }
 
     &__nav {
-      @include flex;
+      @include mixins.flex;
 
       align-self: center;
     }
@@ -45,28 +54,28 @@
 
 .nav {
   &__link {
-    @include typescale(scale-1, bold, text);
-    @include transition(color, 0.4s, $animation-standard);
+    @include mixins.typescale(scale-0, medium, text);
+    @include mixins.transition(color, 0.4s, variables.$animation-standard);
 
-    color: $white-80;
+    @include mixins.viewport(small) {
+        @include mixins.typescale(scale--1, medium, text);
+    }
+
+    color: variables.$white-80;
     line-height: 1.2;
-    padding: $base-size 0;
+    padding: variables.$base-size 0;
 
     &:hover,
     &:focus {
-      color: $white;
+      color: variables.$white;
     }
 
-    &:not(:last-child) {
-      margin-right: $base-size;
-
-      @include viewport(xs-small) {
-        margin-right: $base-size;
-      }
+    &:first-child {
+      margin-right: variables.$space-xs;
     }
 
     &--active {
-      color: $white;
+      color: variables.$white;
     }
   }
 }
