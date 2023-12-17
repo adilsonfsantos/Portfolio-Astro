@@ -2,49 +2,50 @@
 import "@assets/css/home.scss";
 import Contact from "@components/Contact.astro";
 import Hero from "@components/Hero.astro";
-import { Picture } from 'astro:assets';
+import { Picture } from "astro:assets";
 import { getCollection } from "astro:content";
 import Default from "./Default.astro";
 const { frontmatter } = Astro.props;
 const posts = (await getCollection("projetos")).sort(
-  (b, a) => a.data.date.valueOf() - b.data.date.valueOf()
+  (b, a) => a.data.date.valueOf() - b.data.date.valueOf(),
 );
-const formatCategories = (values: string[]) =>
-  values.toString().replaceAll(",", " • ");
-
+const formatCategories = (values: string[]) => values.toString().replaceAll(",", " • ");
 ---
 
 <Default title={frontmatter.title} description={frontmatter.description} image={frontmatter.image}>
   <div class="container">
     <div class="noise"></div>
-  <Hero/>
-  <section class="projetos grid__module--site" id="projetos">
+    <Hero />
+    <section class="projetos grid__module--site" id="projetos">
       <div class="projetos__header">
         <h2 class="projetos__header--title">Principais projetos</h2>
-        <span class="projetos__header--subtitle"
-          >Ou algumas coisas legais que eu fiz.</span
-        >
+        <span class="projetos__header--subtitle">Ou algumas coisas legais que eu fiz.</span>
       </div>
       <div class="projetos__principais">
         {
           posts.map((post) => (
-            <a href={`/projetos/${post.slug}/`} class="card">
-              <div class="noise"></div>
-              <Picture src={post.data.image} alt={post.data.description}
-              widths={[320, 480, 768, 1104, 1650, 1920]} class="card__picture--image" loading="lazy"
-                  decoding="async" formats={["webp", "jpg"]} quality={95}
-                  fallbackFormat={"jpg"} />
+            <a href={`/projetos/${post.slug}/`} class="card" data-astro-prefetch>
+              <div class="noise" />
+              <Picture
+                src={post.data.image}
+                alt={post.data.description}
+                widths={[320, 480, 768, 1104, 1650, 1920]}
+                class="card__picture--image"
+                loading="lazy"
+                decoding="async"
+                formats={["webp", "jpg"]}
+                quality={95}
+                fallbackFormat={"jpg"}
+              />
               <div class="card__description">
                 <h3 class="card__description--title">{post.data.title}</h3>
-                <span class="card__description--tag">
-                  {formatCategories(post.data.categories)}
-                </span>
+                <span class="card__description--tag">{formatCategories(post.data.categories)}</span>
               </div>
             </a>
           ))
         }
       </div>
-  </section>
- <Contact />
-</div>
+    </section>
+    <Contact />
+  </div>
 </Default>

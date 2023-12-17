@@ -6,21 +6,21 @@ import { site_lang } from "../consts";
 const { title, description, image } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={site_lang}>
-<head>
-  <Meta title={title} description={description} image={image}/>
-</head>
-<a class="skip-to-content-link" href="#main">Pular para o conteúdo</a>
-<body>
-  <Header />
+  <head>
+    <Meta title={title} description={description} image={image} />
+  </head>
+  <a class="skip-to-content-link" href="#main">Pular para o conteúdo</a>
+  <body>
+    <Header />
     <!-- Bypass Facebook tracking:
     https://krausefx.com/blog/ios-privacy-instagram-and-facebook-can-track-anything-you-do-on-any-website-in-their-in-app-browser#how-to-protect-yourself-as-a-user -->
-  <span id="iab-pcm-sdk"></span>
-  <span id="iab-autofill-sdk"></span>
-  <main id="main">
-    <slot />
-  </main>
-  <Footer />
-</body>
+    <span id="iab-pcm-sdk"></span>
+    <span id="iab-autofill-sdk"></span>
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>

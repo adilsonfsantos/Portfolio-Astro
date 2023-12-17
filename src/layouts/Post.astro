@@ -1,64 +1,71 @@
 ---
 import "@assets/css/post.scss";
-import { Picture } from 'astro:assets';
+import { Picture } from "astro:assets";
 import Default from "./Default.astro";
 
 const { title, description, image, roles, date, team } = Astro.props;
 ---
 
 <Default title={title} description={description} image={image.src}>
-	<div class="noise"></div>
-	<article
-	class="post grid__module--site"
-	itemscope
-	itemtype="http://schema.org/BlogPosting"
-	role="article"
-	>
-	<div class="post__header">
-		<div class="post__header--container">
-			<h1 class="post__header--title" itemprop="name headline">
-				{ title }
-			</h1>
-		</div>
-		<div class="post__info">
-			<div class="function">
-				<h3 class="post__info--title">Minha Função</h3>
-				{
-					roles.map((role) => (
-					<p class="post__info--text">{role}</p>
-					))
-				}
-			</div>
-			{
-				team ? (
-			<div class="team">
-			<h3 class="post__info--title">Equipe</h3>
-			{team.map((team) => (
-				<p class="post__info--text">
-					{ team.portfolio ? (
-							<a href={team.portfolio} target="_blank" rel="noopener">{team.name}</a>
-						) : (team.name)
-					}, {team.role}
-				</p>
-			))
-			}
-			</div>
-			): null}
-				<div class="year">
-					<h3 class="post__info--title">Data</h3>
-					<p class="post__info--text">{ date.getFullYear() }</p>
-				</div>
-		</div>
-		<div class="post__splash--container">
-		<Picture src={ image } alt={ description }
-              widths={[320, 480, 768, 1104, 1650, 1920]} class="post__splash--image" loading="eager"
-                  decoding="async" formats={["webp", "jpg"]} />
-		</div>
-	</div>
-	<div class="post__content" itemprop="articleBody">
-		<div class="post__content--container">
-			<slot />
-	</div>
-	<hr>
-	</article>
+  <div class="noise"></div>
+  <article
+    class="post grid__module--site"
+    itemscope
+    itemtype="http://schema.org/BlogPosting"
+    role="article"
+  >
+    <div class="post__header">
+      <div class="post__header--container">
+        <h1 class="post__header--title" itemprop="name headline">
+          {title}
+        </h1>
+      </div>
+      <div class="post__info">
+        <div class="function">
+          <h3 class="post__info--title">Minha Função</h3>
+          {roles.map((role: any) => <p class="post__info--text">{role}</p>)}
+        </div>
+        {
+          team ? (
+            <div class="team">
+              <h3 class="post__info--title">Equipe</h3>
+              {team.map((team: any) => (
+                <p class="post__info--text">
+                  {team.portfolio ? (
+                    <a href={team.portfolio} target="_blank" rel="noopener">
+                      {team.name}
+                    </a>
+                  ) : (
+                    team.name
+                  )}
+                  , {team.role}
+                </p>
+              ))}
+            </div>
+          ) : null
+        }
+        <div class="year">
+          <h3 class="post__info--title">Data</h3>
+          <p class="post__info--text">{date.getFullYear()}</p>
+        </div>
+      </div>
+      <div class="post__splash--container">
+        <Picture
+          src={image}
+          alt={description}
+          widths={[320, 480, 768, 1104, 1650, 1920]}
+          class="post__splash--image"
+          loading="eager"
+          decoding="async"
+          formats={["webp", "jpg"]}
+        />
+      </div>
+    </div>
+    <div class="post__content" itemprop="articleBody">
+      <div class="post__content--container">
+        <slot />
+      </div>
+      <hr />
+    </div>
+  </article>
 </Default>
