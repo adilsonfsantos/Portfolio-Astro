@@ -1,8 +1,8 @@
 ---
 layout: "../layouts/Page.astro"
 title: Sobre Mim
-description: Conheça um pouco mais sobre Adilson Santos designer de identidades visuais, UI e UX
-Image: "/images/thumbnail.jpg"
+image: "/assets/images/thumbnail.jpg"
+
 ---
 
 Olá, tudo bem? Meu nome é Adilson Santos.
