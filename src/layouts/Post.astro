@@ -1,14 +1,9 @@
 ---
+import "@assets/css/post.scss";
 import { Picture } from 'astro:assets';
-import "../assets/css/post.scss";
 import Default from "./Default.astro";
 
-
-
-
-// type Props = CollectionEntry<'projetos'>['data'];
-const { title, description, image, roles, date } = Astro.props;
-
+const { title, description, image, roles, date, team } = Astro.props;
 ---
 
 <Default title={title} description={description} image={image.src}>
@@ -28,11 +23,27 @@ const { title, description, image, roles, date } = Astro.props;
 		<div class="post__info">
 			<div class="function">
 				<h3 class="post__info--title">Minha Função</h3>
-					<p class="post__info--text">{ roles }</p>
+				{
+					roles.map((role) => (
+					<p class="post__info--text">{role}</p>
+					))
+				}
 			</div>
-			 <!-- {%- if showteam == true -%}
-				{% include "team" %}
-				{%- endif -%} -->
+			{
+				team ? (
+			<div class="team">
+			<h3 class="post__info--title">Equipe</h3>
+			{team.map((team) => (
+				<p class="post__info--text">
+					{ team.portfolio ? (
+							<a href={team.portfolio} target="_blank" rel="noopener">{team.name}</a>
+						) : (team.name)
+					}, {team.role}
+				</p>
+			))
+			}
+			</div>
+			): null}
 				<div class="year">
 					<h3 class="post__info--title">Data</h3>
 					<p class="post__info--text">{ date.getFullYear() }</p>
@@ -40,7 +51,7 @@ const { title, description, image, roles, date } = Astro.props;
 		</div>
 		<div class="post__splash--container">
 		<Picture src={ image } alt={ description }
-              widths={[320, 480, 768, 1104, 1650, 1920]} class="post__splash--image" loading="lazy"
+              widths={[320, 480, 768, 1104, 1650, 1920]} class="post__splash--image" loading="eager"
                   decoding="async" formats={["webp", "jpg"]} />
 		</div>
 	</div>
@@ -50,16 +61,4 @@ const { title, description, image, roles, date } = Astro.props;
 	</div>
 	<hr>
 	</article>
-	<!-- <section class="postnav grid__module--site">
-    <div class="postnav--container">
-      {% assign previousPost = collections.post | getPreviousCollectionItem %}
-      {% if previousPost %}
-      <a href="{{ previousPost.url }}" class="postnav__link" rel="next">Próximo projeto →<br><span class="postnav__link--title">{{ previousPost.data.title }}</span>
-      </a>
-      {%- else -%}
-      <a href="{{ "/" | url }}" class="postnav__link" rel="prev">Sem mais projetos →<br><span class="postnav__link--title">Voltar para a home</span></a>
-      {% endif %}
-    </div>
-  </section> -->
-
 </Default>

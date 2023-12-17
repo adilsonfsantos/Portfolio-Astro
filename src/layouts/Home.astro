@@ -1,9 +1,9 @@
 ---
+import "@assets/css/home.scss";
+import Contact from "@components/Contact.astro";
+import Hero from "@components/Hero.astro";
 import { Picture } from 'astro:assets';
 import { getCollection } from "astro:content";
-import "../assets/css/home.scss";
-import Contact from "../components/Contact.astro";
-import Hero from "../components/Hero.astro";
 import Default from "./Default.astro";
 const { frontmatter } = Astro.props;
 const posts = (await getCollection("projetos")).sort(
