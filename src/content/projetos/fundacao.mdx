@@ -32,19 +32,17 @@ project:
 showteam: true
 team:
   - name: Alan Erik
-    portfolio: false
     role: UI Designer
   - name: Bruno Rodrigues
-    portfolio: false
     role: UX Designer
   - name: Jefferson Ribeiro
-    portfolio: false
     role: UX Designer
 ---
 
 import { Image } from 'astro:assets';
-import ContentImage from "@components/ContentImage.astro"
 import fundacaoLighthouse from "@images/fundacao-analise-lighthouse.png"
+import fundacaoJornadaOriginal from "@images/fundacao-jornada-usuario-original.png"
+import fundacaoJornadaFinal from "@images/fundacao-jornada-usuario-final.png"
 
 ## Desafio
 
@@ -56,8 +54,6 @@ Fazer um redesign do site que fosse otimizado e de fácil navegação.
 
 A primeira etapa foi identificar os problemas principais e diretamente no primeiro uso percebemos que a otimização do site era algo a ser trabalhado.
 
-<Image src={fundacaoLighthouse} alt="Resultados da auditoria inicial do site."/>
-
 <Image src={fundacaoLighthouse} alt="Resultados da auditoria inicial do site."   widths={[320, 480, 768, 1104, 1650, 1920]}
   class="card__picture--image"
   loading="lazy"
@@ -66,18 +62,28 @@ A primeira etapa foi identificar os problemas principais e diretamente no primei
   quality={95}
   fallbackFormat={"jpg"} />
 
-![Resultados da auditoria inicial do site.](../../assets/images/fundacao-analise-lighthouse.png)
-
 Os testes com a ferramenta de auditoria [Lighthouse](https://developers.google.com/web/tools/lighthouse/?hl=pt-br) da Google identificamos quais eram os problemas principais do site atual e utilizamos essas informações para poder guiar o desenvolvimento do novo site.
 
 Outro problema era a usabilidade, pois ao mapear a jornada do usuário percebemos que o site se dividia em dois criando uma complexidade desnecessária para o usuário.
 
-![Mapa da jornada do usuário original.](../../assets/images/fundacao-jornada-usuario-original.png)
+<Image src={fundacaoJornadaOriginal} alt="Mapa da jornada do usuário original."   widths={[320, 480, 768, 1104, 1650, 1920]}
+  class="card__picture--image"
+  loading="lazy"
+  decoding="async"
+  formats={["webp", "jpg"]}
+  quality={95}
+  fallbackFormat={"jpg"} />
 
 Então decidimos simplificar a distribuição das páginas e ordenar o conteúdo de forma lógica, dando destaque as informações mais importantes.
 
 Primeiramente decidimos simplificar a distribuição das páginas e ordenar o conteúdo de forma lógica, dando destaque as informações mais importantes.
 
-![Mapa da jornada do usuário final.](../../assets/images/fundacao-jornada-usuario-final.png)
+<Image src={fundacaoJornadaFinal} alt="Mapa da jornada do usuário final."   widths={[320, 480, 768, 1104, 1650, 1920]}
+  class="card__picture--image"
+  loading="lazy"
+  decoding="async"
+  formats={["webp", "jpg"]}
+  quality={95}
+  fallbackFormat={"jpg"} />
 
 Para o desenvolvimento foi utilizado apenas HTML5 e CSS3, utilizando o conceito de mobile-first junto com técnicas de CSS como flexbox e grid para trazer responsividade para a interface.

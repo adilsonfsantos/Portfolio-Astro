@@ -19,6 +19,12 @@ roles:
   - Designer Gráfico
 ---
 
+import { Image } from 'astro:assets';
+import estudioGrid from "@images/estudio16-grid.png"
+import estudioPaleta from "@images/estudio16-paleta.png"
+import estudioComp from "@images/estudio16-comparacao.png"
+import estudioMono from "@images/estudio16-mono.png"
+
 ## Introdução
 
 O Estúdio 16 é um estúdio de fotografia para eventos fundado em 2016 para o trabalho de conclusão do curso de Aprendizagem comercial em serviços administrativos do Senac.
@@ -34,12 +40,36 @@ Realizar um redesign da logo limitado pelas seguintes regras:
 
 Desenvolver um grid utilizando a proporção áurea para adaptar a logo e seus elementos.
 
-![Grid de construção para os elementos da marca](../../assets/images/estudio16-grid.png)
+<Image src={estudioGrid} alt="Resultados da auditoria inicial do site."   widths={[320, 480, 768, 1104, 1650, 1920]}
+  class="card__picture--image"
+  loading="lazy"
+  decoding="async"
+  formats={["webp", "jpg"]}
+  quality={95}
+  fallbackFormat={"jpg"} />
 
 E adaptar a paleta de cores para uma mais agradável e harmonica.
 
-![Paleta de cores da nova logo](../../assets/images/estudio16-paleta.png)
+<Image src={estudioPaleta} alt="Paleta de cores da nova "   widths={[320, 480, 768, 1104, 1650, 1920]}
+  class="card__picture--image"
+  loading="lazy"
+  decoding="async"
+  formats={["webp", "jpg"]}
+  quality={95}
+  fallbackFormat={"jpg"} />
 
-![Comparação da entre a versão de 2016 e a de 2020](../../assets/images/estudio16-comparacao.png)
+<Image src={estudioComp} alt="Comparação da entre a versão de 2016 e a de 2020"   widths={[320, 480, 768, 1104, 1650, 1920]}
+  class="card__picture--image"
+  loading="lazy"
+  decoding="async"
+  formats={["webp", "jpg"]}
+  quality={95}
+  fallbackFormat={"jpg"} />
 
-![Versões monocromáticas da logo](../../assets/images/estudio16-mono.png)
+<Image src={estudioMono} alt="Versões monocromáticas da logo"   widths={[320, 480, 768, 1104, 1650, 1920]}
+  class="card__picture--image"
+  loading="lazy"
+  decoding="async"
+  formats={["webp", "jpg"]}
+  quality={95}
+  fallbackFormat={"jpg"} />

@@ -18,9 +18,11 @@ roles:
 showteam: true
 team:
   - name: Jefferson Ribeiro
-    portfolio: false
     role: Designer Gráfico
 ---
+
+import { Image } from 'astro:assets';
+import pantareiCartao from "@images/pantarei-cartao.png"
 
 ## Introdução
 
@@ -32,4 +34,10 @@ A Pantarei é uma empresa focada em desenvolver soluções com design, seja na c
 
 A marca foi baseada no pensamento de Heráclito que busca passar o conceito da constante transformação, as curvas representam a água e a simetria do ambigrama além de auxiliar na visualização da marca trazem essa transformação ao demonstrar que a sua experiência com a Pantarei nunca será a mesma.
 
-![Cartão de visita da Pantarei](../../assets/images/pantarei-cartao.png)
+<Image src={pantareiCartao} alt="Cartão de visita da Pantarei"   widths={[320, 480, 768, 1104, 1650, 1920]}
+  class="card__picture--image"
+  loading="lazy"
+  decoding="async"
+  formats={["webp", "jpg"]}
+  quality={95}
+  fallbackFormat={"jpg"} />
