@@ -7,20 +7,27 @@ import { site_author_email, site_title, social } from "../consts";
   <div class="footer__gradient"></div>
   <div class="noise"></div>
   <div class="footer__container grid__module--site">
-      <div class="footer__content">
-        <div class="footer__content--copyright">
-          <p>&copy;2019 &ndash; {today.getFullYear()} {site_title}<br>Todos os direitos reservados.</p>
-        </div>
-        <div class="footer__content--spacer"></div>
-        <ul class="footer__content--social">
-					<li>
-						<a href={"mailto:" + site_author_email }>Email</a>
-					</li>
-          {
-            social.links.map((link) => (
-              <li><a href={link.url} rel="noopener" target="_blank">{link.name}</a></li>
-            ))
-          }
-        </ul>
-      </div></div>
-  </footer>
+    <div class="footer__content">
+      <div class="footer__content--copyright">
+        <p>
+          &copy;2019 &ndash; {today.getFullYear()} {site_title}<br />Todos os direitos reservados.
+        </p>
+      </div>
+      <div class="footer__content--spacer"></div>
+      <ul class="footer__content--social">
+        <li>
+          <a href={"mailto:" + site_author_email}>Email</a>
+        </li>
+        {
+          social.links.map((link) => (
+            <li>
+              <a href={link.url} rel="noopener" target="_blank">
+                {link.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</footer>
