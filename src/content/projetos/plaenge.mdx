@@ -35,6 +35,11 @@ project:
     link: https://www.plaenge.com.br/
 ---
 
+import { Image } from 'astro:assets';
+import plaengeGuide from "@images/plaenge-guide.png"
+import plaengeFull from "@images/plaenge-full.png"
+import plaengeOutro from "@images/plaenge-app-outro.png"
+
 #### Introdução
 
 Em Maio de 2019 durante o meu estágio como UI designer na [Agência Chleba](https://www.chleba.net/), a Plaenge solicitou um redesign do seu site para que ele possa refletir a nova identidade visual da marca e também um aplicativo para facilitar o acesso dos usuários as informações dos empreendimentos.
@@ -56,12 +61,30 @@ Com os wireframes desenvolvidos pela Francianne e utilizando referencias de marc
 
 Para a composição do layout utilizamos como referência a Golden Hour, que diretamente remete ao horário da volta para casa, a satisfação, a sensação de dever cumprido e o momento de recuperar energias.
 
-![Fontes e paleta de cores do layout.](../../assets/images/plaenge-guide.png)
+<Image src={plaengeGuide} alt="Fontes e paleta de cores do layout."   widths={[320, 480, 768, 1104, 1650, 1920]}
+  class="card__picture--image"
+  loading="lazy"
+  decoding="async"
+  formats={["webp", "jpg"]}
+  quality={95}
+  fallbackFormat={"jpg"} />
 
 A paleta de cores utilizada busca trazer calor e conforto mantendo o foco na sofisticação, a tipografia busca manter o conceito de exclusividade com a fonte principal geométrica sem serifa.
 
 O uso de espaço foi generosamente utilizado para garantir o respiro e a elegância dos elementos, ao mesmo tempo mantendo a conforto proposto para o layout.
 
-![Imagem da home.](../../assets/images/plaenge-full.png)
+<Image src={plaengeFull} alt="Imagem da home."   widths={[320, 480, 768, 1104, 1650, 1920]}
+  class="card__picture--image"
+  loading="lazy"
+  decoding="async"
+  formats={["webp", "jpg"]}
+  quality={95}
+  fallbackFormat={"jpg"} />
 
-![Diversas telas do app.](../../assets/images/plaenge-app-outro.png)
+<Image src={plaengeOutro} alt="Diversas telas do app."   widths={[320, 480, 768, 1104, 1650, 1920]}
+  class="card__picture--image"
+  loading="lazy"
+  decoding="async"
+  formats={["webp", "jpg"]}
+  quality={95}
+  fallbackFormat={"jpg"} />
