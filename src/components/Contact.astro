@@ -2,6 +2,16 @@
 import { site_author_email, social } from "../consts";
 
 const value = social.links.find((link) => link.name === "LinkedIn");
+
+function encode(text: string) {
+		let email = '';
+		for (let i = 0; i < text.length; ++i) {
+		email += '%' + text.charCodeAt(i).toString(16);
+	}
+
+	return email;
+	}
+
 ---
 
 <section class="contato" id="contato">
@@ -12,8 +22,8 @@ const value = social.links.find((link) => link.name === "LinkedIn");
         <h2 class="contato__call--cta">Vamos conversar?</h2>
         <p class="contato__call--subtitle">
           Me chama no <a href={value?.url}>LinkedIn</a> ou manda um email para
-          <a href={"mailto:" + site_author_email} class="contato__call--email">
-            {site_author_email}
+          <a href={"mailto:" + encode(site_author_email)} class="contato__call--email">
+            <b>blocked</b>{site_author_email}
           </a>
         </p>
       </div>
