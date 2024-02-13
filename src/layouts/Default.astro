@@ -9,6 +9,21 @@ const { title, description, image } = Astro.props;
 <!doctype html>
 <html lang={site_lang}>
   <head>
+    <meta charset="UTF-8" />
+    <link
+    rel="preload"
+    as="font"
+    href="/assets/fonts/Inter-Regular.woff2"
+    type="font/woff2"
+    crossorigin
+    />
+    <link
+      rel="preload"
+      as="font"
+      href="/assets/fonts/Inter-Medium.woff2"
+      type="font/woff2"
+      crossorigin
+    />
     <Meta title={title} description={description} image={image} />
   </head>
   <a class="skip-to-content-link" href="#main">Pular para o conteúdo</a>
