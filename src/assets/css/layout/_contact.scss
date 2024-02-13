@@ -2,61 +2,67 @@
 @use "../abstracts/variables";
 
 .contato {
-  @include mixins.grid;
+	align-items: center;
+	display: grid;
+	overflow: hidden;
+	padding: variables.$space-3xl 0;
+	position: relative;
 
-  align-items: center;
-  overflow: hidden;
-  padding: variables.$space-3xl 0;
-  position: relative;
+	&__gradient {
+		background: linear-gradient(45deg, #f4252b 0%, #f4c947 100%);
+		bottom: -50%;
+		content: "";
+		filter: 16px;
+		left: -10%;
+		mask-image: radial-gradient(
+			50% 50% at 50% 50%,
+			rgba(0 0 0 / 40%) 0%,
+			rgba(255 255 255 / 0%) 100%
+		);
+		pointer-events: none;
+		position: absolute;
+		top: 50%;
+		width: 120%;
+	}
 
-  &__gradient{
-    background: linear-gradient(45deg, #F4252B 0%, #F4C947 100%);
-    bottom: -50%;
-    content: "";
-    filter: 16px;
-    left: -10%;
-    mask-image: radial-gradient(50% 50.00% at 50% 50.00%, rgba(0 0 0 / 40%) 0%, rgba(255 255 255 / 0%) 100%);
-    pointer-events: none;
-    position: absolute;
-    top: 50%;
-    width: 120%;
-  }
+	&__info {
+		grid-column: 1/-1;
 
-  &__info {
-    grid-column: 1/-1;
+		@include mixins.viewport(small) {
+			text-align: center;
+		}
+	}
 
-    @include mixins.viewport(small) {
-      @include mixins.font-position(center);
-    }
-  }
+	&__call {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 
-  &__call {
-    @include mixins.flex;
-    @include mixins.flex-column;
+		&--cta {
+			@include mixins.typescale(scale-6, medium, headline);
 
-    justify-content: center;
+			color: variables.$white;
+			margin-bottom: variables.$space-xs;
+		}
 
-    &--cta {
-      @include mixins.typescale(scale-6, medium, headline);
+		&--subtitle {
+			@include mixins.typescale(scale-0, normal, text);
+			@include mixins.font-family("iA Writer");
 
-      color: variables.$white;
-      margin-bottom: variables.$space-xs;
-    }
+			color: variables.$white-80;
+			max-width: 640px;
+		}
 
-    &--subtitle {
-      @include mixins.typescale(scale-0, normal, text);
-      @include mixins.font-family("iA Writer");
+		&--email {
+			word-wrap: break-word;
+		}
+	}
 
-      color: variables.$white-80;
-      max-width: 640px;
-    }
+	a {
+		color: variables.$secondary-90;
+	}
 
-    &--email {
-      word-wrap: anywhere;
-    }
-  }
-
-  a {
-    color: variables.$secondary-90;
-  }
+	b {
+		display: none;
+	}
 }

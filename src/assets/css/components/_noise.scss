@@ -1,7 +1,8 @@
-.noise{
-  background: url('/assets/images/Noise.png') repeat;
+.noise {
+  background-image: url("/assets/images/noise.png");
+  background-repeat: repeat;
   pointer-events: none;
   position: absolute;
   inset: 0;
-  opacity: .1;
+  opacity: 0.1;
 }
