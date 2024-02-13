@@ -1,6 +1,15 @@
 ---
 const today = new Date();
 import { site_author_email, site_title, social } from "../consts";
+
+function encode(text: string) {
+		let email = '';
+		for (let i = 0; i < text.length; ++i) {
+		email += '%' + text.charCodeAt(i).toString(16);
+	}
+
+	return email;
+	}
 ---
 
 <footer class="footer grid--base">
@@ -16,7 +25,7 @@ import { site_author_email, site_title, social } from "../consts";
       <div class="footer__content--spacer"></div>
       <ul class="footer__content--social">
         <li>
-          <a href={"mailto:" + site_author_email}>Email</a>
+          <a href={"mailto:" + encode(site_author_email)}>Email</a>
         </li>
         {
           social.links.map((link) => (
