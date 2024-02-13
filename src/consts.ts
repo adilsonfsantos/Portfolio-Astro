@@ -13,10 +13,6 @@ export const site_author_email = "adilson.design@outlook.com"
 export const social = {
   "links": [
     {
-      "name": "Behance",
-      "url": "https://behance.net/adilsonfsantos"
-    },
-    {
       "name": "Github",
       "url": "https://github.com/adilsonfsantos"
     },
