@@ -2,41 +2,37 @@
 @use "../abstracts/variables";
 
 .hero {
-  @include mixins.grid;
+	display: grid;
+	height: 100%;
+	position: relative;
 
-  height: 100%;
-  position: relative;
+	&__container {
+		width: 100%;
+	}
 
-  &__container {
-    width: 100vw;
-  }
+	&__normal {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: 96svh;
+		padding-bottom: variables.$space-xs;
+		padding-top: variables.$space-2xl;
+		z-index: 2;
 
-  &__normal {
-    @include mixins.flex;
-    @include mixins.flex-column;
+		&--title {
+			@include mixins.typescale(scale-6, medium, title);
 
-    justify-content: center;
-    min-height: 96svh;
-    padding-bottom: variables.$space-xs;
-    padding-top: variables.$space-2xl;
-    z-index: 2;
+			color: variables.$white;
+			margin: 0;
+		}
 
-    &--title {
-      @include mixins.typescale(scale-6, medium, title);
+		&--subtitle {
+			@include mixins.font-family("iA Writer");
+			@include mixins.typescale(scale-0, normal, text);
 
-      color: variables.$white;
-      margin: 0;
-    }
-
-    &--subtitle {
-      @include mixins.font-family("iA Writer");
-      @include mixins.typescale(scale-0, normal, text);
-
-      color: variables.$white-80;
-      margin-top: variables.$space-xs;
-      max-width: variables.$base-size * 40;
-    }
-  }
+			color: variables.$white-80;
+			margin-top: variables.$space-xs;
+			max-width: variables.$base-size * 40;
+		}
+	}
 }
-
-

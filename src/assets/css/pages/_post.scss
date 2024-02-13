@@ -2,224 +2,213 @@
 @use "../abstracts/mixins";
 
 .post {
-  @include grid;
+	background: variables.$black;
+	display: grid;
+	padding-top: variables.$space-3xl;
 
-  background: $black;
-  padding-top: variables.$space-3xl;
+	&__header {
+		min-height: 55vh;
+		padding-top: variables.$space-xl;
 
-  &__header {
-    min-height: 55vh;
-    padding-top: variables.$space-xl;
+		&--container {
+			margin-bottom: variables.$space-xl;
+		}
 
-    &--container {
-      margin-bottom: variables.$space-xl;
-    }
+		&--title {
+			@include mixins.typescale(scale-6, medium, headline);
 
-    &--title {
-      @include typescale(scale-6, medium, headline);
+			color: variables.$white;
+			margin: 0;
+			width: min(100%, 720px);
+			text-wrap: balance;
 
-      color: $white;
-      margin: 0;
-      max-width: 720px;
+		}
 
-    }
+		&--description {
+			@include mixins.typescale(scale-0, normal, text);
 
-    &--description {
-      @include typescale(scale-0, normal, text);
+			color: variables.$white-80;
+			width: min(100%, 720px);
+		}
+	}
 
-      color: $white-80;
-      max-width: 720px;
-    }
-  }
+	&__hero {
+		display: grid;
 
-  &__hero {
-    @include grid;
+		&--container {
+			border-bottom: 2px solid variables.$black-30;
+			display: grid;
+		}
+	}
 
-    &--container {
-      @include grid;
+	&__info {
+		display: grid;
+		gap: variables.$space-xl;
+		grid-template-columns: repeat(auto-fit, minmax(160px, auto));
+		margin-bottom: variables.$space-xl;
+	}
 
-      border-bottom: 2px solid $black-30;
-    }
-  }
+	&__info--title {
+		@include mixins.typescale(scale--2, medium, text);
 
-  &__info {
-    @include grid;
+		border-top: solid variables.$black-10 1px;
+		color: variables.$white;
+		padding-top: variables.$space-s;
+		text-transform: uppercase;
+	}
 
-    gap: variables.$space-xl;
-    grid-template-columns: repeat(auto-fit, minmax(160px, auto));
-    margin-bottom: variables.$space-xl;
-  }
+	&__info--text {
+		@include mixins.typescale(scale--1, normal, text);
+		@include mixins.font-family("iA Writer");
 
-  &__info--title {
-    @include typescale(scale--2, medium, text);
+		color: variables.$white-80;
+	}
 
-    border-top: solid $black-10 1px;
-    color: $white;
-    padding-top: variables.$space-s;
-    text-transform: uppercase
-  }
+	&__splash {
+		&--picture {
+			overflow: hidden;
+			width: 100%;
+		}
 
-  &__info--text {
-    @include typescale(scale--1, normal, text);
-    @include mixins.font-family("iA Writer");
+		&--image {
+			color: variables.$white;
+			height: auto;
+			max-width: none;
+			width: 100%;
+		}
+	}
 
-    color: $white-80;
-  }
+	hr {
+		border: none;
+		background-color: variables.$black-10;
+		height: 1px;
+		margin-top: variables.$space-xl;
+	}
 
-  &__splash {
-    &--picture {
-      overflow: hidden;
-      width: 100%;
-    }
+	&__content {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p,
+		blockquote,
+		ul,
+		ol,
+		li {
+			margin: auto;
+			width: min(100%, 720px);
+		}
 
-    &--image {
-      color: $white;
-      height: auto;
-      max-width: none;
-      width: 100%;
-    }
-  }
+		&--container {
+			display: grid;
+		}
 
-  hr {
-    border: none;
-    background-color: variables.$black-10;
-    height: 1px;
-    margin-top: variables.$space-xl;
-    }
+		@include mixins.viewport(large) {
+			&--container > * {
+				grid-column: 2;
+			}
+		}
 
-  &__content {
-    h1, h2, h3, h4, h5, h6, p, blockquote, ul, ol, li {
-      max-width: 720px;
-      margin: auto;
-      width: 100%;
-    }
+		.headline-link {
+			color: variables.$white;
+			text-decoration: underline;
+		}
 
-    &--container {
-      @include grid;
-    }
+		h2,
+		h3,
+		h4 {
+			@include mixins.typescale(scale-4, medium, headline);
 
-    // @include viewport(large) {
-    //   &--container > * {
-    //     grid-column: 2;
-    //   }
-    // }
-
-    .headline-link {
-      color: $white;
-      text-decoration: underline;
-    }
-
-    h2,
-    h3,
-    h4 {
-      @include typescale(scale-4, medium, headline);
-
-      color: $white-90;
-      margin-top: variables.$space-2xl;
-      margin-bottom: variables.$space-xs;
-      width: 100%;
-    }
-
-    &__photo {
-      @include center-horizontal;
-
-      max-width: $page-width;
-      overflow: hidden;
-      width: 100%;
-
-      + p {
-        margin-bottom: variables.$space-xl;
-      }
-    }
-
-    p {
-      @include typescale(scale-0, normal, text);
-      @include font-family("iA Writer");
-
-      color: $white-80;
-
-      + p {
-        margin-top: variables.$space-xs;
-      }
-
-      + picture {
-        margin-top: variables.$space-xl;
-      }
-    }
-
-    picture + p {
-        margin-top: variables.$space-xl;
-    }
-
-    picture + picture {
-        margin-top: variables.$space-xl;
-      }
+			color: variables.$white-90;
+			margin-top: variables.$space-2xl;
+			margin-bottom: variables.$space-xs;
+			text-wrap: balance;
+		}
 
 
-    img {
-      @include center-horizontal;
+		p {
+			@include mixins.typescale(scale-0, normal, text);
+			@include mixins.font-family("iA Writer");
 
-      border: 1px solid variables.$black-10;
-      height: auto;
-      max-width: $page-width;
-      overflow: hidden;
-      width: 100%;
-      margin-top: variables.$space-xl;
-      margin-bottom: variables.$space-xl;
-    }
-
-    p > img {
-      margin-top: variables.$space-l;
-      margin-bottom: variables.$space-l;
-    }
-
-    ul,
-    ol {
-      @include typescale(scale-0, normal, text);
-
-      padding-left: variables.$space-xs;
-    }
-
-    p + ul, ol {
-        margin-top: variables.$space-xs;
-    }
-
-    li > ul {
-      margin: variables.$space-2xs;
-    }
-
-    li {
-      @include typescale(scale-0, normal, text);
-      @include font-family("iA Writer");
-
-      color: $white-80;
-    }
-
-    li:not(:last-child) {
-      margin-bottom: variables.$space-2xs;
-    }
-  }
-
-  blockquote {
-    border-left: 2px solid $primary;
-    padding-left: variables.$space-m;
-    margin: variables.$space-m auto;
-
-    p {
-      @include typescale(scale-1, bold, text);
-
-      color: $white-90;
-      margin: 0;
-    }
-
-    cite {
-      @include typescale(scale-0, normal, headline);
-
-      font-style: normal;
-      color: $white-80;
-      margin-top: variables.$space-xs;
-    }
-  }
+			color: variables.$white-80;
 
 
+		}
+
+		p + p {
+			margin-top: variables.$space-xs;
+		}
+
+		img {
+			margin: 0 auto;
+			max-width: variables.$page-width;
+			overflow: hidden;
+			width: 100%;
+			color: variables.$white-80;
+			height: auto;
+			text-align: center;
+		}
+
+		p + img {
+			margin-top: variables.$space-xl;
+		}
+
+		img + p {
+			margin-top: variables.$space-xl;
+		}
+
+		img + img {
+			margin-top: variables.$space-xl;
+		}
+
+		ul,
+		ol {
+			@include mixins.typescale(scale-0, normal, text);
+
+			padding-left: variables.$space-xs;
+		}
+
+		p + ul,
+		p + ol {
+			margin-top: variables.$space-xs;
+		}
+
+		li > ul {
+			margin: variables.$space-2xs;
+		}
+
+		li {
+			@include mixins.typescale(scale-0, normal, text);
+			@include mixins.font-family("iA Writer");
+
+			color: variables.$white-80;
+		}
+
+		li:not(:last-child) {
+			margin-bottom: variables.$space-2xs;
+		}
+	}
+
+	blockquote {
+		border-left: 2px solid variables.$primary;
+		padding-left: variables.$space-m;
+		margin: variables.$space-m auto;
+
+		p {
+			@include mixins.typescale(scale-1, bold, text);
+
+			color: variables.$white-90;
+			margin: 0;
+		}
+
+		cite {
+			@include mixins.typescale(scale-0, normal, headline);
+
+			font-style: normal;
+			color: variables.$white-80;
+			margin-top: variables.$space-xs;
+		}
+	}
 }

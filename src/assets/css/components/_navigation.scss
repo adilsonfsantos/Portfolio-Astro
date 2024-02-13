@@ -3,29 +3,28 @@
 
 .postnav {
   &--container {
-    @include mixins.grid;
-
+    display: grid;
     padding: variables.$space-3xl 0;
   }
 
   &__link {
     @include mixins.typescale(scale-3, normal, headline);
 
-    color: $secondary-90;
+    color: variables.$secondary-90;
 
-    @include mixins.viewport(medium){
+    @include mixins.viewport(medium) {
       margin: auto;
       text-align: center;
     }
 
     &--content {
-      color: $white;
+      color: variables.$white;
     }
 
     &--title {
-      @include typescale(scale-5, medium, headline);
+      @include mixins.typescale(scale-5, medium, headline);
 
-      color: $white;
+      color: variables.$white;
     }
   }
 }
