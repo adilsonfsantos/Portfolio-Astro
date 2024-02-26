@@ -39,51 +39,46 @@ team:
     role: UX Designer
 ---
 
-import { Image } from 'astro:assets';
-import fundacaoLighthouse from "@images/fundacao-analise-lighthouse.png"
-import fundacaoJornadaOriginal from "@images/fundacao-jornada-usuario-original.png"
-import fundacaoJornadaFinal from "@images/fundacao-jornada-usuario-final.png"
+import Picture from "@components/Image.astro"
+import fundLighthouse from "@images/fundacao-analise-lighthouse.png"
+import fundJornadaOriginal from "@images/fundacao-jornada-usuario-original.png"
+import fundJornadaFinal from "@images/fundacao-jornada-usuario-final.png"
 
 ## Desafio
 
-Com uma extensa mata de 75.000 m² e um grande acervo de obras a Fundação Maria Luisa e Oscar Americano é um dos principais pontos de cultura e lazer de São Paulo. E para refletir a importância da Fundação foi feito este conceito de redesign do site para as aulas de arquitetura da informação e programação web.
+Com uma extensa mata de 75.000 m² e um grande acervo de obras a Fundação Maria
+Luisa e Oscar Americano é um dos principais pontos de cultura e lazer de São
+Paulo. E para refletir a importância da Fundação foi feito este conceito de
+redesign do site para as aulas de arquitetura da informação e programação web.
 
 ## Solução
 
 Fazer um redesign do site que fosse otimizado e de fácil navegação.
 
-A primeira etapa foi identificar os problemas principais e diretamente no primeiro uso percebemos que a otimização do site era algo a ser trabalhado.
+A primeira etapa foi identificar os problemas principais e diretamente no
+primeiro uso percebemos que a otimização do site era algo a ser trabalhado.
 
-<Image src={fundacaoLighthouse} alt="Resultados da auditoria inicial do site."   widths={[320, 480, 768, 1104, 1650, 1920]}
-  class="card__picture--image"
-  loading="lazy"
-  decoding="async"
-  formats={["webp", "jpg"]}
-  quality={95}
-  fallbackFormat={"jpg"} />
+<Picture src={fundLighthouse} alt="Resultados da auditoria inicial do site."/>
 
-Os testes com a ferramenta de auditoria [Lighthouse](https://developers.google.com/web/tools/lighthouse/?hl=pt-br) da Google identificamos quais eram os problemas principais do site atual e utilizamos essas informações para poder guiar o desenvolvimento do novo site.
+Os testes com a ferramenta de auditoria
+[Lighthouse](https://developers.google.com/web/tools/lighthouse/?hl=pt-br) da
+Google identificamos quais eram os problemas principais do site atual e
+utilizamos essas informações para poder guiar o desenvolvimento do novo site.
 
-Outro problema era a usabilidade, pois ao mapear a jornada do usuário percebemos que o site se dividia em dois criando uma complexidade desnecessária para o usuário.
+Outro problema era a usabilidade, pois ao mapear a jornada do usuário
+percebemos que o site se dividia em dois criando uma complexidade desnecessária
+para o usuário.
 
-<Image src={fundacaoJornadaOriginal} alt="Mapa da jornada do usuário original."   widths={[320, 480, 768, 1104, 1650, 1920]}
-  class="card__picture--image"
-  loading="lazy"
-  decoding="async"
-  formats={["webp", "jpg"]}
-  quality={95}
-  fallbackFormat={"jpg"} />
+<Picture src={fundJornadaOriginal} alt="Mapa da jornada do usuário original."/>
 
-Então decidimos simplificar a distribuição das páginas e ordenar o conteúdo de forma lógica, dando destaque as informações mais importantes.
+Então decidimos simplificar a distribuição das páginas e ordenar o conteúdo de
+forma lógica, dando destaque as informações mais importantes.
 
-Primeiramente decidimos simplificar a distribuição das páginas e ordenar o conteúdo de forma lógica, dando destaque as informações mais importantes.
+Primeiramente decidimos simplificar a distribuição das páginas e ordenar o
+conteúdo de forma lógica, dando destaque as informações mais importantes.
 
-<Image src={fundacaoJornadaFinal} alt="Mapa da jornada do usuário final."   widths={[320, 480, 768, 1104, 1650, 1920]}
-  class="card__picture--image"
-  loading="lazy"
-  decoding="async"
-  formats={["webp", "jpg"]}
-  quality={95}
-  fallbackFormat={"jpg"} />
+<Picture src={fundJornadaFinal} alt="Mapa da jornada do usuário final."/>
 
-Para o desenvolvimento foi utilizado apenas HTML5 e CSS3, utilizando o conceito de mobile-first junto com técnicas de CSS como flexbox e grid para trazer responsividade para a interface.
+Para o desenvolvimento foi utilizado apenas HTML5 e CSS3, utilizando o conceito
+de mobile-first junto com técnicas de CSS como flexbox e grid para trazer
+responsividade para a interface.

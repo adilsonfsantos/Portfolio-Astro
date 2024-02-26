@@ -24,7 +24,7 @@ team:
     role: Redatora
 ---
 
-import { Image } from 'astro:assets';
+import Picture from "@components/Image.astro"
 import pacaembuIndependencia from "@images/cafe-pacaembu-independencia.png"
 import pacaembuReceita from "@images/cafe-pacaembu-receita.png"
 
@@ -33,20 +33,13 @@ import pacaembuReceita from "@images/cafe-pacaembu-receita.png"
 Em 1957 Michel Halla uniu sua paixão pelo futebol e pelo café e com uma
 pequena torre de torrefação de café no centro de Vargem Grande do sul,
 interior de São Paulo e desde então o Café Pacaembu busca satisfazer seus
-clientes por meio do sabor e qualidade. E durante o meu estágio na [Agência Chleba](https://www.chleba.net/) criei alguns posts para as redes sociais remetendo a história e conceitos da marca do Café Pacaembu.
+clientes por meio do sabor e qualidade. E durante o meu estágio na
+[Agência Chleba](https://www.chleba.net/) criei alguns posts para as redes
+sociais remetendo a história e conceitos da marca do Café Pacaembu.
 
-<Image src={pacaembuIndependencia} alt="Stories e post da receita que ensina a fazer um café com suco de laranja."   widths={[320, 480, 768, 1104, 1650, 1920]}
-  class="card__picture--image"
-  loading="lazy"
-  decoding="async"
-  formats={["webp", "jpg"]}
-  quality={95}
-  fallbackFormat={"jpg"} />
+<Picture src={pacaembuIndependencia} alt="Stories e post da receita que ensina
+a fazer um café com suco de laranja."/>
 
-<Image src={pacaembuReceita} alt="Stories e post para a comemoração da independência do Brasil na imagem tem um copo de café sobre um fundo amarelo com o texto o jeitinho brasileiro de fazer café."   widths={[320, 480, 768, 1104, 1650, 1920]}
-  class="card__picture--image"
-  loading="lazy"
-  decoding="async"
-  formats={["webp", "jpg"]}
-  quality={95}
-  fallbackFormat={"jpg"} />
+<Picture src={pacaembuReceita} alt="Stories e post para a comemoração da
+independência do Brasil na imagem tem um copo de café sobre um fundo amarelo
+com o texto o jeitinho brasileiro de fazer café."/>

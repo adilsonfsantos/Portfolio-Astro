@@ -2,7 +2,7 @@
 import "@assets/css/home.scss";
 import Contact from "@components/Contact.astro";
 import Hero from "@components/Hero.astro";
-import { Picture } from "astro:assets";
+import Picture from "@components/Image.astro";
 import { getCollection } from "astro:content";
 import Default from "./Default.astro";
 const { frontmatter } = Astro.props;
@@ -21,7 +21,7 @@ const formatCategories = (values: string[]) => values.toString().replaceAll(",",
 			<div class="projetos__header">
 				<h2 class="projetos__header--title">Principais projetos</h2>
 				<span class="projetos__header--subtitle">
-					Ou algumas coisas legais que eu fiz.
+					Ou algumas coisas legais que eu fiz
 				</span>
 			</div>
 			<div class="projetos__principais">
@@ -31,14 +31,8 @@ const formatCategories = (values: string[]) => values.toString().replaceAll(",",
 						<Picture
 							src={post.data.image}
 							alt={post.data.description}
-							widths={[320, 480, 768, 1104, 1650, 1920]}
-							class="card__picture--image"
-							loading="lazy"
-							decoding="async"
-							formats={["webp", "jpg"]}
-							quality={95}
-							fallbackFormat={"jpg"}
-							/>
+							type="card"
+						/>
 						<div class="card__description">
 							<h3 class="card__description--title">
 								{post.data.title}

@@ -1,12 +1,12 @@
 ---
 import "@assets/css/post.scss";
-import { Picture } from "astro:assets";
+import Picture from "@components/Image.astro";
 
 const { title, description, image, roles, date, team } = Astro.props;
 
 ---
 
- <div class="noise"></div>
+<div class="noise"></div>
 <article
 	class="post grid__module--site"
 	itemscope
@@ -24,17 +24,17 @@ const { title, description, image, roles, date, team } = Astro.props;
 			</div>
 			{ team ? (
 				<div class="team">
-				<h3 class="post__info--title">Equipe</h3>
-				{team.map((team: any) => (
-					<p class="post__info--text">
-					{team.portfolio ? (
-					<a href={team.portfolio} target="_blank" rel="noopener">
-					{team.name}</a>
-					) : (
-					team.name
-					)}, {team.role}
-				</p>
-				))}
+					<h3 class="post__info--title">Equipe</h3>
+					{team.map((team: any) => (
+						<p class="post__info--text">
+						{team.portfolio ? (
+						<a href={team.portfolio} target="_blank" rel="noopener">
+						{team.name}</a>
+						) : (
+						team.name
+						)}, {team.role}
+						</p>
+					))}
 				</div>
 			) : null
 			}
@@ -47,11 +47,7 @@ const { title, description, image, roles, date, team } = Astro.props;
 			<Picture
 				src={image}
 				alt={description}
-				widths={[320, 480, 768, 1104, 1650, 1920]}
-				class="post__splash--image"
-				loading="eager"
-				decoding="async"
-				formats={["webp", "jpg"]}
+				type="banner"
 			/>
 		</div>
 	</div>
