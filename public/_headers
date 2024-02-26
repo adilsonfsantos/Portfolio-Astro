@@ -1,12 +1,16 @@
 /*
 	Cache-Control: no-cache
-	Cross-Origin-Embedder-Policy: require-corp
+	Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; font-src 'self'; manifest-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'self'; upgrade-insecure-requests; require-trusted-types-for 'script'; report-to default
+	Cross-Origin-Opener-Policy: same-origin; report-to=default
+	Cross-Origin-Embedder-Policy: require-corp; report-to=default
+	Cross-Origin-Resource-Policy: same-site
 	Permissions-Policy: geolocation=(), midi=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), payment=()
 	Referrer-Policy: no-referrer
-	Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=2BeXH0lhIA9UrC"}],"group":"cf-nel","max_age":604800}
 	Report-To: { "group": "default"," max_age": 31536000, "endpoints": [{"url": "https://adilsonsantos.report-uri.com/a/d/g"}]}
 	Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 	X-Content-Type-Options: nosniff
+	X-XSS-Protection: 1; mode=block
+
 
 /*.html
 	Content-Type: text/html; charset=utf-8
