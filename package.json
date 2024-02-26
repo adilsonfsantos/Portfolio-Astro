@@ -1,34 +1,33 @@
 {
-  "name": "",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.5.4",
-    "@astrojs/mdx": "^2.1.1",
-    "@astrojs/rss": "^4.0.5",
-    "@astrojs/sitemap": "^3.0.5",
-    "astro": "^4.3.6",
-    "astro-lighthouse": "^0.1.3",
-    "eslint-config-prettier": "^9.1.0",
-    "normalize.css": "^8.0.1",
-    "stylelint": "^16.0.2",
-    "stylelint-config-standard-scss": "^12.0.0",
-    "stylelint-scss": "^6.0.0",
-    "typescript": "^5.3.3"
-  },
-  "devDependencies": {
-    "@typescript-eslint/parser": "^6.14.0",
-    "eslint": "^8.56.0",
-    "eslint-plugin-astro": "^0.31.0",
-    "prettier": "^3.1.1",
-    "prettier-plugin-astro": "^0.12.2",
-    "sass": "^1.69.5"
-  }
+	"name": "",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.5.4",
+		"@astrojs/mdx": "^2.1.1",
+		"@astrojs/rss": "^4.0.5",
+		"@astrojs/sitemap": "^3.0.5",
+		"astro": "^4.3.6",
+		"astro-lighthouse": "^0.1.3",
+		"eslint-config-prettier": "^9.1.0",
+		"stylelint": "^16.0.2",
+		"stylelint-config-standard-scss": "^12.0.0",
+		"stylelint-scss": "^6.0.0",
+		"typescript": "^5.3.3"
+	},
+	"devDependencies": {
+		"@typescript-eslint/parser": "^6.14.0",
+		"eslint": "^8.56.0",
+		"eslint-plugin-astro": "^0.31.0",
+		"prettier": "^3.1.1",
+		"prettier-plugin-astro": "^0.12.2",
+		"sass": "^1.69.5"
+	}
 }
