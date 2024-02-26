@@ -6,7 +6,9 @@ import lighthouse from "astro-lighthouse";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://adilsonsantos.pages.dev/",
-	integrations: [mdx(), sitemap(), lighthouse()],
+	integrations: [mdx(), sitemap({
+		filter: (page) => page !== "https://adilsonsantos.pages.dev/404/",
+		}), lighthouse()],
 	image: {
 		service: sharpImageService(),
 	},
