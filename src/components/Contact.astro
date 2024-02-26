@@ -4,29 +4,31 @@ import { site_author_email, social } from "../consts";
 const value = social.links.find((link) => link.name === "LinkedIn");
 
 function encode(text: string) {
-		let email = '';
-		for (let i = 0; i < text.length; ++i) {
-		email += '%' + text.charCodeAt(i).toString(16);
+	let email = "";
+	for (let i = 0; i < text.length; ++i) {
+		email += "%" + text.charCodeAt(i).toString(16);
 	}
 
 	return email;
-	}
-
+}
 ---
 
 <section class="contato" id="contato">
-  <div class="contato__gradient"></div>
-  <div class="grid__module--site">
-    <div class="contato__info">
-      <div class="contato__call">
-        <h2 class="contato__call--cta">Vamos conversar?</h2>
-        <p class="contato__call--subtitle">
-          Me chama no <a href={value?.url}>LinkedIn</a> ou manda um email para
-          <a href={"mailto:" + encode(site_author_email)} class="contato__call--email">
-            <b>blocked</b>{site_author_email}
-          </a>
-        </p>
-      </div>
-    </div>
-  </div>
+	<div class="contato__gradient"></div>
+	<div class="grid__module--site">
+		<div class="contato__info">
+			<div class="contato__call">
+				<h2 class="contato__call--cta">Vamos conversar!</h2>
+				<p class="contato__call--subtitle">
+					Me chama no <a href={value?.url}>LinkedIn</a>
+					ou manda um email para
+					<a
+					href={"mailto:" + encode(site_author_email)}
+					class="contato__call--email">
+						<b>blocked</b>{site_author_email}
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
 </section>

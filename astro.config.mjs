@@ -5,10 +5,10 @@ import lighthouse from "astro-lighthouse";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://adilsonsantos.netlify.app/",
-  integrations: [mdx(), sitemap(), lighthouse()],
-  image: {
-    service: sharpImageService()
-  },
-  trailingSlash: 'always'
+	site: "https://adilsonsantos.netlify.app/",
+	integrations: [mdx(), sitemap(), lighthouse()],
+	image: {
+		service: sharpImageService(),
+	},
+	trailingSlash: "always",
 });

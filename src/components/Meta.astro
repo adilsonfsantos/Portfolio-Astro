@@ -47,16 +47,18 @@ const urls = social.links.map(link => link.url) ;
 <meta name="robots" content="noimageindex, nositelinkssearchbox, noarchive, noai, noimageai">
 
 <!-- JSOn-LD Structured data -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  url:  Astro.url ,
-  headline: title,
-  name: site_name,
-  image: Astro.url + image,
-  author: {
-    "@type": "Person",
-    name:  site_author
-  },
-  sameAs: urls,
-})}>
+<script type="application/ld+json"
+	set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		url:  Astro.url ,
+		headline: title,
+		name: site_name,
+		image: Astro.url + image,
+		author: {
+			"@type": "Person",
+			name:  site_author
+		},
+		sameAs: urls,
+	})}
+>
