@@ -1,0 +1,37 @@
+---
+import { Picture } from "astro:assets";
+
+const { src, alt, type } = Astro.props;
+
+if (alt === undefined || typeof alt !== "string") {
+	// You bet we throw an error on missing alt (alt="" works okay)
+	throw new Error(`Missing \`alt\` on image from: ${src}`);
+}
+let imageSizes: string;
+let loadType: any;
+
+if (type === "card") {
+	imageSizes =
+		"(min-width: 1260px) 470px, (min-width: 620px) calc(42.1vw - 52px), \
+			calc(92.33vw - 64px), 100vw";
+	loadType = "lazy";
+} else if (type === "banner") {
+	imageSizes = "(min-width: 1200px) 1104px, 87.5vw";
+	loadType = "eager";
+} else {
+	imageSizes = "(min-width: 1200px) 1104px, 87.5vw";
+	loadType = "lazy";
+}
+---
+
+<Picture
+	src={src}
+	alt={alt}
+	formats={["webp"]}
+	loading={loadType}
+	sizes={imageSizes}
+	widths={[320, 480, 768, 1104, 1650, 1920]}
+	decoding="async"
+	formats={["webp"]}
+	quality={90}
+/>
