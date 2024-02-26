@@ -151,7 +151,7 @@
 			text-align: center;
 		}
 
-		p + img {
+		p + picture {
 			margin-top: variables.$space-xl;
 		}
 
@@ -159,7 +159,7 @@
 			margin-top: variables.$space-xl;
 		}
 
-		img + img {
+		picture + picture {
 			margin-top: variables.$space-xl;
 		}
 
@@ -204,7 +204,8 @@
 		}
 
 		cite {
-			@include mixins.typescale(scale-0, normal, headline);
+			@include mixins.typescale(scale-0, normal, text);
+			@include mixins.font-family("iA Writer");
 
 			font-style: normal;
 			color: variables.$white-80;
