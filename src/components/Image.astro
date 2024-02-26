@@ -27,11 +27,11 @@ if (type === "card") {
 <Picture
 	src={src}
 	alt={alt}
-	formats={["webp"]}
 	loading={loadType}
 	sizes={imageSizes}
 	widths={[320, 480, 768, 1104, 1650, 1920]}
 	decoding="async"
 	formats={["webp"]}
 	quality={90}
+	fallbackFormat="webp"
 />
