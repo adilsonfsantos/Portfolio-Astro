@@ -3,10 +3,10 @@
 
 export const site_name =  "Adilson Santos";
 export const site_title =  "Adilson Santos";
-export const site_url =  "https://adilsonsantos.netlify.app";
+export const site_url =  "https://adilsonsantos.pages.dev";
 export const site_lang =  "pt-BR";
 export const site_description =  "Meu nome é Adilson Santos e eu sou um designer focado em identidades visuais, UI e UX.";
-export const site_image =  "https://adilsonsantos.netlify.app/assets/images/thumbnail.jpg";
+export const site_image =  "https://adilsonsantos.pages.dev/assets/images/thumbnail.jpg";
 export const site_author = "Adilson Santos";
 export const site_author_email = "adilson.design@outlook.com"
 
