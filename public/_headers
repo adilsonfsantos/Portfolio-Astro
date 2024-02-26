@@ -1,9 +1,5 @@
 /*
 	Cache-Control: no-cache
-	Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; font-src 'self'; manifest-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'self'; upgrade-insecure-requests; require-trusted-types-for 'script'; report-to default
-	Cross-Origin-Opener-Policy: same-origin; report-to=default
-	Cross-Origin-Embedder-Policy: require-corp; report-to=default
-	Cross-Origin-Resource-Policy: same-site
 	Permissions-Policy: geolocation=(), midi=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), payment=()
 	Referrer-Policy: no-referrer
 	Report-To: { "group": "default"," max_age": 31536000, "endpoints": [{"url": "https://adilsonsantos.report-uri.com/a/d/g"}]}
@@ -12,7 +8,7 @@
 	X-XSS-Protection: 1; mode=block
 
 
-/*.html
+/
 	Content-Type: text/html; charset=utf-8
 	Cache-Control: no-cache
 	Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'self'; font-src 'self'; manifest-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'self'; upgrade-insecure-requests; require-trusted-types-for 'script'; report-to default
@@ -31,16 +27,16 @@
 	Cache-Control: public, max-age=31536000, immutable
 
 /*.woff
-Cache-Control: public, max-age=31536000, immutable
+	Cache-Control: public, max-age=31536000, immutable
 
 /*.webmanifest
-Cache-Control: public, max-age=604800, immutable
-Content-Type: application/manifest+json; charset=utf-8
+	Cache-Control: public, max-age=604800, immutable
+	Content-Type: application/manifest+json; charset=utf-8
 
 /*.js
-Cache-Control: public, max-age=31536000, immutable
-Content-Type: text/javascript; charset=utf-8
+	Cache-Control: public, max-age=31536000, immutable
+	Content-Type: text/javascript; charset=utf-8
 
 /*.css
-Cache-Control: public, max-age=31536000, immutable
-Content-Type: text/css; charset=utf-8
+	Cache-Control: public, max-age=31536000, immutable
+	Content-Type: text/css; charset=utf-8
