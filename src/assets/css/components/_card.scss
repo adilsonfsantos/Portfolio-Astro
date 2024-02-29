@@ -45,6 +45,7 @@
 			@include mixins.typescale(scale--2, normal, text);
 
 			color: variables.$white-80;
+			text-transform: uppercase;
 		}
 	}
 
