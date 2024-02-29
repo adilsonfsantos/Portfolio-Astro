@@ -9,10 +9,9 @@
 	position: relative;
 
 	&__gradient {
-		background: linear-gradient(45deg, #f4252b 0%, #f4c947 100%);
+		background: linear-gradient(45deg, variables.$primary 0%, variables.$secondary 100%);
 		bottom: -50%;
 		content: "";
-		filter: 16px;
 		left: -10%;
 		mask-image: radial-gradient(
 			50% 50% at 50% 50%,
