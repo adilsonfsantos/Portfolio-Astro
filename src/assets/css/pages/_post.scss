@@ -158,14 +158,14 @@
 			@include mixins.typescale(scale-0, normal, text);
 			@include mixins.font-family("iA Writer");
 
-			color: variables.$white-80;
+			color: variables.$white-90;
 		}
 
 		p+p {
 			margin-top: variables.$space-s;
 		}
 
-		img {
+		img, video {
 			margin: 0 auto;
 			max-width: variables.$page-width;
 			overflow: hidden;
@@ -175,9 +175,18 @@
 			text-align: center;
 		}
 
+		video {
+			max-height: 80dvh;
+
+		}
+
 		p+picture,
+		p+video,
 		picture+p,
-		picture+picture {
+		picture+picture,
+		video+video,
+		picture+video
+		video+picture{
 			margin-top: variables.$space-xl;
 		}
 
