@@ -11,6 +11,7 @@ const projetos = defineCollection({
 				.or(z.date())
 				.transform((val) => new Date(val)),
 			image: image(),
+			card: image(),
 			isDraft: z.boolean().default(false),
 			categories: z.string().array(),
 			roles: z.string().array(),

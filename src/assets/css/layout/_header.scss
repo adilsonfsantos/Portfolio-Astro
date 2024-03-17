@@ -26,7 +26,7 @@
 			color: variables.$white;
 		}
 
-		&--logo > svg {
+		&--logo>svg {
 			display: inherit;
 			fill: currentcolor;
 			height: 18px;
@@ -58,7 +58,7 @@
 			@include mixins.typescale(scale--1, medium, text);
 		}
 
-		color: variables.$white-80;
+		color: variables.$white-90;
 		line-height: 1.2;
 		padding: variables.$base-size 0;
 
@@ -73,6 +73,7 @@
 
 		&--active {
 			color: variables.$white;
+			text-decoration: underline;
 		}
 	}
 }
