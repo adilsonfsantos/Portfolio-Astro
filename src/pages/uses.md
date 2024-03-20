@@ -36,8 +36,6 @@ Para os emails eu utilizo o [Thunderbird](https://www.thunderbird.net/), uso ele
 
 Eu uso o terminal [Kitty](https://sw.kovidgoyal.net/kitty/) com o [tema Tokyo Night versão Night](https://github.com/folke/tokyonight.nvim/tree/main/extras/kitty) e a [fonte Jetbrains Mono Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono) que adiciona diversos glifos/ícones a fonte.
 
-O meu shell padrão é o [zsh](https://www.zsh.org/) com [gerenciador de plugins Zinit](https://github.com/zdharma-continuum/zinit) porque é extremamente rápido.
-
 Para organizar e visualizar meus repositórios do github eu utilizo o [Sublime Merge](https://www.sublimemerge.com/).
 
 Meu editor de texto é o [Neovim](https://neovim.io/), utilizando como base o [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) para programar e editar códigos.
