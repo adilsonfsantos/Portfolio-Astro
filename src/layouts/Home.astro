@@ -7,7 +7,7 @@ import { getCollection } from "astro:content";
 import Default from "./Default.astro";
 const { frontmatter } = Astro.props;
 const posts = (await getCollection("projetos")).sort(
-  (b, a) => a.data.date.valueOf() - b.data.date.valueOf(),
+	(b, a) => a.data.date.valueOf() - b.data.date.valueOf()
 );
 const formatCategories = (values: string[]) => values.toString().replaceAll(",", " • ");
 ---
@@ -17,36 +17,28 @@ const formatCategories = (values: string[]) => values.toString().replaceAll(",",
 		<div class="noise"></div>
 		<Hero />
 		<section class="projetos grid__module--site" id="projetos">
-			<hr>
+			<hr />
 			<div class="projetos__header">
 				<h2 class="projetos__header--title">Principais projetos</h2>
-				<span class="projetos__header--subtitle">
-					Ou algumas coisas legais que eu fiz
-				</span>
+				<span class="projetos__header--subtitle">Ou algumas coisas legais que eu fiz</span>
 			</div>
 			<div class="projetos__principais">
-				{ posts.map((post) => (
-					<a href={`/projetos/${post.slug}/`} class="card" data-astro-prefetch>
-						<div class="noise" />
-						<Picture
-							src={post.data.card}
-							alt={post.data.description}
-							type="card"
-						/>
-						<div class="card__description">
-							<h3 class="card__description--title">
-								{post.data.title}
-							</h3>
-							<span class="card__description--tag">
-								{formatCategories(
-									post.data.categories
-								)}
-							</span>
-						</div>
-					</a>
-				))}
+				{
+					posts.map((post) => (
+						<a href={`/projetos/${post.slug}/`} class="card" data-astro-prefetch>
+							<div class="noise" />
+							<Picture src={post.data.card} alt={post.data.description} type="card" />
+							<div class="card__description">
+								<h3 class="card__description--title">{post.data.title}</h3>
+								<span class="card__description--tag">
+									{formatCategories(post.data.categories)}
+								</span>
+							</div>
+						</a>
+					))
+				}
 			</div>
-			<hr>
+			<hr />
 		</section>
 		<Contact />
 	</div>
