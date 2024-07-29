@@ -7,42 +7,46 @@ export async function getStaticPaths() {
 	const posts = (await getCollection("projetos")).sort(
 		(b, a) => a.data.date.valueOf() - b.data.date.valueOf(),
 	);
-	const postNumber = posts.length
 	return posts.map((post, i) => ({
 		params: { slug: post.slug },
 		props: {
 			post,
-			prevPost: // Previous post
-				i + 1 === postNumber // If the current post is the oldest
-				? { frontmatter: ""}
-				: posts[i + 1],
-			nextPost: // Next post
-				i === 0 // If the current post is the newest
-				? { frontmatter: "" }
-				: posts[i - 1],
-			},
+			// Previous post
+			prevPost:
+				i + 1 === posts.length // If the current post is the oldest
+					? { frontmatter: "" }
+					: posts[i + 1],
+		},
 	}));
 }
 
 const { post, prevPost } = Astro.props;
-const { Content } = await post.render();
 ---
+
 <Default title={post.data.title} description={post.data.description} image={post.data.image}>
 	<Post {...post.data}>
-		<Content />
+		<slot />
 	</Post>
 	<section class="postnav grid__module--site">
 		<div class="postnav--container">
-		{
-			prevPost.slug &&
-			<a href={`/projetos/${prevPost.slug}/`}	class="postnav__link" rel="next">
-				Próximo projeto<br>
-				<span class="postnav__link--title">{prevPost.data.title}</span>
-			</a>
-			||
-			<a href="/" class="postnav__link">
-				Sem mais projetos →<br>
-				<span class="postnav__link--title">Voltar para a home</span>
-			</a>
-		}
-</Default>
+			{
+				(prevPost.slug && (
+					<a
+						href={`/projetos/${prevPost.slug}/`}
+						class="postnav__link"
+						rel="next"
+					>
+						Próximo projeto
+						<br />
+						<span class="postnav__link--title">{prevPost.data.title}</span>
+					</a>
+				)) || (
+					<a href="/" class="postnav__link">
+						Sem mais projetos →<br />
+						<span class="postnav__link--title">Voltar para a home</span>
+					</a>
+				)
+			}
+		</div>
+	</section></Default
+>
