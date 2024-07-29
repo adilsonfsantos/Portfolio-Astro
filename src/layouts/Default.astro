@@ -13,7 +13,7 @@ const { title, description, image } = Astro.props;
 		<link
 			rel="preload"
 			as="font"
-			href="/assets/fonts/Inter-Regular.woff2"
+			href="/assets/fonts/iAWriterDuoS-Regular.woff2"
 			type="font/woff2"
 			crossorigin
 		/>
@@ -29,8 +29,10 @@ const { title, description, image } = Astro.props;
 	<a class="skip-to-content-link" href="#main">Pular para o conteúdo</a>
 	<body>
 		<Header />
-		<!-- Bypass Facebook tracking:
-    https://krausefx.com/blog/ios-privacy-instagram-and-facebook-can-track-anything-you-do-on-any-website-in-their-in-app-browser#how-to-protect-yourself-as-a-user -->
+		{
+			/* Bypass Facebook tracking:
+			https://krausefx.com/blog/ios-privacy-instagram-and-facebook-can-track-anything-you-do-on-any-website-in-their-in-app-browser#how-to-protect-yourself-as-a-user */
+		}
 		<span id="iab-pcm-sdk"></span>
 		<span id="iab-autofill-sdk"></span>
 		<main id="main">
