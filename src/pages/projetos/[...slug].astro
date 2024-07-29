@@ -34,7 +34,7 @@ const { Content } = await post.render();
 	<section class="postnav grid__module--site">
 		<div class="postnav--container">
 			{
-				(prevPost.slug && (
+				(prevPost && (
 					<a
 						href={`/projetos/${prevPost.slug}/`}
 						class="postnav__link"
