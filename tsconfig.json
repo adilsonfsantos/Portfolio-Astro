@@ -1,13 +1,22 @@
 {
 	"extends": "astro/tsconfigs/base",
 	"compilerOptions": {
+		"noErrorTruncation": true,
 		"strictNullChecks": true,
 		"baseUrl": ".",
 		"paths": {
-			"@components/*": ["src/components/*"],
-			"@assets/*": ["src/assets/*"],
-			"@images/*": ["src/assets/images/*"],
-			"@layouts/*": ["src/layouts/*"]
+			"@components/*": [
+				"src/components/*"
+			],
+			"@assets/*": [
+				"src/assets/*"
+			],
+			"@images/*": [
+				"src/assets/images/*"
+			],
+			"@layouts/*": [
+				"src/layouts/*"
+			]
 		}
 	}
 }
