@@ -22,7 +22,10 @@ function encode(text: string) {
 				<p class="contato__call--subtitle">
 					Me chama no <a href={value?.url}>LinkedIn</a>
 					ou manda um email para
-					<a href={"mailto:" + encode(site_author_email)} class="contato__call--email">
+					<a
+						href={"mailto:" + encode(site_author_email)}
+						class="contato__call--email"
+					>
 						<b>blocked</b>{site_author_email}
 					</a>
 				</p>
