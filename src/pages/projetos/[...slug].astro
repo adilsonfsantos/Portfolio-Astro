@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 import Post from "@layouts/Post.astro";
 import Default from "@layouts/Default.astro";
 
@@ -7,25 +7,29 @@ export async function getStaticPaths() {
 	const posts = (await getCollection("projetos")).sort(
 		(b, a) => a.data.date.valueOf() - b.data.date.valueOf(),
 	);
-	return posts.map((post, i) => ({
+	return posts.map((post, index) => ({
 		params: { slug: post.slug },
 		props: {
 			post,
-			// Previous post
-			prevPost:
-				i + 1 === posts.length // If the current post is the oldest
-					? { frontmatter: "" }
-					: posts[i + 1],
+			prevPost: index + 1 !== posts.length ? posts[index + 1] : null,
+			nextPost: index !== 0 ? posts[index - 1] : null,
 		},
 	}));
 }
 
+type Props = {
+	post: CollectionEntry<"projetos">;
+	prevPost: CollectionEntry<"projetos">;
+	nextPost: CollectionEntry<"projetos">;
+};
+
 const { post, prevPost } = Astro.props;
+const { Content } = await post.render();
 ---
 
 <Default title={post.data.title} description={post.data.description} image={post.data.image}>
 	<Post {...post.data}>
-		<slot />
+		<Content />
 	</Post>
 	<section class="postnav grid__module--site">
 		<div class="postnav--container">
