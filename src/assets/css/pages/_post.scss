@@ -165,7 +165,8 @@
 			margin-top: variables.$space-s;
 		}
 
-		img, video {
+		img,
+		video {
 			margin: 0 auto;
 			max-width: variables.$page-width;
 			overflow: hidden;
@@ -185,8 +186,8 @@
 		picture+p,
 		picture+picture,
 		video+video,
-		picture+video
-		video+picture{
+		picture+video,
+		video+picture {
 			margin-top: variables.$space-xl;
 		}
 
@@ -199,6 +200,11 @@
 
 		p+ul,
 		p+ol {
+			margin-top: variables.$space-xs;
+		}
+
+		ul+p,
+		ol+p {
 			margin-top: variables.$space-xs;
 		}
 
