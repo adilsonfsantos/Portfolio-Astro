@@ -13,10 +13,10 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.3",
-		"@astrojs/mdx": "^3.1.4",
+		"@astrojs/mdx": "^3.1.5",
 		"@astrojs/rss": "^4.0.7",
 		"@astrojs/sitemap": "^3.1.6",
-		"astro": "^4.14.5",
+		"astro": "^4.15.4",
 		"sass": "^1.75.0",
 		"typescript": "^5.4.5"
 	},
