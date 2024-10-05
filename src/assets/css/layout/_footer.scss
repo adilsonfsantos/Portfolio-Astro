@@ -50,15 +50,15 @@
 		}
 
 		a {
+			color: variables.$white-90;
+			padding: variables.$space-2xs 0;
+
 			@include mixins.typescale(scale-0, medium, text);
 			@include mixins.transition(color);
 
 			@include mixins.viewport(small) {
 				@include mixins.typescale(scale--1, medium, text);
 			}
-
-			color: variables.$white-90;
-			padding: variables.$space-2xs 0;
 		}
 
 		a:hover,
