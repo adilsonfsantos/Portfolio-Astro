@@ -12,7 +12,7 @@
 				"src/assets/*"
 			],
 			"@images/*": [
-				"src/assets/images/*"
+				"portfolio-static/assets/images/*"
 			],
 			"@layouts/*": [
 				"src/layouts/*"
