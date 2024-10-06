@@ -3,6 +3,13 @@ const { title, description, image } = Astro.props;
 import { site_author, site_lang, site_name, site_url, social } from "../consts";
 const urls = social.links.map(link => link.url) ;
 
+let pageImage: string
+
+if (image.src === undefined) {
+	pageImage = image
+} else {
+	pageImage = image.src
+}
 ---
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,13 +26,13 @@ const urls = social.links.map(link => link.url) ;
 <meta name="twitter:description" content={description} />
 <meta name="twitter:site" content={Astro.url} />
 <meta name="twitter:creator" content={site_author} />
-<meta name="twitter:image:src" content={ image } />
+<meta name="twitter:image:src" content={ pageImage } />
 <meta name="twitter:dnt" content="on" />
 
 <!-- Open Graph -->
 <meta name="og:title" content={title} />
 <meta name="og:description" content={description} />
-<meta name="og:image" content={ image } />
+<meta name="og:image" content={ pageImage } />
 <meta name="og:url" content={Astro.url} />
 <meta name="og:site_name" content={site_name} />
 <meta name="og:locale" content={site_lang} />
@@ -54,7 +61,7 @@ const urls = social.links.map(link => link.url) ;
 		url:  Astro.url ,
 		headline: title,
 		name: site_name,
-		image: Astro.url + image,
+		image: Astro.url + pageImage,
 		author: {
 			"@type": "Person",
 			name:  site_author
