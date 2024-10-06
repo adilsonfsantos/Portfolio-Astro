@@ -29,3 +29,4 @@ User-agent: BLEXBot
 User-agent: PetalBot
 User-agent: img2dataset
 Disallow: /
+Disallow: /cdn-cgi/
