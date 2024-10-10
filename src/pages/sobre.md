@@ -1,7 +1,6 @@
 ---
 layout: "@layouts/Page.astro"
 title: Sobre Mim
-image: "/assets/images/thumbnail.png"
 
 ---
 

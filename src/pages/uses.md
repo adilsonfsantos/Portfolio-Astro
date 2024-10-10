@@ -1,7 +1,6 @@
 ---
 layout: "@layouts/Page.astro"
 title: Coisas que eu uso
-image: "/assets/images/thumbnail.png"
 ---
 
 Inspirado no [/uses feito pelo Wes Bos](https://wesbos.com/uses), aqui estão algumas coisas que eu uso na minha rotina para trabalhar e criar.
