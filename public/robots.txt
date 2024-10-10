@@ -29,4 +29,6 @@ User-agent: BLEXBot
 User-agent: PetalBot
 User-agent: img2dataset
 Disallow: /
+
+User-agent: *
 Disallow: /cdn-cgi/
