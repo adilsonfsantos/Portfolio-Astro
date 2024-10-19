@@ -1,14 +1,14 @@
 ---
 import "@assets/css/page.scss";
 import Contact from "@components/Contact.astro";
-import { site_description, site_image, site_name } from "../consts";
+import { site_description, site_name } from "../consts";
 import Default from "./Default.astro";
 
 const { frontmatter } = Astro.props;
 const title = [frontmatter.title, site_name].filter(Boolean).join(" | ");
 ---
 
-<Default title={title} description={site_description} image={site_image}>
+<Default title={title} description={site_description} image={frontmatter.image}>
 	<div class="noise"></div>
 	<article class="page grid__module--blog" role="article">
 		<div class="page__header">

@@ -1,7 +1,7 @@
 ---
 layout: "@layouts/Page.astro"
 title: Sobre Mim
-
+image: "/assets/images/thumbnail.png"
 ---
 
 Meu nome é Adilson Santos e sou um designer com mais de 5 anos de experiência na criação de interfaces, identidades visuais e direção de arte para diversos segmentos.
