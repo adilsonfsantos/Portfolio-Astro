@@ -1,8 +1,8 @@
 ---
-import "@assets/css/page.scss";
 import Contact from "@components/Contact.astro";
 import { site_description, site_image, site_name } from "../consts";
 import Default from "./Default.astro";
+import "@assets/css/page.scss";
 
 const { frontmatter } = Astro.props;
 const title = [frontmatter.title, site_name].filter(Boolean).join(" | ");
