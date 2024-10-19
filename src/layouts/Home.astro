@@ -1,11 +1,10 @@
 ---
+import "@assets/css/home.scss";
 import Contact from "@components/Contact.astro";
 import Hero from "@components/Hero.astro";
 import Picture from "@components/Image.astro";
 import { getCollection } from "astro:content";
 import Default from "./Default.astro";
-import "@assets/css/home.scss";
-
 const { frontmatter } = Astro.props;
 const posts = (await getCollection("projetos")).sort(
 	(b, a) => a.data.date.valueOf() - b.data.date.valueOf(),
