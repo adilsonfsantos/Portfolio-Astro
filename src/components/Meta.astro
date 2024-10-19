@@ -5,7 +5,7 @@ const urls = social.links.map(link => link.url) ;
 
 let pageImage: string
 
-if (image.src === undefined) {
+if (image === undefined || image.src === undefined) {
 	pageImage = image
 } else {
 	pageImage = image.src
