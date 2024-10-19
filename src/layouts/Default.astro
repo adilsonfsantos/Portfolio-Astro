@@ -24,6 +24,7 @@ const { title, description, image } = Astro.props;
 			type="font/woff2"
 			crossorigin
 		/>
+		<link rel="preload" as="image" href="/assets/images/noise.webp" type="image/webp" />
 		<Meta title={title} description={description} image={image} />
 	</head>
 	<a class="skip-to-content-link" href="#main">Pular para o conteúdo</a>
