@@ -10,7 +10,6 @@ const { title, image, roles, date, team } = Astro.props;
 	class="post grid__module--site"
 	itemscope
 	itemtype="http://schema.org/BlogPosting"
-	role="article"
 >
 	<div class="post__header">
 		<div class="post__header--container">
@@ -21,25 +20,33 @@ const { title, image, roles, date, team } = Astro.props;
 		<div class="post__info">
 			<div class="function">
 				<h3 class="post__info--title">Minha Função</h3>
-				{roles.map((role: any) => <p class="post__info--text">{role}</p>)}
+				{
+					roles.map((role: any) => (
+						<p class="post__info--text">{role}</p>
+					))
+				}
 			</div>
 			{
-				team ? (
+				!team ? null : (
 					<div class="team">
 						<h3 class="post__info--title">Equipe</h3>
-						{
-							/* prettier-ignore */
-							team.map((team: any) => (
+						{team.map((team: any) => (
 							<p class="post__info--text">
-								{team.portfolio ? (
-								<a href={team.portfolio} target="_blank" rel="noopener">
-									{team.name}</a>
-								) : (team.name)}, {team.role}
+								{!team.portfolio ? (
+									team.name + ", " + team.role
+								) : (
+									<a
+										href={team.portfolio}
+										rel="noopener"
+										target="_blank"
+									>
+										{team.name + ", " + team.role}
+									</a>
+								)}
 							</p>
-						))
-						}
+						))}
 					</div>
-				) : null
+				)
 			}
 			<div class="year">
 				<h3 class="post__info--title">Data</h3>

@@ -28,7 +28,11 @@ const { post, prevPost } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Default title={post.data.title} description={post.data.description} image={post.data.image}>
+<Default
+	title={post.data.title}
+	description={post.data.description}
+	image={post.data.image}
+>
 	<Post {...post.data}>
 		<Content />
 	</Post>
@@ -43,12 +47,16 @@ const { Content } = await render(post);
 					>
 						Próximo projeto
 						<br />
-						<span class="postnav__link--title">{prevPost.data.title}</span>
+						<span class="postnav__link--title">
+							{prevPost.data.title}
+						</span>
 					</a>
 				)) || (
 					<a href="/" class="postnav__link">
 						Sem mais projetos →<br />
-						<span class="postnav__link--title">Voltar para a home</span>
+						<span class="postnav__link--title">
+							Voltar para a home
+						</span>
 					</a>
 				)
 			}

@@ -9,10 +9,15 @@ const { frontmatter } = Astro.props;
 const posts = (await getCollection("projetos")).sort(
 	(b, a) => a.data.date.valueOf() - b.data.date.valueOf(),
 );
-const formatCategories = (values: string[]) => values.toString().replaceAll(",", " • ");
+const formatCategories = (values: string[]) =>
+	values.toString().replaceAll(",", " • ");
 ---
 
-<Default title={frontmatter.title} description={frontmatter.description} image={frontmatter.image}>
+<Default
+	title={frontmatter.title}
+	description={frontmatter.description}
+	image={frontmatter.image}
+>
 	<div class="container">
 		<div class="noise"></div>
 		<Hero />
@@ -20,9 +25,9 @@ const formatCategories = (values: string[]) => values.toString().replaceAll(",",
 			<hr />
 			<div class="projetos__header">
 				<h2 class="projetos__header--title">Principais projetos</h2>
-				<span class="projetos__header--subtitle"
-					>Ou algumas coisas legais que eu fiz</span
-				>
+				<span class="projetos__header--subtitle">
+					Ou algumas coisas legais que eu fiz
+				</span>
 			</div>
 			<div class="projetos__principais">
 				{
