@@ -34,22 +34,18 @@
 }
 
 // ANIMATION
-@mixin transition(
-	$name: all,
+@mixin transition($name: all,
 	$duration: variables.$duration-standard,
 	$speed: variables.$animation-standard,
-	$delay: 0ms
-) {
+	$delay: 0ms) {
 	transition: $name $duration $speed $delay;
 }
 
-@mixin animation(
-	$name,
+@mixin animation($name,
 	$duration: variables.$duration-standard,
 	$speed: variables.$animation-standard,
 	$loop: 1,
-	$delay: 0ms
-) {
+	$delay: 0ms) {
 	animation: $name $duration $speed $loop;
 }
 
@@ -100,7 +96,7 @@
 			"Inter UI",
 			"Helvetica Neue",
 			Roboto,
-			'Arial Nova'
+			'Arial Nova',
 			Arial,
 			system-ui,
 			sans-serif,
@@ -115,7 +111,7 @@
 			"iA Writer Duo",
 			"Helvetica Neue",
 			Roboto,
-			'Arial Nova'
+			'Arial Nova',
 			Arial,
 			system-ui,
 			sans-serif,
