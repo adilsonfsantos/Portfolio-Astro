@@ -19,11 +19,7 @@ const { title, image, roles, date, team } = Astro.props;
 		<div class="post__info">
 			<div class="function">
 				<h3 class="post__info--title">Minha Função</h3>
-				{
-					roles.map((role: any) => (
-						<p class="post__info--text">{role}</p>
-					))
-				}
+				{roles.map((role: any) => <p class="post__info--text">{role}</p>)}
 			</div>
 			{
 				!team ? null : (
@@ -34,10 +30,7 @@ const { title, image, roles, date, team } = Astro.props;
 								{!team.portfolio ? (
 									team.name + ", " + team.role
 								) : (
-									<a
-										href={team.portfolio}
-										rel="noopener"
-										target="_blank">
+									<a href={team.portfolio} rel="noopener" target="_blank">
 										{team.name + ", " + team.role}
 									</a>
 								)}

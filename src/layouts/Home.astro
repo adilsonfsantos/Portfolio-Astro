@@ -31,10 +31,7 @@ const formatCategories = (values: string[]) =>
 			<div class="projetos__principais">
 				{
 					posts.map((post) => (
-						<a
-							href={`/projetos/${post.id}/`}
-							class="card"
-							data-astro-prefetch>
+						<a href={`/projetos/${post.id}/`} class="card" data-astro-prefetch>
 							<div class="noise" />
 							<Picture
 								src={post.data.card}
@@ -42,9 +39,7 @@ const formatCategories = (values: string[]) =>
 								type="card"
 							/>
 							<div class="card__description">
-								<h3 class="card__description--title">
-									{post.data.title}
-								</h3>
+								<h3 class="card__description--title">{post.data.title}</h3>
 								<span class="card__description--tag">
 									{formatCategories(post.data.categories)}
 								</span>

@@ -45,16 +45,12 @@ const { Content } = await render(post);
 						rel="next">
 						Próximo projeto
 						<br />
-						<span class="postnav__link--title">
-							{prevPost.data.title}
-						</span>
+						<span class="postnav__link--title">{prevPost.data.title}</span>
 					</a>
 				)) || (
 					<a href="/" class="postnav__link">
 						Sem mais projetos →<br />
-						<span class="postnav__link--title">
-							Voltar para a home
-						</span>
+						<span class="postnav__link--title">Voltar para a home</span>
 					</a>
 				)
 			}
