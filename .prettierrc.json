@@ -3,6 +3,7 @@
 	"printWidth": 80,
 	"arrowParens": "always",
 	"semi": true,
+	"bracketSameLine": true,
 	"plugins": [
 		"prettier-plugin-astro"
 	],

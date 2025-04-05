@@ -16,8 +16,7 @@ const formatCategories = (values: string[]) =>
 <Default
 	title={frontmatter.title}
 	description={frontmatter.description}
-	image={frontmatter.image}
->
+	image={frontmatter.image}>
 	<div class="container">
 		<div class="noise"></div>
 		<Hero />
@@ -35,8 +34,7 @@ const formatCategories = (values: string[]) =>
 						<a
 							href={`/projetos/${post.id}/`}
 							class="card"
-							data-astro-prefetch
-						>
+							data-astro-prefetch>
 							<div class="noise" />
 							<Picture
 								src={post.data.card}

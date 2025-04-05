@@ -7,8 +7,7 @@ const { frontmatter } = Astro.props;
 <Default
 	title={frontmatter.title}
 	description={frontmatter.description}
-	image={frontmatter.image}
->
+	image={frontmatter.image}>
 	<div class="noise"></div>
 	<section class="hero">
 		<div class="bg"></div>
@@ -16,9 +15,9 @@ const { frontmatter } = Astro.props;
 			<h1 class="hero--title">
 				Desculpe, a página que você está procurando não existe.
 			</h1>
-			<a role="button" href="/" class="btn btn__primary"
-				>Voltar para a home</a
-			>
+			<a role="button" href="/" class="btn btn__primary">
+				Voltar para a home
+			</a>
 		</div>
 	</section>
 </Default>

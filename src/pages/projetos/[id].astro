@@ -31,8 +31,7 @@ const { Content } = await render(post);
 <Default
 	title={post.data.title}
 	description={post.data.description}
-	image={post.data.image}
->
+	image={post.data.image}>
 	<Post {...post.data}>
 		<Content />
 	</Post>
@@ -43,8 +42,7 @@ const { Content } = await render(post);
 					<a
 						href={`/projetos/${prevPost.id}/`}
 						class="postnav__link"
-						rel="next"
-					>
+						rel="next">
 						Próximo projeto
 						<br />
 						<span class="postnav__link--title">

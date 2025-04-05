@@ -9,8 +9,7 @@ const { title, image, roles, date, team } = Astro.props;
 <article
 	class="post grid__module--site"
 	itemscope
-	itemtype="http://schema.org/BlogPosting"
->
+	itemtype="http://schema.org/BlogPosting">
 	<div class="post__header">
 		<div class="post__header--container">
 			<h1 class="post__header--title" itemprop="name headline">
@@ -38,8 +37,7 @@ const { title, image, roles, date, team } = Astro.props;
 									<a
 										href={team.portfolio}
 										rel="noopener"
-										target="_blank"
-									>
+										target="_blank">
 										{team.name + ", " + team.role}
 									</a>
 								)}
