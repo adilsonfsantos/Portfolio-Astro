@@ -6,15 +6,11 @@
 @mixin viewport($size, $orientation: portrait, $width: width) {
 	@if not(list.index(map.keys(variables.$grid-breakpoints-map), $size)) {
 		@warn "Atenção: `#{$size}` não é um breakpoint válido.";
-	}
-
-	@else if $orientation ==landscape {
+	} @else if $orientation == landscape {
 		@media (min-width: #{map.get(variables.$grid-breakpoints-map, $size, $width)}) and (orientation: landscape) {
 			@content;
 		}
-	}
-
-	@else {
+	} @else {
 		@media (min-width: #{map.get(variables.$grid-breakpoints-map, $size, $width)}) {
 			@content;
 		}
@@ -34,18 +30,22 @@
 }
 
 // ANIMATION
-@mixin transition($name: all,
+@mixin transition(
+	$name: all,
 	$duration: variables.$duration-standard,
 	$speed: variables.$animation-standard,
-	$delay: 0ms) {
+	$delay: 0ms
+) {
 	transition: $name $duration $speed $delay;
 }
 
-@mixin animation($name,
+@mixin animation(
+	$name,
 	$duration: variables.$duration-standard,
 	$speed: variables.$animation-standard,
 	$loop: 1,
-	$delay: 0ms) {
+	$delay: 0ms
+) {
 	animation: $name $duration $speed $loop;
 }
 
@@ -53,89 +53,51 @@
 @mixin typescale($size, $weight: 400, $line) {
 	font-size: #{map.get(variables.$type-map, $size, size)};
 
-	@if $weight =="bold" {
+	@if $weight == "bold" {
 		font-weight: 600;
-	}
-
-	@else if $weight =="medium" {
+	} @else if $weight == "medium" {
 		font-weight: 500;
-	}
-
-	@else if $weight =="normal" {
+	} @else if $weight == "normal" {
 		font-weight: 400;
-	}
-
-	@else if $weight =="light" {
+	} @else if $weight == "light" {
 		font-weight: 300;
-	}
-
-	@else {
+	} @else {
 		@warn " Atenção: `#{$weight}` não é um valor válido.";
 	}
 
-	@if $line =="title" {
+	@if $line == "title" {
 		line-height: 100%;
-	}
-
-	@else if $line =="headline" {
+	} @else if $line == "headline" {
 		line-height: 120%;
-	}
-
-	@else if $line =="text" {
+	} @else if $line == "text" {
 		line-height: 160%;
-	}
-
-	@else {
+	} @else {
 		@warn " atenção: `#{$line}` não é um valor válido.";
 	}
 }
 
 @mixin font-family($family) {
-	@if $family =="Inter" {
+	@if $family == "Inter" {
 		font-family:
-			"Inter UI",
-			"Helvetica Neue",
-			Roboto,
-			"Arial Nova",
-			Arial,
-			system-ui,
-			sans-serif,
-			"Apple Color Emoji",
-			"Segoe UI Emoji",
-			"Segoe UI Symbol",
-			"Noto Color Emoji";
-	}
-
-	@else if $family =="iA Writer" {
+			"Inter UI", "Helvetica Neue", Roboto, "Arial Nova", Arial,
+			system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+			"Segoe UI Symbol", "Noto Color Emoji";
+	} @else if $family == "iA Writer" {
 		font-family:
-			"iA Writer Duo",
-			"Helvetica Neue",
-			Roboto,
-			"Arial Nova",
-			Arial,
-			system-ui,
-			sans-serif,
-			"Apple Color Emoji",
-			"Segoe UI Emoji",
-			"Segoe UI Symbol",
-			"Noto Color Emoji";
-	}
-
-	@else {
+			"iA Writer Duo", "Helvetica Neue", Roboto, "Arial Nova", Arial,
+			system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+			"Segoe UI Symbol", "Noto Color Emoji";
+	} @else {
 		@warn " atenção: `#{$family}` não é um valor válido.";
 	}
 }
 
 @mixin font-position($position) {
-	@if $position ==center {
+	@if $position == center {
 		text-align: center;
-	}
-
-	@else if $position ==right {
+	} @else if $position == right {
 		text-align: right;
-	}
-
-	@else if $position ==left {
+	} @else if $position == left {
 		text-align: left;
 	}
 }
