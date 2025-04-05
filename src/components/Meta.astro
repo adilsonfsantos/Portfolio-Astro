@@ -26,13 +26,13 @@ if (image === undefined || image.src === undefined) {
 <meta name="twitter:description" content={description} />
 <meta name="twitter:site" content={Astro.url} />
 <meta name="twitter:creator" content={site_author} />
-<meta name="twitter:image:src" content={ pageImage } />
+<meta name="twitter:image:src" content={ site_url + pageImage } />
 <meta name="twitter:dnt" content="on" />
 
 <!-- Open Graph -->
 <meta name="og:title" content={title} />
 <meta name="og:description" content={description} />
-<meta name="og:image" content={ pageImage } />
+<meta name="og:image" content={ site_url + pageImage } />
 <meta name="og:url" content={Astro.url} />
 <meta name="og:site_name" content={site_name} />
 <meta name="og:locale" content={site_lang} />
