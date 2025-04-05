@@ -12,7 +12,7 @@ Inspirado no [/uses feito pelo Wes Bos](https://wesbos.com/uses), aqui estão al
 
 O [Figma](https://www.figma.com/) é minha ferramenta principal para wireframes e protótipos de interfaces, mas também utilizo o Adobe XD em projetos antigos.
 
-A [Adobe Creative Cloud](https://www.adobe.com/br/creativecloud.html)(After Effects, Illustrator, InDesign, Photoshop, Premiere Pro) para criação de artes, edição de fotos, desenvolvimento de identidade visual, motion e materiais impressos.
+A [Adobe Creative Cloud](https://www.adobe.com/br/creativecloud.html) (After Effects, Illustrator, InDesign, Photoshop, Premiere Pro) para criação de artes, edição de fotos, desenvolvimento de identidade visual, motion e materiais impressos.
 
 Para organizar referências visuais e fazer moodboards eu uso o [Pureref](https://www.pureref.com/).
 
@@ -43,29 +43,6 @@ Meu editor de texto é o [Neovim](https://neovim.io/), utilizando como base o [k
 ### Outros
 
 Para copiar e mover arquivos, eu uso o [Teracopy](https://codesector.com/teracopy) porque ele é muito mais rápido do que o padrão do Windows e possui muitas funções úteis.
-
-## Firefox
-
-O Firefox é meu navegador padrão há anos, por sua facilidade de personalização e essas são algumas extensões que eu utilizo:
-- **Augmented Steam** adiciona inúmeras melhorias para a loja da Steam;
-- **BetterTTV** adiciona emotes para lives da Twitch e Youtube;
-- **Bitwarden** como gerenciador de senhas;
-- **Bonjour** para uma nova aba mais moderna (traduzido para pt-br por mim);
-- **Clickbait Remover** para retirar os thumbnails do Youtube e substituir por um frame do vídeo que não seja apelativo;
-- **Control Panel for Twitter** oferece formas de controlar algumas funcionalidades do Twitter;
-- **Facebook Container** e **Multi-Account Containers** isolam os dados de navegação entre containers para impedir rastreamento;
-- **Refined Github** melhorar a interface do Github e adiciona diversas funções;
-- **Skip Redirect** pula páginas de redirecionamentos automaticamente;
-- **SponsorBlock** para pular algumas partes como propagandas do Youtube;
-- **SteamDB** adiciona links e melhorias para a loja e a comunidade Steam;
-- **Superagent** para negar ou bloquear cookies de forma automática;
-- **Ublock Origin** para bloquear propagandas;
-- **Unhook** ajuda a remover distrações do Youtube;
-- **Web Scrobbler** para fazer scrobble de músicas para o last.fm;
-
-## Dotfiles
-
-Minhas configurações para a maioria dos programas mencionados aqui estão guardadas no meu [repositório dotfiles](https://github.com/adilsonfsantos/dotfiles).
 
 ## Computador
 
