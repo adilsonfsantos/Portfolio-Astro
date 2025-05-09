@@ -42,7 +42,7 @@ const formatCategories = (values: string[]) =>
 			<div class="projetos__principais">
 				{
 					posts.map((post) => (
-						<a href={`/projetos/${post.id}/`} class="card" data-astro-prefetch>
+						<a href={`/projetos/${post.id}/`} class="card">
 							<div class="noise" />
 							<Picture
 								src={post.data.card}

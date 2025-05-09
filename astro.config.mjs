@@ -6,7 +6,7 @@ import compressor from "astro-compressor";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://adilsonsantos.pages.dev/",
-	prefetch: true,
+	prefetch: false,
 	integrations: [
 		mdx(),
 		sitemap({
