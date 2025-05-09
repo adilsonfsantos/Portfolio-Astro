@@ -20,7 +20,7 @@ const { title, description, image } = Astro.props;
 		<link
 			rel="preload"
 			as="font"
-			href="/assets/fonts/Inter-Medium.woff2"
+			href="/assets/fonts/InterVariable.woff2"
 			type="font/woff2"
 			crossorigin
 		/>
@@ -30,10 +30,18 @@ const { title, description, image } = Astro.props;
 			href="/assets/images/noise.webp"
 			type="image/webp"
 		/>
+		<style lang="sass" is:global>
+			.noise
+				background-image: url("/assets/images/noise.webp")
+				pointer-events: none
+				position: absolute
+				inset: 0
+		</style>
 		<Meta title={title} description={description} image={image} />
 	</head>
-	<a class="skip-to-content-link" href="#main">Pular para o conteúdo</a>
 	<body>
+		<a class="skip-to-content-link" href="#main">Pular para o conteúdo</a>
+
 		<Header />
 		{
 			/* Bypass Facebook tracking:

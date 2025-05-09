@@ -81,10 +81,11 @@ img {
 	position: absolute;
 	transform: translate(-50%, -100%);
 	z-index: 30;
+	color: variables.$secondary-90;
 }
 
 .skip-to-content-link:focus {
-	transform: translate(-50%, 10%);
+	transform: translate(-50%, variables.$space-s);
 }
 
 strong {
