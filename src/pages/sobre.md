@@ -1,15 +1,13 @@
 ---
 layout: "@layouts/Page.astro"
-title: Sobre Mim
+title: Sobre mim
 image: "/assets/images/thumbnail.png"
 ---
 
-Meu nome é Adilson Santos e sou um designer com mais de 5 anos de experiência na criação de interfaces, identidades visuais e direção de arte para diversos segmentos.
+<!-- Meu nome é Adilson Santos e gosto de resolver coisas complicadas de forma prática, ouvir o que os outros têm a dizer e estar sempre descobrindo coisas novas.
 
-Minha paixão pelo design vem de poder resolver problemas de forma criativa e estar em constante desenvolvimento.
+Creio que por isso me encontrei no design, onde trabalho há mais de 5 anos, ajudando construtoras, instituições educacionais, lojas e&#x2011;commerce e startups a se comunicar, ganhar confiança e se destacar. -->
 
-Para isso, meu fluxo de trabalho é focado na descoberta e na realização de testes, onde busco diferentes formas para atender às dificuldades do cliente e impactar o usuário final até chegar na melhor solução.
+Meu nome é Adilson e gosto de transformar coisas complicadas em simples, dar diferentes significados a coisas e estar sempre aprendendo algo novo.
 
-Por fim, muito obrigado por parar por aqui e dar uma olhada no meu portfólio, espero que tenha gostado.
-
-[Veja as coisas que eu uso aqui](/uses/)
+Talvez por isso tenha me encontrado no design, onde atuo há mais de 5 anos ajudando construtoras, instituições de ensino, e-commerces e startups a se comunicarem melhor, ganharem confiança e se destacarem no mercado.
