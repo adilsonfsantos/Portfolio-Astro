@@ -10,4 +10,4 @@ Creio que por isso me encontrei no design, onde trabalho há mais de 5 anos, aju
 
 Meu nome é Adilson e gosto de transformar coisas complicadas em simples, dar diferentes significados a coisas e estar sempre aprendendo algo novo.
 
-Talvez por isso tenha me encontrado no design, onde atuo há mais de 5 anos ajudando construtoras, instituições de ensino, e-commerces e startups a se comunicarem melhor, ganharem confiança e se destacarem no mercado.
+Talvez por isso tenha me encontrado no design, onde atuo há mais de 5 anos ajudando construtoras, instituições de ensino, e&#x2011;commerces e startups a se comunicarem melhor, ganharem confiança e se destacarem no mercado.
