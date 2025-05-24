@@ -41,8 +41,7 @@
 		}
 
 		&--tag {
-			@include mixins.font-family("iA Writer");
-			@include mixins.typescale(scale--2, normal, text);
+			@include mixins.typescale(scale--1, normal, text);
 
 			color: variables.$white-90;
 			text-transform: uppercase;

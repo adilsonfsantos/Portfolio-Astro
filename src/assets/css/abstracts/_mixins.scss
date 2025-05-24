@@ -76,22 +76,6 @@
 	}
 }
 
-@mixin font-family($family) {
-	@if $family == "Inter" {
-		font-family:
-			"Inter UI", "Helvetica Neue", Roboto, "Arial Nova", Arial, system-ui,
-			sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-			"Noto Color Emoji";
-	} @else if $family == "iA Writer" {
-		font-family:
-			"iA Writer Duo", "Helvetica Neue", Roboto, "Arial Nova", Arial, system-ui,
-			sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-			"Noto Color Emoji";
-	} @else {
-		@warn " atenção: `#{$family}` não é um valor válido.";
-	}
-}
-
 @mixin font-position($position) {
 	@if $position == center {
 		text-align: center;

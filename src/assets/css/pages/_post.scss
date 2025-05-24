@@ -47,7 +47,7 @@
 	}
 
 	&__info--title {
-		@include mixins.typescale(scale--2, medium, text);
+		@include mixins.typescale(scale--1, medium, text);
 
 		border-top: solid variables.$black-10 1px;
 		color: variables.$white;
@@ -56,8 +56,7 @@
 	}
 
 	&__info--text {
-		@include mixins.typescale(scale--1, normal, text);
-		@include mixins.font-family("iA Writer");
+		@include mixins.typescale(scale-0, normal, text);
 
 		color: variables.$white-90;
 	}
@@ -118,19 +117,19 @@
 		}
 
 		h2 {
-			@include mixins.typescale(scale-4, medium, headline);
+			@include mixins.typescale(scale-2, medium, headline);
 
 			margin-top: variables.$space-3xl;
 		}
 
 		h3 {
-			@include mixins.typescale(scale-2, medium, headline);
+			@include mixins.typescale(scale-1, medium, headline);
 
 			margin-top: variables.$space-2xl;
 		}
 
 		h4 {
-			@include mixins.typescale(scale-1, medium, headline);
+			@include mixins.typescale(scale-0, medium, headline);
 
 			margin-top: variables.$space-xl;
 		}
@@ -142,7 +141,7 @@
 		}
 
 		h6 {
-			@include mixins.typescale(scale-0, medium, headline);
+			@include mixins.typescale(scale--1, medium, headline);
 
 			margin-top: variables.$space-l;
 		}
@@ -156,7 +155,6 @@
 
 		p {
 			@include mixins.typescale(scale-0, normal, text);
-			@include mixins.font-family("iA Writer");
 
 			color: variables.$white-90;
 		}
@@ -209,7 +207,6 @@
 
 		li {
 			@include mixins.typescale(scale-0, normal, text);
-			@include mixins.font-family("iA Writer");
 
 			color: variables.$white-90;
 		}
@@ -233,7 +230,6 @@
 
 		cite {
 			@include mixins.typescale(scale-0, normal, text);
-			@include mixins.font-family("iA Writer");
 
 			font-style: italic;
 			color: variables.$white-90;
