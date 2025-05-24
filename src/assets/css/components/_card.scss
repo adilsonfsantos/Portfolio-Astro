@@ -51,5 +51,7 @@
 	&:hover,
 	&:focus {
 		background-color: variables.$black-10;
+		border-color: variables.$black-20;
+
 	}
 }
