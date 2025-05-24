@@ -49,7 +49,7 @@
 			margin: variables.$space-2xs 0;
 		}
 
-		> li:not(:last-child) {
+		>li:not(:last-child) {
 			margin-right: variables.$space-m;
 		}
 
@@ -68,6 +68,7 @@
 		a:hover,
 		a:focus {
 			color: variables.$white;
+			text-decoration: underline;
 		}
 	}
 }
