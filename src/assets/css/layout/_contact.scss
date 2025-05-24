@@ -37,15 +37,14 @@
 		}
 
 		&--cta {
-			@include mixins.typescale(scale-6, medium, headline);
+			@include mixins.typescale(scale-5, medium, headline);
 
 			color: variables.$white;
 			margin-bottom: variables.$space-xs;
 		}
 
 		&--subtitle {
-			@include mixins.typescale(scale-0, normal, text);
-			@include mixins.font-family("iA Writer");
+			@include mixins.typescale(scale-1, normal, text);
 
 			color: variables.$white-90;
 			max-width: variables.$base-size * 40;
