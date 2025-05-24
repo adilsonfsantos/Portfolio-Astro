@@ -3,7 +3,6 @@
 
 .contato {
 	align-items: center;
-	display: grid;
 	overflow: hidden;
 	padding: variables.$space-3xl 0;
 	position: relative;
@@ -13,33 +12,29 @@
 			45deg,
 			variables.$primary 0%,
 			variables.$secondary 100%
-		);
+			);
 		bottom: -50%;
-		content: "";
 		left: -10%;
 		mask-image: radial-gradient(
 			50% 50% at 50% 50%,
 			rgba(0 0 0 / 40%) 0%,
 			rgba(255 255 255 / 0%) 100%
-		);
+			);
 		pointer-events: none;
 		position: absolute;
 		top: 50%;
 		width: 120%;
 	}
 
-	&__info {
-		grid-column: 1/-1;
-
-		@include mixins.viewport(small) {
-			text-align: center;
-		}
-	}
-
 	&__call {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+
+		@include mixins.viewport(small) {
+			text-align: center;
+			align-items: center;
+		}
 
 		&--cta {
 			@include mixins.typescale(scale-6, medium, headline);
@@ -53,11 +48,19 @@
 			@include mixins.font-family("iA Writer");
 
 			color: variables.$white-90;
-			max-width: 640px;
+			max-width: variables.$base-size * 40;
+			text-wrap: balance;
+			margin-bottom: variables.$space-xs;
 		}
 
 		&--email {
 			word-wrap: break-word;
+		}
+
+		&--buttons {
+			display: flex;
+			flex-wrap: wrap;
+			gap: variables.$space-s;
 		}
 	}
 
