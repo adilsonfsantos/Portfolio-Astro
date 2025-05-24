@@ -6,25 +6,26 @@
 	@include mixins.font-position(center);
 	@include mixins.transition(all);
 
-	border-radius: variables.$space-m;
 	min-width: 120px;
 	padding: variables.$space-xs variables.$space-m;
-	text-transform: uppercase;
 
 	&__primary {
 		color: variables.$white;
 		background-color: variables.$black;
-		border: 2px solid variables.$secondary;
+		border: 1px solid variables.$black-10;
 
 		&:hover,
 		&:focus {
 			color: variables.$black;
 			background-color: variables.$secondary-90;
+
+			border: 1px solid variables.$black-10;
 		}
 
 		&:active {
 			color: variables.$black;
 			background-color: variables.$secondary-90;
+			border: 1px solid variables.$black-10;
 		}
 	}
 
