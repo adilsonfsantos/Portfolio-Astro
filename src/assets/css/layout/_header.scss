@@ -58,6 +58,7 @@
 		@include mixins.typescale(scale--1, medium, text);
 		@include mixins.transition(color);
 
+		&--active,
 		&:hover,
 		&:focus {
 			color: variables.$white;
@@ -66,11 +67,6 @@
 
 		&:first-child {
 			margin-right: variables.$space-xs;
-		}
-
-		&--active {
-			color: variables.$white;
-			text-decoration: underline;
 		}
 	}
 }
