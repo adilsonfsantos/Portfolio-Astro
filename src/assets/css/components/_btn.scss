@@ -3,14 +3,14 @@
 
 .btn {
 	@include mixins.typescale(scale-0, medium, headline);
+	@include mixins.transition(all);
 	@include mixins.font-position(center);
 
 	min-width: 120px;
 	padding: variables.$space-xs variables.$space-m;
 
 	&__primary {
-		color: variables.$white;
-		background-color: variables.$secondary-90;
+		color: variables.$secondary-90;
 		border: 1px solid variables.$secondary-90;
 
 		@supports (backdrop-filter: none) {
@@ -27,11 +27,12 @@
 	}
 
 	&__secondary {
-		color: variables.$white;
-		background-color: variables.$white;
+		color: variables.$black;
+		background-color: variables.$white-70;
 		border: 1px solid variables.$white-70;
 
 		@supports (backdrop-filter: none) {
+			color: variables.$white;
 			background-color: rgba(variables.$white, 0.2);
 			backdrop-filter: saturate(180%) blur(variables.$base-size * 0.25);
 		}
