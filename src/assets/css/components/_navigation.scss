@@ -8,7 +8,7 @@
 	}
 
 	&__link {
-		@include mixins.typescale(scale-3, normal, headline);
+		@include mixins.typescale(scale-1, normal, headline);
 
 		color: variables.$secondary-90;
 
