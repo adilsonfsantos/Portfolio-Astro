@@ -1,5 +1,6 @@
 ---
 import { Picture } from "astro:assets";
+import { string } from "astro:schema";
 
 const { src, alt, type } = Astro.props;
 
@@ -8,7 +9,8 @@ if (alt === undefined || typeof alt !== "string") {
 	throw new Error(`Missing \`alt\` on image from: ${src}`);
 }
 let imageSizes: string;
-let loadType: any;
+let loadType: "lazy" | "eager" | undefined = "lazy";
+let decode: "async" | "sync" | undefined = "async";
 let imageWidths: number[];
 
 if (type === "card") {
@@ -17,9 +19,11 @@ if (type === "card") {
 				calc(92.33vw - 64px), 100vw";
 	loadType = "lazy";
 	imageWidths = [320, 480, 768];
+	decode = "async";
 } else if (type === "banner") {
 	imageSizes = "(min-width: 1200px) 1104px, 87.5vw";
 	loadType = "eager";
+	decode = "sync";
 	imageWidths = [320, 480, 768, 1104];
 } else {
 	imageSizes = "(min-width: 1200px) 1104px, 87.5vw";
@@ -34,7 +38,7 @@ if (type === "card") {
 	loading={loadType}
 	sizes={imageSizes}
 	widths={imageWidths}
-	decoding="async"
+	decoding={decode}
 	formats={["webp"]}
 	quality={90}
 	fallbackFormat="webp"
