@@ -51,6 +51,10 @@
 
 		&--email {
 			word-wrap: break-word;
+			@include mixins.typescale(scale-1, normal, text);
+			color: variables.$secondary-90;
+			text-decoration: underline;
+
 		}
 
 		&--buttons {
