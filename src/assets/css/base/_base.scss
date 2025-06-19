@@ -1,17 +1,23 @@
 @use "../abstracts/mixins";
 @use "../abstracts/variables";
 
-html {
-	box-sizing: border-box;
-}
-
 *,
 *::before,
 *::after {
-	box-sizing: inherit;
+	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 	min-width: 0;
+	vertical-align: baseline;
+}
+
+:focus,
+:focus-visible {
+	outline: 1px solid variables.$secondary-90;
+}
+
+:focus:not(:focus-visible) {
+	outline: none;
 }
 
 html,
@@ -55,6 +61,7 @@ a:visited,
 a:active {
 	list-style: none;
 	text-decoration: none;
+	text-decoration-skip-ink: auto;
 }
 
 a:hover {
@@ -65,13 +72,16 @@ main {
 	position: relative;
 }
 
+strong {
+	font-weight: 500;
+}
+
 img {
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: auto;
 	max-width: 100%;
 	object-fit: cover;
-	shape-margin: variables.$space-xs;
 	vertical-align: middle;
 	width: 100%;
 }
@@ -88,8 +98,4 @@ img {
 
 .skip-to-content-link:focus {
 	transform: translate(-50%, variables.$space-s);
-}
-
-strong {
-	font-weight: 600;
 }
