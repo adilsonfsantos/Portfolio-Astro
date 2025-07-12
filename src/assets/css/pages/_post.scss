@@ -189,7 +189,6 @@
 		ol {
 			@include mixins.typescale(scale-0, normal, text);
 
-			padding-left: variables.$space-s;
 		}
 
 		p+ul,
@@ -206,6 +205,8 @@
 			@include mixins.typescale(scale-0, normal, text);
 
 			color: variables.$white-90;
+			margin-left: calc(-1 * (variables.$space-s));
+			padding-left: variables.$space-s;
 		}
 
 		li:not(:last-child) {

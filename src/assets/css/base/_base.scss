@@ -35,6 +35,9 @@ body {
 		"Inter UI", "Helvetica Neue", Roboto, "Arial Nova", Arial, system-ui,
 		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
 		"Noto Color Emoji";
+	font-kerning: normal;
+	hanging-punctuation: first;
+	list-style-position: outside;
 }
 
 article,
