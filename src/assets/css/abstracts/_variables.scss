@@ -20,50 +20,42 @@ $page-width: $base-size * 80;
 
 // Breakpoints
 $grid-breakpoints-map: (
-	default: (
-		width: 0,
+	default: (width: 0,
 		column: 4,
 		margin: $base-size,
 		gap: 16px,
 	),
-	xsmall: (
-		width: 319px,
+	xsmall: (width: 319px,
 		column: 4,
 		margin: $base-size,
 		gap: 16px,
 	),
-	small: (
-		width: 479px,
+	small: (width: 479px,
 		column: 4,
 		margin: $base-size * 1.5,
 		gap: 24px,
 	),
-	medium: (
-		width: 639px,
+	medium: (width: 639px,
 		column: 6,
 		margin: $base-size * 2.5,
 		gap: 24px,
 	),
-	large: (
-		width: 767px,
+	large: (width: 767px,
 		column: 6,
 		margin: $base-size * 3,
 		gap: 32px,
 	),
-	xlarge: (
-		width: 995px,
+	xlarge: (width: 995px,
 		column: 6,
 		margin: $base-size * 4,
 		gap: 32px,
 	),
-	2xlarge: (
-		width: 1199px,
+	2xlarge: (width: 1199px,
 		column: 8,
 		margin: $base-size * 6,
 		gap: 40px,
 	),
-	3xlarge: (
-		width: 1280px,
+	3xlarge: (width: 1280px,
 		column: 8,
 		margin: $base-size * 4,
 		gap: 48px,
@@ -72,39 +64,30 @@ $grid-breakpoints-map: (
 
 // Animation
 $animation-standard: cubic-bezier(0.22, 1, 0.36, 1) !default;
-$duration-standard: 0.4s;
+$duration-standard: 0.3s;
 
 // Font Size
 // https://utopia.fyi/space/calculator?c=232,16,1.125,1240,20,1.125,6,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C5,s-l&g=s,l,xl,12
 // https://utopia.fyi/grid/calculator?c=232,16,1.125,1240,20,1.25,6,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,&g=s,l,xl,12
 $font-size: $base-size;
 $type-map: (
-	scale-6: (
-		size: clamp(2.0273rem, 1.3964rem + 4.3509vw, 4.7684rem),
+	scale-6: (size: clamp(2.0273rem, 1.3964rem + 4.3509vw, 4.7684rem),
 	),
-	scale-5: (
-		size: clamp(1.802rem, 1.3388rem + 3.1947vw, 3.8147rem),
+	scale-5: (size: clamp(1.802rem, 1.3388rem + 3.1947vw, 3.8147rem),
 	),
-	scale-4: (
-		size: clamp(1.6018rem, 1.2681rem + 2.3015vw, 3.0518rem),
+	scale-4: (size: clamp(1.6018rem, 1.2681rem + 2.3015vw, 3.0518rem),
 	),
-	scale-3: (
-		size: clamp(1.4238rem, 1.1896rem + 1.6152vw, 2.4414rem),
+	scale-3: (size: clamp(1.4238rem, 1.1896rem + 1.6152vw, 2.4414rem),
 	),
-	scale-2: (
-		size: clamp(1.2656rem, 1.1074rem + 1.0913vw, 1.9531rem),
+	scale-2: (size: clamp(1.2656rem, 1.1074rem + 1.0913vw, 1.9531rem),
 	),
-	scale-1: (
-		size: clamp(1.125rem, 1.0243rem + 0.6944vw, 1.5625rem),
+	scale-1: (size: clamp(1.125rem, 1.0243rem + 0.6944vw, 1.5625rem),
 	),
-	scale-0: (
-		size: clamp(1rem, 0.9425rem + 0.3968vw, 1.25rem),
+	scale-0: (size: clamp(1rem, 0.9425rem + 0.3968vw, 1.25rem),
 	),
-	scale--1: (
-		size: clamp(0.8889rem, 0.8633rem + 0.1764vw, 1rem),
+	scale--1: (size: clamp(0.8889rem, 0.8633rem + 0.1764vw, 1rem),
 	),
-	scale--2: (
-		size: clamp(0.7901rem, 0.7879rem + 0.0157vw, 0.8rem),
+	scale--2: (size: clamp(0.7901rem, 0.7879rem + 0.0157vw, 0.8rem),
 	),
 );
 $space-3xs: clamp(0.25rem, 0.2356rem + 0.0992vw, 0.3125rem);
