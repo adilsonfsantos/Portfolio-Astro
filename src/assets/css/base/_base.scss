@@ -38,6 +38,9 @@ body {
 	font-kerning: normal;
 	hanging-punctuation: first;
 	list-style-position: outside;
+	scrollbar-color: variables.$white-70 transparent;
+	scrollbar-width: thin;
+	scrollbar-gutter: stable;
 }
 
 article,
