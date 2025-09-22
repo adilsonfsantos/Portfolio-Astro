@@ -28,6 +28,9 @@ User-agent: Dataprovider
 User-agent: BLEXBot
 User-agent: PetalBot
 User-agent: img2dataset
+User-agent: Applebot-Extended
+User-agent: ClaudeBot
+User-agent: meta-externalagent
 Disallow: /
 
 User-agent: *
