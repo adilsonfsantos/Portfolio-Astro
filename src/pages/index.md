@@ -1,6 +1,6 @@
 ---
-title: Adilson Santos
+title: Adilson Santos - Designer
 layout: "@layouts/Home.astro"
 image: "/assets/images/thumbnail.png"
-description: Meu nome é Adilson Santos e eu sou um designer focado em identidades visuais, UI e UX.
+description: Crio sites, campanhas e marcas que ajudam negócios a se destacar com clareza, consistência e impacto no mercado. Veja meus projetos.
 ---
