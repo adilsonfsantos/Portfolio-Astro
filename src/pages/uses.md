@@ -32,7 +32,7 @@ Inspirado no [/uses feito pelo Wes Bos](https://wesbos.com/uses), aqui estão al
 
 - **Sistema Operacional:** Fedora e Windows
 - **Computador:** Ryzen 5 5600G, Radeon RX 6600, 4x8GB XPG D45 DDR4-3600, Gigabyte B450 AORUS M
-- **Teclado:** Sharkoon Purewriter
+- **Teclado:** Aula F87
 - **Mouse:** Logitech G502 Hero
 - **Monitor:** AOC G2460V 24"
 - **Cadeira:** Flexform Uni
