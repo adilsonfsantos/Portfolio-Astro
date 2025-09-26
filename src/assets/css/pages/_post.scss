@@ -2,69 +2,18 @@
 @use "../abstracts/mixins";
 
 .post {
-	display: grid;
 	padding-top: variables.$space-3xl;
 
 	&__header {
 		min-height: 55vh;
 		padding-top: variables.$space-xl;
 
-		&--container {
-			margin-bottom: variables.$space-xl;
-		}
-
-		&--title {
-			@include mixins.typescale(scale-6, medium, headline);
-
-			color: variables.$white;
-			margin: 0;
-		}
-
-		&--description {
-			@include mixins.typescale(scale-0, normal, text);
-
-			color: variables.$white-90;
-			width: min(100%, 720px);
-		}
-	}
-
-	&__hero {
-		display: grid;
-
-		&--container {
-			border-bottom: 2px solid variables.$black-30;
-			display: grid;
-		}
-	}
-
-	&__info {
-		display: grid;
-		gap: variables.$space-xl;
-		grid-template-columns: repeat(auto-fit, minmax(160px, auto));
-		margin-bottom: variables.$space-xl;
-	}
-
-	&__info--title {
-		@include mixins.typescale(scale--1, medium, text);
-
-		border-top: solid variables.$black-10 1px;
-		color: variables.$white;
-		padding-top: variables.$space-s;
-	}
-
-	&__info--text {
-		@include mixins.typescale(scale-0, normal, text);
-
-		color: variables.$white-90;
-	}
-
-	&__splash {
-		&--picture {
+		picture {
 			overflow: hidden;
 			width: 100%;
 		}
 
-		&--image {
+		img {
 			color: variables.$white;
 			height: auto;
 			max-width: none;
@@ -72,18 +21,36 @@
 		}
 	}
 
-	hr {
-		border: none;
-		background-color: variables.$black-10;
-		height: 1px;
-		margin-top: variables.$space-xl;
+	&__title {
+		@include mixins.typescale(scale-6, medium, headline);
+
+		color: variables.$white;
+		margin: 0;
+		margin-bottom: variables.$space-xl;
+	}
+
+	&__info {
+		display: grid;
+		gap: variables.$space-xl;
+		grid-template-columns: repeat(auto-fit, minmax(160px, auto));
+		margin-bottom: variables.$space-xl;
+
+		&-title {
+			@include mixins.typescale(scale--1, medium, text);
+
+			border-top: solid variables.$black-10 1px;
+			color: variables.$white;
+			padding-top: variables.$space-s;
+		}
+
+		&-text {
+			@include mixins.typescale(scale-0, normal, text);
+
+			color: variables.$white-90;
+		}
 	}
 
 	&__content {
-		&--container {
-			display: grid;
-		}
-
 		h2,
 		h3,
 		h4,
@@ -96,11 +63,6 @@
 		li {
 			margin: auto;
 			width: min(100%, 720px);
-		}
-
-		.headline-link {
-			color: variables.$white;
-			text-decoration: underline;
 		}
 
 		h2,
@@ -143,21 +105,26 @@
 			margin-top: variables.$space-l;
 		}
 
-		h2+h3,
-		h3+h4,
-		h4+h5,
-		h5+h6 {
-			margin-top: 0;
-		}
-
 		p {
 			@include mixins.typescale(scale-0, normal, text);
 
 			color: variables.$white-90;
 		}
 
-		p+p {
-			margin-top: variables.$space-s;
+		ul,
+		ol {
+			@include mixins.typescale(scale-0, normal, text);
+
+			padding-left: variables.$space-l;
+		}
+
+		li {
+			color: variables.$white-90;
+			padding-left: variables.$space-s;
+		}
+
+		li:not(:last-child) {
+			margin-bottom: variables.$space-2xs;
 		}
 
 		img,
@@ -175,63 +142,60 @@
 			max-height: 80dvh;
 		}
 
-		p+picture,
-		p+video,
-		picture+p,
-		picture+picture,
-		video+video,
-		picture+video,
-		video+picture {
+		h2 + h3,
+		h3 + h4,
+		h4 + h5,
+		h5 + h6 {
+			margin-top: 0;
+		}
+
+		p + picture,
+		p + video,
+		picture + p,
+		picture + picture,
+		video + video,
+		picture + video,
+		video + picture {
 			margin-top: variables.$space-xl;
 		}
 
-		ul,
-		ol {
-			@include mixins.typescale(scale-0, normal, text);
-
-		}
-
-		p+ul,
-		p+ol {
+		p + ul,
+		p + ol,
+		ul + p,
+		ol + p {
 			margin-top: variables.$space-xs;
 		}
 
-		ul+p,
-		ol+p {
-			margin-top: variables.$space-xs;
+		p + p {
+			margin-top: variables.$space-s;
 		}
 
-		li {
-			@include mixins.typescale(scale-0, normal, text);
+		blockquote {
+			border-left: 2px solid variables.$primary;
+			padding-left: variables.$space-m;
+			margin: variables.$space-m auto;
 
-			color: variables.$white-90;
-			margin-left: calc(-1 * (variables.$space-s));
-			padding-left: variables.$space-s;
-		}
+			p {
+				@include mixins.typescale(scale-1, bold, text);
 
-		li:not(:last-child) {
-			margin-bottom: variables.$space-2xs;
+				color: variables.$white;
+				margin: 0;
+			}
+
+			cite {
+				@include mixins.typescale(scale-0, normal, text);
+
+				font-style: italic;
+				color: variables.$white-90;
+				margin-top: variables.$space-xs;
+			}
 		}
 	}
 
-	blockquote {
-		border-left: 2px solid variables.$primary;
-		padding-left: variables.$space-m;
-		margin: variables.$space-m auto;
-
-		p {
-			@include mixins.typescale(scale-1, bold, text);
-
-			color: variables.$white;
-			margin: 0;
-		}
-
-		cite {
-			@include mixins.typescale(scale-0, normal, text);
-
-			font-style: italic;
-			color: variables.$white-90;
-			margin-top: variables.$space-xs;
-		}
+	hr {
+		border: none;
+		background-color: variables.$black-10;
+		height: 1px;
+		margin-top: variables.$space-xl;
 	}
 }

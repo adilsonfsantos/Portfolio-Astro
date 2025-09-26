@@ -21,18 +21,14 @@ const title = [frontmatter.title, site_name].filter(Boolean).join(" | ");
 
 <Default title={title} description={site_description} image={frontmatter.image}>
 	<div class="noise"></div>
-	<article class="page grid__module--blog" role="article">
+	<article class="page layout__grid-blog" role="article">
 		<div class="page__header">
-			<div class="page__header--container">
-				<h1 class="page__header--title" itemprop="name headline">
-					{frontmatter.title}
-				</h1>
-			</div>
+			<h1 class="page__title" itemprop="name headline">
+				{frontmatter.title}
+			</h1>
 		</div>
 		<div class="page__content" itemprop="articleBody">
-			<div class="page__content--container">
-				<slot />
-			</div>
+			<slot />
 		</div>
 		<hr />
 	</article>

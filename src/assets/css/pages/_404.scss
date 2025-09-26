@@ -7,11 +7,11 @@
 	height: 100vh;
 	position: relative;
 
-	&--container {
+	&__container {
 		z-index: 2;
 	}
 
-	&--title {
+	&__title {
 		@include mixins.typescale(scale-6, medium, title);
 
 		color: variables.$white;

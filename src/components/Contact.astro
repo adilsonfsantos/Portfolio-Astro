@@ -15,19 +15,16 @@ function encode(text: string) {
 
 <section class="contato" id="contato">
 	<div class="contato__gradient"></div>
-	<div class="grid__module--site">
-		<div class="contato__call">
-			<h2 class="contato__call--cta">Vamos conversar!</h2>
-			<p class="contato__call--subtitle">
-				Se quiser falar sobre um projeto ou precisa de alguém para
-				ajudar na sua equipe, é só chamar por aqui:<br />
-				<a
-					href={"mailto:" + encode(site_author_email)}
-					class="contato__call--email">
-					<b>blocked</b>{site_author_email}</a
-				>
-			</p>
-			<div class="contato__call--buttons"></div>
-		</div>
+	<div class="contato__content layout__grid-site">
+		<h2 class="contato__cta">Vamos conversar!</h2>
+		<p class="contato__subtitle">
+			Se quiser falar sobre um projeto ou precisa de alguém para ajudar na
+			sua equipe, é só chamar por aqui:<br />
+			<a
+				href={"mailto:" + encode(site_author_email)}
+				class="contato__email">
+				<b>blocked</b>{site_author_email}</a
+			>
+		</p>
 	</div>
 </section>

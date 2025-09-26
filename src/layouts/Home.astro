@@ -28,32 +28,28 @@ const formatCategories = (values: string[]) =>
 	title={frontmatter.title}
 	description={frontmatter.description}
 	image={frontmatter.image}>
-	<div class="container">
-		<div class="noise"></div>
-		<Hero />
-		<section class="projetos grid__module--site" id="projetos">
-			<div class="projetos__principais">
-				{
-					posts.map((post) => (
-						<a href={`/projetos/${post.id}/`} class="card">
-							<div class="noise" />
-							<Picture
-								src={post.data.card}
-								alt={post.data.description}
-								type="card"
-							/>
-							<div class="card__description">
-								<h3 class="card__description--title">{post.data.title}</h3>
-								<span class="card__description--tag">
-									{formatCategories(post.data.categories)}
-								</span>
-							</div>
-						</a>
-					))
-				}
-			</div>
-			<hr />
-		</section>
-		<Contact />
-	</div>
+	<div class="noise"></div>
+	<Hero />
+	<section class="projetos layout__grid-site" id="projetos">
+		{
+			posts.map((post) => (
+				<a href={`/projetos/${post.id}/`} class="card">
+					<div class="noise" />
+					<Picture
+						src={post.data.card}
+						alt={post.data.description}
+						type="card"
+					/>
+					<div class="card__description">
+						<h3 class="card__title">{post.data.title}</h3>
+						<span class="card__tag">
+							{formatCategories(post.data.categories)}
+						</span>
+					</div>
+				</a>
+			))
+		}
+		<hr />
+	</section>
+	<Contact />
 </Default>

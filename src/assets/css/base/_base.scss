@@ -20,7 +20,17 @@
 	outline: none;
 }
 
-html,
+html {
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+	hanging-punctuation: first allow-end last;
+	scrollbar-color: variables.$white-70 transparent;
+	scrollbar-width: thin;
+	scrollbar-gutter: stable;
+}
+
+
 body {
 	background-color: variables.$black;
 	font-feature-settings:
@@ -36,11 +46,9 @@ body {
 		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
 		"Noto Color Emoji";
 	font-kerning: normal;
-	hanging-punctuation: first;
-	list-style-position: outside;
-	scrollbar-color: variables.$white-70 transparent;
-	scrollbar-width: thin;
-	scrollbar-gutter: stable;
+	position: relative;
+	word-break: break-word;
+
 }
 
 article,
@@ -90,6 +98,13 @@ img {
 	object-fit: cover;
 	vertical-align: middle;
 	width: 100%;
+}
+
+input,
+textarea,
+button {
+	font-size: inherit;
+	font-family: inherit;
 }
 
 .skip-to-content-link {

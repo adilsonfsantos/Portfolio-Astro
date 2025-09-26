@@ -8,11 +8,10 @@
 	position: relative;
 
 	&__gradient {
-		background: linear-gradient(
-			90deg,
-			variables.$primary 0%,
-			variables.$secondary 100%
-		);
+		background:
+			linear-gradient(90deg,
+				variables.$primary 0%,
+				variables.$secondary 100%);
 		height: 1px;
 		grid-column: 1/-1;
 	}
@@ -26,21 +25,21 @@
 		display: flex;
 		flex-wrap: wrap;
 		padding: (variables.$base-size * 2) 0;
-
-		&--copyright {
-			@include mixins.typescale(scale--1, normal, text);
-
-			color: variables.$white-90;
-			margin: (variables.$base-size) 0;
-			place-self: center;
-		}
-
-		&--spacer {
-			flex-grow: 1;
-		}
 	}
 
-	&__content--social {
+	&__copyright {
+		@include mixins.typescale(scale--1, normal, text);
+
+		color: variables.$white-90;
+		margin: (variables.$base-size) 0;
+		place-self: center;
+	}
+
+	&__spacer {
+		flex-grow: 1;
+	}
+
+	&__social {
 		display: flex;
 		flex-wrap: wrap;
 		list-style-type: none;

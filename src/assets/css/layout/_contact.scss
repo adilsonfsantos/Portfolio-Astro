@@ -2,9 +2,10 @@
 @use "../abstracts/variables";
 
 .contato {
+	display: flex;
+	align-items: center;
 	overflow: hidden;
 	min-height: 64svh;
-	display: flex;
 	padding: variables.$space-3xl 0;
 	position: relative;
 
@@ -23,45 +24,39 @@
 		width: 120%;
 	}
 
-	&__call {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+	&__content {
+		align-content: center;
+
 
 		@include mixins.viewport(small) {
 			text-align: center;
-			align-items: center;
 		}
 
-		&--cta {
-			@include mixins.typescale(scale-6, medium, headline);
 
-			color: variables.$white;
-			margin-bottom: variables.$space-3xs;
-		}
+	}
 
-		&--subtitle {
-			@include mixins.typescale(scale-1, normal, text);
+	&__cta {
+		@include mixins.typescale(scale-6, medium, headline);
 
-			color: variables.$white-90;
-			max-width: variables.$base-size * 40;
-			text-wrap: balance;
-			margin-bottom: variables.$space-s;
-		}
+		color: variables.$white;
+		margin-bottom: variables.$space-3xs;
+	}
 
-		&--email {
-			word-wrap: break-word;
-			@include mixins.typescale(scale-1, normal, text);
-			color: variables.$secondary-90;
-			text-decoration: underline;
+	&__subtitle {
+		@include mixins.typescale(scale-1, normal, text);
 
-		}
+		color: variables.$white-90;
+		max-width: variables.$base-size * 40;
+		text-wrap: balance;
+		margin-bottom: variables.$space-s;
+	}
 
-		&--buttons {
-			display: flex;
-			flex-wrap: wrap;
-			gap: variables.$space-s;
-		}
+	&__email {
+		@include mixins.typescale(scale-1, normal, text);
+
+		color: variables.$secondary-90;
+		text-decoration: underline;
+		word-wrap: break-word;
 	}
 
 	b {

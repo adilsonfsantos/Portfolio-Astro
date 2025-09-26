@@ -14,19 +14,17 @@
 		backdrop-filter: saturate(180%) blur(variables.$base-size * 0.25);
 	}
 
-	&__container {
-		width: 100%;
-	}
-
 	&__content {
 		align-items: center;
 		display: flex;
+		width: 100%;
 
-		&--logo {
+
+		&-logo {
 			color: variables.$white;
 		}
 
-		&--logo>svg {
+		&-logo>svg {
 			display: inherit;
 			fill: currentcolor;
 			height: 18px;
@@ -38,19 +36,18 @@
 			}
 		}
 
-		&--spacer {
+		&-spacer {
 			flex-grow: 1;
 		}
 
-		&__nav {
+		&-nav {
 			align-self: center;
 			display: flex;
 		}
 	}
 }
 
-.nav {
-	&__link {
+.link {
 		color: variables.$white-90;
 		line-height: 1.2;
 		padding: variables.$base-size 0;
@@ -69,4 +66,3 @@
 			margin-right: variables.$space-xs;
 		}
 	}
-}

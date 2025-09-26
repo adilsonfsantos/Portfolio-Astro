@@ -17,30 +17,35 @@ const { title, image, roles, date, team } = Astro.props;
 
 <div class="noise"></div>
 <article
-	class="post grid__module--site"
+	class="post layout__grid-site"
 	itemscope
 	itemtype="http://schema.org/BlogPosting">
 	<div class="post__header">
-		<div class="post__header--container">
-			<h1 class="post__header--title" itemprop="name headline">
-				{title}
-			</h1>
-		</div>
-		<div class="post__info">
-			<div class="function">
-				<h3 class="post__info--title">Minha Função</h3>
-				{roles.map((role: any) => <p class="post__info--text">{role}</p>)}
+		<h1 class="post__title" itemprop="name headline">
+			{title}
+		</h1>
+		<div class="post-info">
+			<div>
+				<h3 class="post-info__title">Minha Função</h3>
+				{
+					roles.map((role: any) => (
+						<p class="post-info__text">{role}</p>
+					))
+				}
 			</div>
 			{
 				!team ? null : (
-					<div class="team">
-						<h3 class="post__info--title">Equipe</h3>
+					<div>
+						<h3 class="post__info__title">Equipe</h3>
 						{team.map((team: any) => (
-							<p class="post__info--text">
+							<p class="post__info__text">
 								{!team.portfolio ? (
 									team.name + ", " + team.role
 								) : (
-									<a href={team.portfolio} rel="noopener" target="_blank">
+									<a
+										href={team.portfolio}
+										rel="noopener"
+										target="_blank">
 										{team.name + ", " + team.role}
 									</a>
 								)}
@@ -49,21 +54,17 @@ const { title, image, roles, date, team } = Astro.props;
 					</div>
 				)
 			}
-			<div class="year">
-				<h3 class="post__info--title">Data</h3>
-				<p class="post__info--text">
+			<div>
+				<h3 class="post__info__title">Data</h3>
+				<p class="post__info__text">
 					{date.getFullYear()}
 				</p>
 			</div>
 		</div>
-		<div class="post__splash--container">
-			<Picture src={image} alt="" type="banner" />
-		</div>
+		<Picture src={image} alt="" type="banner" />
 	</div>
 	<div class="post__content" itemprop="articleBody">
-		<div class="post__content--container">
 			<slot />
-		</div>
 		<hr />
 	</div>
 </article>

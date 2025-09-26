@@ -2,6 +2,7 @@
 @use "../abstracts/mixins";
 
 .page {
+	align-content: center;
 	min-height: 88svh;
 	padding-top: variables.$space-3xl;
 
@@ -9,21 +10,16 @@
 		align-self: end;
 		padding-top: variables.$space-xl;
 		margin-bottom: variables.$space-l;
+	}
 
-		&--title {
-			@include mixins.typescale(scale-6, medium, headline);
+	&__title {
+		@include mixins.typescale(scale-6, medium, headline);
 
-			color: variables.$white;
-			margin: 0;
-		}
+		color: variables.$white;
+		margin: 0;
 	}
 
 	&__content {
-		align-self: baseline;
-
-		&--container {
-			display: grid;
-		}
 
 		h2,
 		h3,
@@ -91,8 +87,7 @@
 		ul,
 		ol {
 			@include mixins.typescale(scale-0, normal, text);
-
-			padding-left: variables.$space-s;
+			padding-left: variables.$space-l;
 		}
 
 		p+ul,
@@ -112,6 +107,7 @@
 			@include mixins.typescale(scale-0, normal, text);
 
 			color: variables.$white-90;
+			padding-left: variables.$space-s;
 		}
 
 		li:not(:last-child) {
