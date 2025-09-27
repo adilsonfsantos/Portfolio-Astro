@@ -86,10 +86,6 @@ main {
 	position: relative;
 }
 
-strong {
-	font-weight: 700;
-}
-
 img {
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -98,13 +94,6 @@ img {
 	object-fit: cover;
 	vertical-align: middle;
 	width: 100%;
-}
-
-input,
-textarea,
-button {
-	font-size: inherit;
-	font-family: inherit;
 }
 
 .skip-to-content-link {
