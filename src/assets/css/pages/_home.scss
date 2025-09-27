@@ -2,6 +2,8 @@
 @use "../abstracts/variables";
 
 .projetos {
+	@include mixins.layout-grid(site);
+
 	display: grid;
 	gap: variables.$space-l;
 	grid-auto-rows: auto;

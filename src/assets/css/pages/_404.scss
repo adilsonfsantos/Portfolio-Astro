@@ -2,26 +2,11 @@
 @use "../abstracts/variables";
 
 .hero {
-	align-items: center;
-	display: grid;
 	height: 100vh;
-	position: relative;
+	text-align: center;
 
-	&__container {
-		z-index: 2;
-	}
-
-	&__title {
-		@include mixins.typescale(scale-6, medium, title);
-
-		color: variables.$white;
-		margin: 0;
-		text-align: center;
-	}
-
-	.btn {
-		display: inline-flex;
-		justify-self: center;
+	&__btn {
+		display: inline-block;
 		margin-top: variables.$space-m;
 	}
 }

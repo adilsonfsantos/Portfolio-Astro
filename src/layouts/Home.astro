@@ -30,7 +30,7 @@ const formatCategories = (values: string[]) =>
 	image={frontmatter.image}>
 	<div class="noise"></div>
 	<Hero />
-	<section class="projetos layout__grid-site" id="projetos">
+	<section class="projetos" id="projetos">
 		{
 			posts.map((post) => (
 				<a href={`/projetos/${post.id}/`} class="card">

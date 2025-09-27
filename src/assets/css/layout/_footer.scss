@@ -17,6 +17,8 @@
 	}
 
 	&__container {
+		@include mixins.layout-grid(site);
+
 		width: 100%;
 	}
 

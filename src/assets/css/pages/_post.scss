@@ -2,6 +2,8 @@
 @use "../abstracts/mixins";
 
 .post {
+	@include mixins.layout-grid(site);
+
 	padding-top: variables.$space-3xl;
 
 	&__header {
@@ -35,7 +37,7 @@
 		grid-template-columns: repeat(auto-fit, minmax(160px, auto));
 		margin-bottom: variables.$space-xl;
 
-		&-title {
+		&__title {
 			@include mixins.typescale(scale--1, medium, text);
 
 			border-top: solid variables.$black-10 1px;
@@ -43,7 +45,7 @@
 			padding-top: variables.$space-s;
 		}
 
-		&-text {
+		&__text {
 			@include mixins.typescale(scale-0, normal, text);
 
 			color: variables.$white-90;
@@ -51,6 +53,7 @@
 	}
 
 	&__content {
+
 		h2,
 		h3,
 		h4,

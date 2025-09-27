@@ -25,14 +25,13 @@
 	}
 
 	&__content {
-		align-content: center;
+		@include mixins.layout-grid(site);
 
+		align-content: center;
 
 		@include mixins.viewport(small) {
 			text-align: center;
 		}
-
-
 	}
 
 	&__cta {
