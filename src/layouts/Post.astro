@@ -6,7 +6,6 @@ import "@assets/css/base/_typography.scss";
 import "@assets/css/components/_links.scss";
 import "@assets/css/components/_navigation.scss";
 import "@assets/css/layout/_footer.scss";
-import "@assets/css/layout/_grid.scss";
 import "@assets/css/layout/_header.scss";
 import "@assets/css/pages/_post.scss";
 
@@ -61,7 +60,7 @@ const { title, image, roles, date, team } = Astro.props;
 		<Picture src={image} alt="" type="banner" />
 	</div>
 	<div class="post__content" itemprop="articleBody">
-			<slot />
+		<slot />
 		<hr />
 	</div>
 </article>
