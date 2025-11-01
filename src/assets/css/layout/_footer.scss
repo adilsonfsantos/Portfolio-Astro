@@ -9,7 +9,7 @@
 
 	&__gradient {
 		background:
-			linear-gradient(90deg,
+			linear-gradient(in oklab 90deg,
 				variables.$primary 0%,
 				variables.$secondary 100%);
 		height: 1px;
