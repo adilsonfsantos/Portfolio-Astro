@@ -4,6 +4,15 @@ title: Sobre mim
 image: "/assets/images/thumbnail.png"
 ---
 
-Meu nome é Adilson Santos e gosto de transformar coisas complicadas em simples e estar sempre aprendendo algo novo.
+No momento, estou trabalhando na [Agência New Humans](http://newhumans.com.br),
+onde ajudo instituições de ensino, construtoras, e&#x2011;commerces e startups
+a atingir os seus objetivos.
 
-Talvez por isso tenha me encontrado no design, onde atuo há mais de 5 anos ajudando construtoras, instituições de ensino, e&#x2011;commerces e startups a se comunicarem melhor, ganharem confiança e se destacarem no mercado.
+Possuo mais de 5 anos de experiência na área de criação e estudei Design pela
+faculdade Uninove por 8 semestres.
+
+### Sobre o site
+
+Este site foi feito com [Astro](https://astro.build/) e implementado no
+[Cloudflare Pages](https://pages.cloudflare.com/). O código e as imagens são
+mantidos no [Github](https://github.com/)
