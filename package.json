@@ -1,5 +1,6 @@
 {
-	"name": "",
+	"name": "portfolio-astro",
+	"description": "Portfolio of Adilson Santos using Astro",
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
@@ -13,19 +14,20 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.6",
-		"@astrojs/mdx": "^4.3.12",
+		"@astrojs/mdx": "^4.3.13",
 		"@astrojs/rss": "^4.0.14",
 		"@astrojs/sitemap": "^3.6.0",
-		"astro": "^5.16.4",
+		"astro": "^5.16.6",
 		"astro-compressor": "^1.2.0",
-		"sass": "^1.94.2",
+		"sass": "^1.97.1",
 		"typescript": "^5.9.3"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.0",
 		"@eslint/js": "^9.39.1",
-		"eslint": "^9.39.1",
+		"eslint": "^9.39.2",
 		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-mdx": "^3.6.2",
 		"prettier": "^3.7.4",
 		"prettier-plugin-astro": "^0.14.1",
 		"stylelint": "^16.26.1",
