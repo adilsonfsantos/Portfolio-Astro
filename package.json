@@ -3,18 +3,25 @@
 	"description": "Portfolio of Adilson Santos using Astro",
 	"type": "module",
 	"version": "0.0.1",
+	"engines": {
+		"node": ">=20.0.0"
+	},
+	"browserslist": [
+		"defaults"
+	],
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"astro": "astro",
-		"stylelint": "stylelint \"./src/**/*.scss\" --ignore-path .gitignore",
-		"eslint": "eslint ."
+		"stylelint": "stylelint 'src/**/*.{css,scss}' --ignore-path .gitignore",
+		"stylelint:fix": "stylelint 'src/**/*.{css,scss}' --ignore-path .gitignore --fix",
+		"eslint": "eslint . --ext .js,.ts,.mjs,.mdx,.astro",
+		"eslint:fix": "eslint . --ext .js,.ts,.mjs,.mdx,.astro --fix",
+		"format": "prettier --check 'src/**/*.{js,ts,astro,scss,mdx,css}'",
+		"format:fix": "prettier --write 'src/**/*.{js,ts,astro,scss,mdx,css}'",
+		"typecheck": "tsc --noEmit"
 	},
-	"browserslist": [
-		"defaults"
-	],
 	"dependencies": {
 		"@astrojs/check": "^0.9.6",
 		"@astrojs/mdx": "^4.3.13",
@@ -23,13 +30,11 @@
 		"@astrojs/ts-plugin": "^1.10.6",
 		"astro": "^5.16.6",
 		"astro-compressor": "^1.2.0",
-		"sass": "^1.97.1",
-		"typescript": "^5.9.3"
+		"sass": "^1.97.1"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^2.0.0",
 		"@eslint/js": "^9.39.2",
-		"@typescript-eslint/parser": "^8.50.1",
 		"eslint": "^9.39.2",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-astro": "^1.5.0",
@@ -41,6 +46,7 @@
 		"stylelint-config-standard-scss": "^16.0.0",
 		"stylelint-prettier": "^5.0.3",
 		"stylelint-scss": "^6.13.0",
+		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.50.1",
 		"wrangler": "^4.54.0"
 	}
