@@ -15,7 +15,12 @@
 			"@components/*": ["src/components/*"],
 			"@assets/*": ["src/assets/*"],
 			"@images/*": ["portfolio-static/assets/images/*"],
-			"@layouts/*": ["src/layouts/*"]
-		}
-	}
+			"@layouts/*": ["src/layouts/*"],
+		},
+		"plugins": [
+			{
+				"name": "@astrojs/ts-plugin",
+			},
+		],
+	},
 }
