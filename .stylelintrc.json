@@ -3,14 +3,7 @@
 	"extends": ["stylelint-config-standard-scss"],
 	"ignoreFiles": ["**/node_modules/**", "**/dist/**"],
 	"rules": {
-		"prettier/prettier": [
-			true,
-			{
-				"singleQuote": true,
-				"trailingComma": "all",
-				"tabWidth": 2
-			}
-		],
+		"prettier/prettier": [true],
 		"selector-class-pattern": "^([a-z][a-z0-9]*)((--?|__)?[a-z0-9]+)*$",
 		"max-nesting-depth": 3,
 		"no-descending-specificity": null
