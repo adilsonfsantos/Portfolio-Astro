@@ -11,7 +11,11 @@ import "@assets/css/pages/_post.scss";
 
 import Picture from "@components/Image.astro";
 
-const { title, image, roles, date, team } = Astro.props;
+import type { CollectionEntry } from "astro:content";
+type Projeto = CollectionEntry<"projetos">;
+type ProjetoData = Projeto["data"];
+
+const { title, image, roles, date, team } = Astro.props as ProjetoData;
 ---
 
 <div class="noise"></div>
@@ -23,27 +27,25 @@ const { title, image, roles, date, team } = Astro.props;
 		<div class="post__info">
 			<div>
 				<h3 class="post__info__title">Minha Função</h3>
-				{
-					roles.map((role: any) => (
-						<p class="post__info__text">{role}</p>
-					))
-				}
+				{roles.map((role) => <p class="post__info__text">{role}</p>)}
 			</div>
 			{
-				!team ? null : (
+				team && (
 					<div>
 						<h3 class="post__info__title">Equipe</h3>
-						{team.map((team: any) => (
+						{team.map((member) => (
 							<p class="post__info__text">
-								{!team.portfolio ? (
-									team.name + ", " + team.role
-								) : (
+								{member.portfolio ? (
 									<a
-										href={team.portfolio}
-										rel="noopener"
+										href={member.portfolio}
+										rel="noopener noreferrer"
 										target="_blank">
-										{team.name + ", " + team.role}
+										{member.name}, {member.role}
 									</a>
+								) : (
+									<>
+										{member.name}, {member.role}
+									</>
 								)}
 							</p>
 						))}
