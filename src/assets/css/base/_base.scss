@@ -20,15 +20,12 @@
 }
 
 html {
-	-moz-text-size-adjust: none;
-	-webkit-text-size-adjust: none;
 	text-size-adjust: none;
 	hanging-punctuation: first allow-end last;
 	scrollbar-color: variables.$white-70 transparent;
 	scrollbar-width: thin;
 	scrollbar-gutter: stable;
 }
-
 
 body {
 	background-color: variables.$black;
@@ -46,8 +43,7 @@ body {
 		"Noto Color Emoji";
 	font-kerning: normal;
 	position: relative;
-	word-break: break-word;
-
+	overflow-wrap: break-word;
 }
 
 article,

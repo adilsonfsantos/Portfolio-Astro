@@ -53,7 +53,6 @@
 	}
 
 	&__content {
-
 		h2,
 		h3,
 		h4,
@@ -145,31 +144,31 @@
 			max-height: 80dvh;
 		}
 
-		h2+h3,
-		h3+h4,
-		h4+h5,
-		h5+h6 {
+		h2 + h3,
+		h3 + h4,
+		h4 + h5,
+		h5 + h6 {
 			margin-top: 0;
 		}
 
-		p+picture,
-		p+video,
-		picture+p,
-		picture+picture,
-		video+video,
-		picture+video,
-		video+picture {
+		p + picture,
+		p + video,
+		picture + p,
+		picture + picture,
+		video + video,
+		picture + video,
+		video + picture {
 			margin-top: variables.$space-xl;
 		}
 
-		p+ul,
-		p+ol,
-		ul+p,
-		ol+p {
+		p + ul,
+		p + ol,
+		ul + p,
+		ol + p {
 			margin-top: variables.$space-xs;
 		}
 
-		p+p {
+		p + p {
 			margin-top: variables.$space-s;
 		}
 
