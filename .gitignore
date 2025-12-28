@@ -1,7 +1,7 @@
 # build output
 dist/
-# generated types
 .astro/
+.cache/
 
 # dependencies
 node_modules/
@@ -9,16 +9,25 @@ node_modules/
 # logs
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
 pnpm-debug.log*
-
+*.log
 
 # environment variables
 .env
 .env.production
 
-# macOS-specific files
+# OS-specific files
 .DS_Store
+Thumbs.db
 
 # Cloudflare Wrangler
 .wrangler
+
+# SvelteKit
+.svelte-kit
+
+# IDE / Editor
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
