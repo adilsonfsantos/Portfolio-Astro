@@ -1,5 +1,5 @@
-@use "../abstracts/mixins";
-@use "../abstracts/variables";
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
 
 .header {
 	background-color: variables.$black;
@@ -21,12 +21,11 @@
 		display: flex;
 		width: 100%;
 
-
 		&-logo {
 			color: variables.$white;
 		}
 
-		&-logo>svg {
+		&-logo > svg {
 			display: inherit;
 			fill: currentcolor;
 			height: 18px;

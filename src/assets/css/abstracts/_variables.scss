@@ -20,42 +20,50 @@ $page-width: $base-size * 80;
 
 // Breakpoints
 $grid-breakpoints-map: (
-	default: (width: 0,
+	default: (
+		width: 0,
 		column: 4,
 		margin: $base-size,
 		gap: 16px,
 	),
-	xsmall: (width: 319px,
+	xsmall: (
+		width: 319px,
 		column: 4,
 		margin: $base-size,
 		gap: 16px,
 	),
-	small: (width: 479px,
+	small: (
+		width: 479px,
 		column: 4,
 		margin: $base-size * 1.5,
 		gap: 24px,
 	),
-	medium: (width: 639px,
+	medium: (
+		width: 639px,
 		column: 6,
 		margin: $base-size * 2.5,
 		gap: 24px,
 	),
-	large: (width: 767px,
+	large: (
+		width: 767px,
 		column: 6,
 		margin: $base-size * 3,
 		gap: 32px,
 	),
-	xlarge: (width: 995px,
+	xlarge: (
+		width: 995px,
 		column: 6,
 		margin: $base-size * 4,
 		gap: 32px,
 	),
-	2xlarge: (width: 1199px,
+	2xlarge: (
+		width: 1199px,
 		column: 8,
 		margin: $base-size * 6,
 		gap: 40px,
 	),
-	3xlarge: (width: 1280px,
+	3xlarge: (
+		width: 1280px,
 		column: 8,
 		margin: $base-size * 4,
 		gap: 48px,
@@ -71,23 +79,32 @@ $duration-standard: 0.3s;
 
 $font-size: $base-size;
 $type-map: (
-	scale-6: (size: clamp(2.0273rem, 1.6348rem + 2.7067vw, 3.7325rem),
+	scale-6: (
+		size: clamp(2.0273rem, 1.6348rem + 2.7067vw, 3.7325rem),
 	),
-	scale-5: (size: clamp(1.802rem, 1.5009rem + 2.0768vw, 3.1104rem),
+	scale-5: (
+		size: clamp(1.802rem, 1.5009rem + 2.0768vw, 3.1104rem),
 	),
-	scale-4: (size: clamp(1.6018rem, 1.3739rem + 1.5717vw, 2.592rem),
+	scale-4: (
+		size: clamp(1.6018rem, 1.3739rem + 1.5717vw, 2.592rem),
 	),
-	scale-3: (size: clamp(1.4238rem, 1.1896rem + 1.6152vw, 2.4414rem),
+	scale-3: (
+		size: clamp(1.4238rem, 1.1896rem + 1.6152vw, 2.4414rem),
 	),
-	scale-2: (size: clamp(1.2656rem, 1.1426rem + 0.8482vw, 1.8rem),
+	scale-2: (
+		size: clamp(1.2656rem, 1.1426rem + 0.8482vw, 1.8rem),
 	),
-	scale-1: (size: clamp(1.125rem, 1.0387rem + 0.5952vw, 1.5rem),
+	scale-1: (
+		size: clamp(1.125rem, 1.0387rem + 0.5952vw, 1.5rem),
 	),
-	scale-0: (size: clamp(1rem, 0.9425rem + 0.3968vw, 1.25rem),
+	scale-0: (
+		size: clamp(1rem, 0.9425rem + 0.3968vw, 1.25rem),
 	),
-	scale--1: (size: clamp(0.8889rem, 0.8537rem + 0.2425vw, 1.0417rem),
+	scale--1: (
+		size: clamp(0.8889rem, 0.8537rem + 0.2425vw, 1.0417rem),
 	),
-	scale--2: (size: clamp(0.7901rem, 0.7722rem + 0.1237vw, 0.8681rem),
+	scale--2: (
+		size: clamp(0.7901rem, 0.7722rem + 0.1237vw, 0.8681rem),
 	),
 );
 $space-3xs: clamp(0.25rem, 0.2356rem + 0.0992vw, 0.3125rem);

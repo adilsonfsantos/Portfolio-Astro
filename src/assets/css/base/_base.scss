@@ -1,5 +1,5 @@
-@use "../abstracts/mixins";
-@use "../abstracts/variables";
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
 
 *,
 *::before,
@@ -30,17 +30,17 @@ html {
 body {
 	background-color: variables.$black;
 	font-feature-settings:
-		"liga" 1,
-		"case" 1,
-		"zero" 1,
-		"calt" 1;
+		'liga' 1,
+		'case' 1,
+		'zero' 1,
+		'calt' 1;
 	height: 100%;
 	scroll-behavior: smooth;
 	text-rendering: optimizelegibility;
 	font-family:
-		"Inter UI", "Helvetica Neue", Roboto, "Arial Nova", Arial, system-ui,
-		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-		"Noto Color Emoji";
+		'Inter UI', 'Helvetica Neue', Roboto, 'Arial Nova', Arial, system-ui,
+		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+		'Noto Color Emoji';
 	font-kerning: normal;
 	position: relative;
 	overflow-wrap: break-word;

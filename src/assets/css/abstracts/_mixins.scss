@@ -1,7 +1,7 @@
-@use "sass:list";
-@use "sass:math";
-@use "sass:map";
-@use "variables";
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:map';
+@use 'variables';
 
 @mixin viewport($size, $orientation: portrait, $width: width) {
 	@if not(list.index(map.keys(variables.$grid-breakpoints-map), $size)) {
@@ -53,23 +53,23 @@
 @mixin typescale($size, $weight: 400, $line) {
 	font-size: #{map.get(variables.$type-map, $size, size)};
 
-	@if $weight == "bold" {
+	@if $weight == 'bold' {
 		font-weight: 600;
-	} @else if $weight == "medium" {
+	} @else if $weight == 'medium' {
 		font-weight: 500;
-	} @else if $weight == "normal" {
+	} @else if $weight == 'normal' {
 		font-weight: 400;
-	} @else if $weight == "light" {
+	} @else if $weight == 'light' {
 		font-weight: 300;
 	} @else {
 		@warn " Atenção: `#{$weight}` não é um valor válido.";
 	}
 
-	@if $line == "title" {
+	@if $line == 'title' {
 		line-height: 100%;
-	} @else if $line == "headline" {
+	} @else if $line == 'headline' {
 		line-height: 120%;
-	} @else if $line == "text" {
+	} @else if $line == 'text' {
 		line-height: 160%;
 	} @else {
 		@warn " atenção: `#{$line}` não é um valor válido.";
@@ -87,11 +87,11 @@
 }
 
 @mixin layout-grid($type) {
-	@if $type == "site" {
+	@if $type == 'site' {
 		max-width: variables.$grid-width-site;
 		padding-inline: variables.$grid-gutter;
 		margin-inline: auto;
-	} @else if $type == "blog" {
+	} @else if $type == 'blog' {
 		max-width: variables.$grid-width-post;
 		padding-inline: variables.$grid-gutter;
 		margin-inline: auto;

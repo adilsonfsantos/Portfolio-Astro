@@ -1,5 +1,5 @@
-@use "../abstracts/mixins";
-@use "../abstracts/variables";
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
 
 .btn {
 	@include mixins.typescale(scale-0, medium, headline);
@@ -43,7 +43,6 @@
 			color: variables.$black;
 			background-color: variables.$white;
 			border: 1px solid variables.$white;
-
 		}
 	}
 }

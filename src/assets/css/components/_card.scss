@@ -1,5 +1,5 @@
-@use "../abstracts/mixins";
-@use "../abstracts/variables";
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
 
 .card {
 	@include mixins.transition(all);
@@ -52,6 +52,5 @@
 	&:focus {
 		background-color: variables.$black-10;
 		border-color: variables.$black-20;
-
 	}
 }
