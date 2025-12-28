@@ -23,26 +23,28 @@ html {
 	scrollbar-color: variables.$white-70 transparent;
 	scrollbar-width: thin;
 	scrollbar-gutter: stable;
+	scroll-behavior: smooth;
+	height: 100%;
 }
 
 body {
-	font-size: 1rem;
-	font-size-adjust: ex-height 0.459;
-	hanging-punctuation: first allow-end last;
 	background-color: variables.$black;
+	font-family:
+		"Inter UI", "Helvetica Neue", Roboto, "Arial Nova", Arial, system-ui,
+		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+		"Noto Color Emoji";
 	font-feature-settings:
 		"liga" 1,
 		"case" 1,
 		"zero" 1,
 		"calt" 1;
-	height: 100%;
-	scroll-behavior: smooth;
-	text-rendering: optimizelegibility;
-	font-family:
-		"Inter UI", "Helvetica Neue", Roboto, "Arial Nova", Arial, system-ui,
-		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-		"Noto Color Emoji";
 	font-kerning: normal;
+	font-size-adjust: ex-height 0.459;
+	font-size: 1rem;
+	text-rendering: optimizelegibility;
+	hanging-punctuation: first allow-end last;
+	height: 100%;
+	margin: 0;
 	position: relative;
 	overflow-wrap: break-word;
 }
@@ -83,15 +85,14 @@ main {
 }
 
 img {
-	background-repeat: no-repeat;
-	background-size: cover;
+	display: block;
 	height: auto;
 	max-width: 100%;
 	object-fit: cover;
 	vertical-align: middle;
-	width: 100%;
 }
 
+/* Skip to main content A11y */
 .skip-to-content-link {
 	@include mixins.transition(all);
 
