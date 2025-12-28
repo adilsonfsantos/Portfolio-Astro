@@ -9,16 +9,16 @@
 	"plugins": ["prettier-plugin-astro"],
 	"overrides": [
 		{
+			"files": ["*.md", "*.mdx", "*.toml", "*.yml", "*.yaml"],
+			"options": {
+				"useTabs": false
+			}
+		},
+		{
 			"files": "*.astro",
-			"options": { "parser": "astro" }
-		},
-		{
-			"files": "*.mdx",
-			"options": { "parser": "markdown" }
-		},
-		{
-			"files": "*.jsx",
-			"options": { "bracketSameLine": false }
+			"options": {
+				"parser": "astro"
+			}
 		}
 	]
 }

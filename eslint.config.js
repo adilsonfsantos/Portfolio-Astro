@@ -7,7 +7,7 @@ import prettier from "eslint-plugin-prettier/recommended";
 
 export default defineConfig([
 	{
-		ignores: ["dist", ".astro"],
+		ignores: ["**/dist", "**/node_modules", "**/.astro"],
 	},
 	{
 		languageOptions: {
@@ -16,11 +16,8 @@ export default defineConfig([
 		},
 	},
 	js.configs.recommended,
-	ts.configs.recommended,
-	astro.configs.recommended,
-	{
-		files: ["**/*.mdx"],
-		plugins: { mdx },
-	},
+	...ts.configs.recommended,
+	...astro.configs.recommended,
+	{ files: ["**/*.mdx"], ...mdx.flatCodeBlocks },
 	prettier,
 ]);
