@@ -2,9 +2,18 @@
 @use "../abstracts/mixins";
 
 .postnav {
-	&--container {
-		display: grid;
-		padding: variables.$space-3xl 0;
+	display: grid;
+	padding: variables.$space-3xl 0;
+
+	&__content {
+		@include mixins.layout-grid(site);
+
+		@include mixins.viewport(small) {
+			text-align: center;
+		}
+
+		align-content: center;
+		width: 100%;
 	}
 
 	&__link {
@@ -16,15 +25,11 @@
 			margin: auto;
 			text-align: center;
 		}
+	}
 
-		&--content {
-			color: variables.$white;
-		}
+	&__title {
+		@include mixins.typescale(scale-5, medium, headline);
 
-		&--title {
-			@include mixins.typescale(scale-5, medium, headline);
-
-			color: variables.$white;
-		}
+		color: variables.$white;
 	}
 }

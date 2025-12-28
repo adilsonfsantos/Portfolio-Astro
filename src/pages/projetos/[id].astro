@@ -37,8 +37,8 @@ const title = [post.data.title, site_name].filter(Boolean).join(" | ");
 	<Post {...post.data}>
 		<Content />
 	</Post>
-	<section class="postnav grid__module--site">
-		<div class="postnav--container">
+	<section class="postnav">
+		<div class="postnav__content">
 			{
 				(prevPost && (
 					<a
@@ -47,12 +47,12 @@ const title = [post.data.title, site_name].filter(Boolean).join(" | ");
 						rel="next">
 						Próximo projeto
 						<br />
-						<span class="postnav__link--title">{prevPost.data.title}</span>
+						<span class="postnav__title">{prevPost.data.title}</span>
 					</a>
 				)) || (
 					<a href="/" class="postnav__link">
 						Sem mais projetos →<br />
-						<span class="postnav__link--title">Voltar para a home</span>
+						<span class="postnav__title">Voltar para a home</span>
 					</a>
 				)
 			}
