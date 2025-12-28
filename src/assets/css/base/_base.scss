@@ -20,14 +20,15 @@
 }
 
 html {
-	text-size-adjust: none;
-	hanging-punctuation: first allow-end last;
 	scrollbar-color: variables.$white-70 transparent;
 	scrollbar-width: thin;
 	scrollbar-gutter: stable;
 }
 
 body {
+	font-size: 1rem;
+	font-size-adjust: ex-height 0.459;
+	hanging-punctuation: first allow-end last;
 	background-color: variables.$black;
 	font-feature-settings:
 		"liga" 1,
