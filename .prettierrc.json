@@ -4,15 +4,20 @@
 	"arrowParens": "always",
 	"semi": true,
 	"bracketSameLine": true,
-	"plugins": [
-		"prettier-plugin-astro"
-	],
+	"trailingComma": "all",
+	"plugins": ["prettier-plugin-astro"],
 	"overrides": [
 		{
 			"files": "*.astro",
-			"options": {
-				"parser": "astro"
-			}
+			"options": { "parser": "astro" }
+		},
+		{
+			"files": "*.mdx",
+			"options": { "parser": "markdown" }
+		},
+		{
+			"files": "*.jsx",
+			"options": { "bracketSameLine": false }
 		}
 	]
 }
