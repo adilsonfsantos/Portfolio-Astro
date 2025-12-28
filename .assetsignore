@@ -1,3 +1,5 @@
-_worker.js
+**/node_modules
+**/.DS_Store
+**/.git
 _redirects
 _headers
