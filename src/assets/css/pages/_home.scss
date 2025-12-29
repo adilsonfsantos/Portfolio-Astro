@@ -7,22 +7,18 @@
 	display: grid;
 	gap: variables.$space-l;
 	grid-auto-rows: auto;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
 
-	@include mixins.viewport(xsmall) {
-		grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+	@include mixins.viewport(xsmall, landscape) {
+		grid-template-columns: auto auto;
+	}
+
+	@include mixins.viewport(small) {
+		grid-template-columns: auto;
 	}
 
 	@include mixins.viewport(large) {
-		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-	}
-
-	@include mixins.viewport(xlarge) {
-		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-	}
-
-	@include mixins.viewport(xxxlarge) {
-		grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+		grid-template-columns: auto auto;
 	}
 
 	hr {
