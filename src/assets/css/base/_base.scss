@@ -1,29 +1,9 @@
 @use "../abstracts/mixins";
 @use "../abstracts/variables";
 
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	min-width: 0;
-}
-
-:focus,
-:focus-visible {
-	outline: 1px solid variables.$secondary-90;
-}
-
-:focus:not(:focus-visible) {
-	outline: none;
-}
-
 html {
 	scrollbar-color: variables.$white-70 transparent;
 	scrollbar-width: thin;
-	scrollbar-gutter: stable;
-	scroll-behavior: smooth;
 	height: 100%;
 }
 
@@ -39,28 +19,8 @@ body {
 		"zero" 1,
 		"calt" 1;
 	font-kerning: normal;
-	font-size-adjust: ex-height 0.459;
 	font-size: 1rem;
-	text-rendering: optimizelegibility;
 	hanging-punctuation: first allow-end last;
-	height: 100%;
-	margin: 0;
-	position: relative;
-	overflow-wrap: break-word;
-}
-
-article,
-figcaption,
-figure,
-footer,
-header,
-main,
-menu,
-nav,
-picture,
-section,
-summary {
-	display: block;
 }
 
 ::selection {
@@ -73,7 +33,6 @@ a:visited,
 a:active {
 	list-style: none;
 	text-decoration: none;
-	text-decoration-skip-ink: auto;
 }
 
 a:hover {
