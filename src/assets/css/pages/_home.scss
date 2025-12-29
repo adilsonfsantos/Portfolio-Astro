@@ -21,7 +21,7 @@
 		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 	}
 
-	@include mixins.viewport(3xlarge) {
+	@include mixins.viewport(xxxlarge) {
 		grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
 	}
 

@@ -32,7 +32,7 @@
 			margin: variables.$base-size 0;
 			width: auto;
 
-			@include mixins.viewport(3xlarge) {
+			@include mixins.viewport(xxxlarge) {
 				height: 24px;
 			}
 		}
