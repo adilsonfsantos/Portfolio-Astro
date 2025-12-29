@@ -22,51 +22,27 @@ $page-width: $base-size * 80;
 $grid-breakpoints-map: (
 	default: (
 		width: 0,
-		column: 4,
-		margin: $base-size,
-		gap: 16px,
 	),
 	xsmall: (
 		width: 319px,
-		column: 4,
-		margin: $base-size,
-		gap: 16px,
 	),
 	small: (
 		width: 479px,
-		column: 4,
-		margin: $base-size * 1.5,
-		gap: 24px,
 	),
 	medium: (
 		width: 639px,
-		column: 6,
-		margin: $base-size * 2.5,
-		gap: 24px,
 	),
 	large: (
 		width: 767px,
-		column: 6,
-		margin: $base-size * 3,
-		gap: 32px,
 	),
 	xlarge: (
 		width: 995px,
-		column: 6,
-		margin: $base-size * 4,
-		gap: 32px,
 	),
 	xxlarge: (
 		width: 1199px,
-		column: 8,
-		margin: $base-size * 6,
-		gap: 40px,
 	),
 	xxxlarge: (
 		width: 1280px,
-		column: 8,
-		margin: $base-size * 4,
-		gap: 48px,
 	),
 );
 
