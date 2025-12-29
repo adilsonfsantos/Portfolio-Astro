@@ -4,22 +4,13 @@
 .post {
 	@include mixins.layout-grid(site);
 
-	padding-top: variables.$space-3xl;
+	padding-block-start: variables.$space-3xl;
 
 	&__header {
-		min-height: 55vh;
-		padding-top: variables.$space-xl;
-
-		picture {
-			overflow: hidden;
-			width: 100%;
-		}
+		min-height: 55svh;
 
 		img {
 			color: variables.$white;
-			height: auto;
-			max-width: none;
-			width: 100%;
 		}
 	}
 
@@ -27,44 +18,67 @@
 		@include mixins.typescale(scale-6, medium, headline);
 
 		color: variables.$white;
-		margin: 0;
-		margin-bottom: variables.$space-xl;
+		margin-block-end: variables.$space-xl;
 	}
 
 	&__info {
 		display: grid;
-		gap: variables.$space-xl;
 		grid-template-columns: repeat(auto-fit, minmax(160px, auto));
-		margin-bottom: variables.$space-xl;
+		margin-block-end: variables.$space-xl;
+		gap: variables.$space-xs;
+
+		@include mixins.viewport(small) {
+			gap: variables.$space-xl;
+		}
 
 		&__title {
 			@include mixins.typescale(scale--1, medium, text);
 
-			border-top: solid variables.$black-10 1px;
+			border-top: 1px solid variables.$black-10;
 			color: variables.$white;
-			padding-top: variables.$space-s;
+			padding-block-start: variables.$space-s;
 		}
 
 		&__text {
 			@include mixins.typescale(scale-0, normal, text);
 
+			margin-block-start: variables.$space-3xs;
 			color: variables.$white-90;
 		}
 	}
 
 	&__content {
-		h2,
-		h3,
-		h4,
-		h5,
-		h6,
-		p,
-		blockquote,
-		ul,
-		ol,
-		li {
-			margin: auto;
-			width: min(100%, 720px);
+		@include mixins.flow;
+
+		display: grid;
+		grid-template-columns:
+			[full-width] minmax(variables.$grid-gutter, 1fr)
+			[popout-start] minmax(0, variables.$space-xl)
+			[content-start] minmax(0, 72ch)
+			[content-end] minmax(0, variables.$space-xl)
+			[popout-end] minmax(variables.$grid-gutter, 1fr)
+			[full-width-end];
+		margin-block-start: variables.$space-xl;
+
+		> *,
+		> .content {
+			grid-column: full-width / full-width-end;
+
+			@include mixins.viewport(small) {
+				grid-column: content-start / content-end;
+			}
+		}
+
+		> .popout {
+			grid-column: full-width / full-width-end;
+
+			@include mixins.viewport(small) {
+				grid-column: popout / popout-end;
+			}
+		}
+
+		> .full-width {
+			grid-column: full-width / full-width-end;
 		}
 
 		h2,
@@ -73,41 +87,32 @@
 		h5,
 		h6 {
 			color: variables.$white;
-			margin-bottom: variables.$space-s;
-			text-wrap: balance;
+
+			--flow-space: #{variables.$space-2xl};
 		}
 
 		h2 {
 			@include mixins.typescale(scale-2, medium, headline);
-
-			margin-top: variables.$space-3xl;
 		}
 
 		h3 {
 			@include mixins.typescale(scale-1, medium, headline);
-
-			margin-top: variables.$space-2xl;
 		}
 
 		h4 {
 			@include mixins.typescale(scale-0, medium, headline);
-
-			margin-top: variables.$space-xl;
 		}
 
 		h5 {
 			@include mixins.typescale(scale-0, medium, headline);
-
-			margin-top: variables.$space-l;
 		}
 
 		h6 {
 			@include mixins.typescale(scale--1, medium, headline);
-
-			margin-top: variables.$space-l;
 		}
 
-		p {
+		p,
+		li {
 			@include mixins.typescale(scale-0, normal, text);
 
 			color: variables.$white-90;
@@ -115,14 +120,9 @@
 
 		ul,
 		ol {
-			@include mixins.typescale(scale-0, normal, text);
-
-			padding-left: variables.$space-l;
-		}
-
-		li {
-			color: variables.$white-90;
-			padding-left: variables.$space-s;
+			margin-block-end: 0;
+			padding-inline-start: 0;
+			list-style-position: inside;
 		}
 
 		li:not(:last-child) {
@@ -131,51 +131,24 @@
 
 		img,
 		video {
-			margin: 0 auto;
-			max-width: variables.$page-width;
-			overflow: hidden;
 			width: 100%;
-			color: variables.$white-90;
-			height: auto;
 			text-align: center;
+			text-wrap: balance;
 		}
 
 		video {
 			max-height: 80dvh;
 		}
 
-		h2 + h3,
-		h3 + h4,
-		h4 + h5,
-		h5 + h6 {
-			margin-top: 0;
-		}
-
-		p + picture,
-		p + video,
-		picture + p,
-		picture + picture,
-		video + video,
-		picture + video,
-		video + picture {
-			margin-top: variables.$space-xl;
-		}
-
-		p + ul,
-		p + ol,
-		ul + p,
-		ol + p {
-			margin-top: variables.$space-xs;
-		}
-
-		p + p {
-			margin-top: variables.$space-s;
+		picture,
+		video {
+			--flow-space: #{variables.$space-l};
 		}
 
 		blockquote {
 			border-left: 2px solid variables.$primary;
-			padding-left: variables.$space-m;
-			margin: variables.$space-m auto;
+			padding-inline-start: variables.$space-m;
+			margin-block: variables.$space-m auto;
 
 			p {
 				@include mixins.typescale(scale-1, bold, text);
@@ -189,16 +162,30 @@
 
 				font-style: italic;
 				color: variables.$white-90;
-				margin-top: variables.$space-xs;
+				margin-block-start: variables.$space-xs;
 			}
 		}
+	}
+
+	a {
+		color: variables.$secondary-90;
+		text-decoration: underline;
+	}
+
+	picture,
+	figure {
+		--flow-space: #{variables.$space-xl};
+	}
+
+	img {
+		color: variables.$white-90;
 	}
 
 	hr {
 		border: none;
 		background-color: variables.$black-10;
 		height: 1px;
-		margin-top: variables.$space-xl;
+		margin-block-start: variables.$space-xl;
 	}
 
 	strong {
