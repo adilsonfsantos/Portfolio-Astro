@@ -59,7 +59,7 @@ const { title, image, roles, date, team } = Astro.props as ProjetoData;
 				</p>
 			</div>
 		</div>
-		<Picture src={image} alt="" type="banner" />
+		<Picture src={image} alt="" type="banner" priority />
 	</div>
 	<div class="post__content" itemprop="articleBody">
 		<slot />
