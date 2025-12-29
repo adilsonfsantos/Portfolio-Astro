@@ -56,13 +56,13 @@ $grid-breakpoints-map: (
 		margin: $base-size * 4,
 		gap: 32px,
 	),
-	2xlarge: (
+	xxlarge: (
 		width: 1199px,
 		column: 8,
 		margin: $base-size * 6,
 		gap: 40px,
 	),
-	3xlarge: (
+	xxxlarge: (
 		width: 1280px,
 		column: 8,
 		margin: $base-size * 4,
@@ -75,7 +75,7 @@ $animation-standard: cubic-bezier(0.22, 1, 0.36, 1) !default;
 $duration-standard: 0.3s;
 
 // Font Size
-// // https://utopia.fyi/grid/calculator/?c=232,16,1.125,1240,20,1.2,6,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12
+// https://utopia.fyi/grid/calculator/?c=232,16,1.125,1240,20,1.2,6,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12
 
 $font-size: $base-size;
 $type-map: (
@@ -117,10 +117,7 @@ $space-xl: clamp(3rem, 2.8274rem + 1.1905vw, 3.75rem);
 $space-2xl: clamp(4rem, 3.7698rem + 1.5873vw, 5rem);
 $space-3xl: clamp(6rem, 5.6548rem + 2.381vw, 7.5rem);
 
-/* Custom pairs */
-$space-s-l: clamp(1rem, 0.6548rem + 2.381vw, 2.5rem);
-
 // Grid sizes
 $grid-width-site: 77.5rem;
-$grid-width-post: 45rem;
-$grid-gutter: $space-s-l clamp(1rem, 0.6548rem + 2.381vw, 2.5rem);
+$grid-width-post: 72ch;
+$grid-gutter: clamp(1rem, 0.6548rem + 2.381vw, 2.5rem);
