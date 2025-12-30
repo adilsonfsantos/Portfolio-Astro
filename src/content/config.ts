@@ -1,4 +1,5 @@
 import { defineCollection, z } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import { glob } from "astro/loaders";
 
 const projetos = defineCollection({
@@ -12,26 +13,27 @@ const projetos = defineCollection({
 				title: z.string(),
 				description: z.string(),
 				date: z
-					.string()
-					.or(z.date())
-					.transform((val) => new Date(val)),
+					.union([z.string(), z.date()])
+					.transform((val) => (val instanceof Date ? val : new Date(val))),
 				image: image(),
 				card: image(),
 				isDraft: z.boolean().default(false),
-				categories: z.string().array(),
+				categories: z.array(z.string()),
 				roles: z.array(z.string()),
-				team: z.optional(
-					z.array(
+				team: z
+					.array(
 						z.object({
 							name: z.string(),
-							portfolio: z.optional(z.string()),
 							role: z.string(),
+							portfolio: z.string().optional(),
 						}),
-					),
-				),
+					)
+					.optional(),
 			})
 			.strict(),
 });
+
+export type ProjetoEntry = CollectionEntry<"projetos">;
 
 export const collections = {
 	projetos,
