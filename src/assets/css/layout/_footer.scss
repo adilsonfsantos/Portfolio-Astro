@@ -4,6 +4,7 @@
 .footer {
 	background: variables.$color-black;
 	position: relative;
+	isolation: isolate;
 
 	&__gradient {
 		background: linear-gradient(
