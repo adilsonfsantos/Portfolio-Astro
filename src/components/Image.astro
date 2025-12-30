@@ -5,7 +5,7 @@ import type { ImageMetadata } from "astro";
 type ImageLayout = "content" | "popout" | "full-width";
 type ImageType = "card" | "banner" | "default";
 
-interface Props {
+interface ImageProps {
 	src: ImageMetadata;
 	alt?: string;
 	type?: ImageType;
@@ -19,7 +19,7 @@ const {
 	type = "default",
 	layout,
 	priority = false,
-} = Astro.props;
+} = Astro.props as ImageProps;
 
 // WCAG: alt is required only for informative images
 if (alt === undefined) {
@@ -29,27 +29,30 @@ if (alt === undefined) {
 const loading = priority ? "eager" : "lazy";
 const decoding = priority ? "sync" : "async";
 
-const pictureClass = layout ? `${layout}` : undefined;
+const pictureClass = layout ?? undefined;
 
-let sizes: string;
-let widths: number[];
-
-switch (type) {
-	case "card":
-		sizes =
-			"(min-width: 1260px) 470px, (min-width: 620px) calc(42.1vw - 52px), 100vw";
-		widths = [320, 480, 768];
-		break;
-
-	case "banner":
-		sizes = "(min-width: 1200px) 1104px, 100vw";
-		widths = [320, 480, 768, 1104];
-		break;
-
-	default:
-		sizes = "(min-width: 1200px) 1104px, 100vw";
-		widths = [320, 480, 768, 1104];
+interface ResponsiveConfig {
+	sizes: string;
+	widths: number[];
 }
+
+const responsiveConfig: Record<ImageType, ResponsiveConfig> = {
+	card: {
+		sizes:
+			"(min-width: 1260px) 470px, (min-width: 620px) calc(42.1vw - 52px), 100vw",
+		widths: [320, 480, 768],
+	},
+	banner: {
+		sizes: "(min-width: 1200px) 1104px, 100vw",
+		widths: [320, 480, 768, 1104],
+	},
+	default: {
+		sizes: "(min-width: 1200px) 1104px, 100vw",
+		widths: [320, 480, 768, 1104],
+	},
+};
+
+const { sizes, widths } = responsiveConfig[type];
 ---
 
 <Picture
