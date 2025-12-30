@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 	}));
 }
 
-const { post, prevPost } = Astro.props;
+const { post, prevPost } = Astro.props as Props;
 const { Content } = await render(post);
 const title = [post.data.title, site_name].filter(Boolean).join(" | ");
 ---
