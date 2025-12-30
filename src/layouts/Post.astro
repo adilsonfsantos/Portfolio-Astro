@@ -12,20 +12,28 @@ import "@assets/css/pages/_post.scss";
 
 import Picture from "@components/Image.astro";
 
-import type { CollectionEntry } from "astro:content";
-type Projeto = CollectionEntry<"projetos">;
-type ProjetoData = Projeto["data"];
+interface TeamMember {
+	name: string;
+	role: string;
+	portfolio?: string;
+}
 
-const { title, image, roles, date, team } = Astro.props as ProjetoData;
+interface PostProps {
+	title: string;
+	image: string;
+	roles: string[];
+	date: Date;
+	team?: TeamMember[];
+}
+
+const { title, image, roles, date, team } = Astro.props as PostProps;
 ---
 
 <div class="noise"></div>
 <main id="main">
 	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="post__header">
-			<h1 class="post__title" itemprop="name headline">
-				{title}
-			</h1>
+			<h1 class="post__title" itemprop="name headline">{title}</h1>
 			<div class="post__info">
 				<div>
 					<h3 class="post__info__title">Minha Função</h3>
