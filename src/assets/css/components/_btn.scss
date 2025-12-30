@@ -2,34 +2,40 @@
 @use "../abstracts/variables";
 
 .btn {
-	@include mixins.typescale(scale--1, medium, headline);
-	@include mixins.font-position(center);
-	@include mixins.transition(all);
+	&--primary {
+		@include mixins.btn-base;
 
-	border-radius: variables.$space-m;
-	min-width: 120px;
-	padding: variables.$space-xs variables.$space-m;
-	text-transform: uppercase;
+		color: variables.$color-secondary-90;
+		border: 1px solid variables.$color-secondary-90;
 
-	&__primary {
-		color: variables.$white;
-		background-color: variables.$black;
-		border: 2px solid variables.$secondary;
-
-		&:hover,
-		&:focus {
-			color: variables.$black;
-			background-color: variables.$secondary-90;
+		@supports (backdrop-filter: blur(1px)) {
+			@include mixins.backdrop-bg(variables.$color-secondary-90, 0.2);
 		}
 
-		&:active {
-			color: variables.$black;
-			background-color: variables.$secondary-90;
-		}
+		@include mixins.btn-state(
+			variables.$color-black,
+			variables.$color-secondary-90,
+			variables.$color-secondary-90
+		);
+		@include mixins.btn-a11y(variables.$color-secondary-90);
 	}
 
-	&__secondary {
-		background-color: variables.$black-20;
-		color: variables.$white;
+	&--secondary {
+		@include mixins.btn-base;
+
+		color: variables.$color-white;
+		background-color: variables.$color-white-70;
+		border: 1px solid variables.$color-white-70;
+
+		@supports (backdrop-filter: blur(1px)) {
+			@include mixins.backdrop-bg(variables.$color-white, 0.2);
+		}
+
+		@include mixins.btn-state(
+			variables.$color-black,
+			variables.$color-white,
+			variables.$color-white
+		);
+		@include mixins.btn-a11y(variables.$color-white);
 	}
 }

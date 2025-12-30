@@ -2,70 +2,70 @@
 @use "../abstracts/variables";
 
 .contato {
+	display: flex;
 	align-items: center;
-	display: grid;
-	overflow: hidden;
-	padding: variables.$space-3xl 0;
+	justify-content: center;
 	position: relative;
+	overflow: hidden;
+	min-height: clamp(50svh, 64vh, 80svh);
 
 	&__gradient {
-		background: linear-gradient(
-			45deg,
-			variables.$primary 0%,
-			variables.$secondary 100%
-		);
-		bottom: -50%;
-		content: "";
-		left: -10%;
-		mask-image: radial-gradient(
-			50% 50% at 50% 50%,
-			rgba(0 0 0 / 40%) 0%,
-			rgba(255 255 255 / 0%) 100%
-		);
-		pointer-events: none;
 		position: absolute;
-		top: 50%;
-		width: 120%;
+		inset-block: 50% -50%;
+		inset-inline-start: -10%;
+		inline-size: 120%;
+		pointer-events: none;
+		background: linear-gradient(
+			in oklab 45deg,
+			variables.$color-primary 0%,
+			variables.$color-secondary 100%
+		);
+		mask-image: radial-gradient(
+			ellipse closest-side,
+			rgb(0 0 0 / 40%) 0%,
+			rgb(255 255 255 / 0%) 100%
+		);
 	}
 
-	&__info {
-		grid-column: 1/-1;
+	&__content {
+		@include mixins.layout-grid(site);
+		@include mixins.flow;
 
 		@include mixins.viewport(small) {
 			text-align: center;
 		}
 	}
 
-	&__call {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+	&__cta {
+		@include mixins.typescale(scale-6, medium, headline);
 
-		&--cta {
-			@include mixins.typescale(scale-6, medium, headline);
+		color: variables.$color-white;
+	}
 
-			color: variables.$white;
-			margin-bottom: variables.$space-xs;
-		}
+	&__subtitle {
+		@include mixins.typescale(scale-1, normal, text);
 
-		&--subtitle {
-			@include mixins.typescale(scale-0, normal, text);
-			@include mixins.font-family("iA Writer");
+		color: variables.$color-white-90;
+		max-inline-size: 64ch;
+		margin-inline: auto;
+		text-wrap: balance;
+	}
 
-			color: variables.$white-90;
-			max-width: 640px;
-		}
+	&__email {
+		@include mixins.typescale(scale-1, normal, text);
 
-		&--email {
-			word-wrap: break-word;
+		color: variables.$color-secondary-90;
+		text-decoration: underline;
+		overflow-wrap: break-word;
+
+		&:focus-visible {
+			outline: 2px solid variables.$color-secondary-90;
+			outline-offset: 2px;
 		}
 	}
 
-	a {
-		color: variables.$secondary-90;
-	}
-
-	b {
+	/* Explicit utility to hide decorative-only text */
+	&__hidden {
 		display: none;
 	}
 }

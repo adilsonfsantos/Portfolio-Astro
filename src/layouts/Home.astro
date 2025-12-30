@@ -1,66 +1,73 @@
 ---
 import "@assets/css/abstracts/_mixins.scss";
 import "@assets/css/abstracts/_variables.scss";
-import "@assets/css/base/_base.scss";
+import "@assets/css/base/_reset.scss";
 import "@assets/css/base/_typography.scss";
-import "@assets/css/components/_bg-grid.scss";
+import "@assets/css/base/_base.scss";
+import "@assets/css/components/_btn.scss";
 import "@assets/css/components/_card.scss";
-import "@assets/css/layout/_contact.scss";
-import "@assets/css/layout/_footer.scss";
-import "@assets/css/layout/_grid.scss";
 import "@assets/css/layout/_header.scss";
 import "@assets/css/layout/_hero.scss";
+import "@assets/css/layout/_footer.scss";
+import "@assets/css/layout/_contact.scss";
 import "@assets/css/pages/_home.scss";
+
 import Contact from "@components/Contact.astro";
 import Hero from "@components/Hero.astro";
 import Picture from "@components/Image.astro";
-import { getCollection } from "astro:content";
 import Default from "./Default.astro";
-const { frontmatter } = Astro.props;
-const posts = (await getCollection("projetos")).sort(
-	(b, a) => a.data.date.valueOf() - b.data.date.valueOf(),
-);
-const formatCategories = (values: string[]) =>
-	values.toString().replaceAll(",", " • ");
+
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+interface Frontmatter {
+	title: string;
+	description: string;
+	image?: string | { src: string };
+}
+
+interface HomeProps {
+	frontmatter: Frontmatter;
+}
+
+const { frontmatter } = Astro.props as HomeProps;
+
+// Searches and sorts posts by most recent from "projetos" collection
+const posts: CollectionEntry<"projetos">[] = (
+	await getCollection("projetos")
+).sort((b, a) => a.data.date.valueOf() - b.data.date.valueOf());
+
+// Format categories for cards exibition
+const formatCategories = (values: string[]) => values.join(" • ");
 ---
 
 <Default
 	title={frontmatter.title}
 	description={frontmatter.description}
 	image={frontmatter.image}>
-	<div class="container">
-		<div class="noise"></div>
-		<Hero />
-		<section class="projetos grid__module--site" id="projetos">
-			<hr />
-			<div class="projetos__header">
-				<h2 class="projetos__header--title">Principais projetos</h2>
-				<span class="projetos__header--subtitle">
-					Ou algumas coisas legais que eu fiz
-				</span>
-			</div>
-			<div class="projetos__principais">
-				{
-					posts.map((post) => (
-						<a href={`/projetos/${post.id}/`} class="card">
-							<div class="noise" />
-							<Picture
-								src={post.data.card}
-								alt={post.data.description}
-								type="card"
-							/>
-							<div class="card__description">
-								<h3 class="card__description--title">{post.data.title}</h3>
-								<span class="card__description--tag">
-									{formatCategories(post.data.categories)}
-								</span>
-							</div>
-						</a>
-					))
-				}
-			</div>
-			<hr />
+	<div class="noise"></div>
+	<Hero />
+	<main id="main">
+		<section class="projetos" id="projetos">
+			{
+				posts.map((post) => (
+					<a href={`/projetos/${post.id}/`} class="card">
+						<div class="noise" />
+						<Picture
+							src={post.data.card}
+							alt={post.data.description}
+							type="card"
+						/>
+						<div class="card__description">
+							<h2 class="card__title">{post.data.title}</h2>
+							<span class="card__tag">
+								{formatCategories(post.data.categories)}
+							</span>
+						</div>
+					</a>
+				))
+			}
 		</section>
-		<Contact />
-	</div>
+	</main>
+	<Contact />
 </Default>

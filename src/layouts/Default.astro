@@ -3,48 +3,50 @@ import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 import Meta from "@components/Meta.astro";
 import { site_lang } from "../consts";
-const { title, description, image } = Astro.props;
+
+interface DefaultLayoutProps {
+	title: string;
+	description: string;
+	image?: { src: string } | string;
+}
+
+const { title, description, image } = Astro.props as DefaultLayoutProps;
 ---
 
 <!doctype html>
 <html lang={site_lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<!--
-		<link
-			rel="preload"
-			as="font"
-			href="/assets/fonts/iAWriterDuoS-Regular.woff2"
-			type="font/woff2"
-			crossorigin
-		/>
 		<link
 			rel="preload"
 			as="font"
 			href="/assets/fonts/InterVariable.woff2"
 			type="font/woff2"
 			crossorigin
-/>
--->
+		/>
 		<link
 			rel="preload"
 			as="image"
 			href="/assets/images/noise.webp"
 			type="image/webp"
 		/>
-		<style is:global>
+		<style is:global is:inline>
 			.noise {
 				background-image: url("/assets/images/noise.webp");
+				background-repeat: repeat;
+				background-size: auto;
 				pointer-events: none;
 				position: absolute;
 				inset: 0;
+				z-index: -1;
 			}
 		</style>
 		<Meta title={title} description={description} image={image} />
 	</head>
 	<body>
-		<a class="skip-to-content-link" href="#main">Pular para o conteúdo</a>
-
+		<a class="btn--primary skip-to-content-link" href="#main">
+			Pular para o conteúdo
+		</a>
 		<Header />
 		{
 			/* Bypass Facebook tracking:
@@ -52,9 +54,9 @@ const { title, description, image } = Astro.props;
 		}
 		<span id="iab-pcm-sdk"></span>
 		<span id="iab-autofill-sdk"></span>
-		<main id="main">
+		<div class="wrapper">
 			<slot />
-		</main>
-		<Footer />
+			<Footer />
+		</div>
 	</body>
 </html>

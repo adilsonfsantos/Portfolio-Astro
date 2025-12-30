@@ -7,6 +7,7 @@ import compressor from "astro-compressor";
 export default defineConfig({
 	site: "https://adilsonsantos.pages.dev/",
 	prefetch: false,
+	build: { inlineStylesheets: "never" },
 	integrations: [
 		mdx(),
 		sitemap({
@@ -18,4 +19,27 @@ export default defineConfig({
 		service: sharpImageService(),
 	},
 	trailingSlash: "always",
+	experimental: {
+		csp: {
+			styleDirective: {
+				resources: ["'self'"],
+			},
+			scriptDirective: {
+				resources: ["'self'"],
+				hashes: ["sha256-PSKhptkRukXVM85LZ6a5MEeEYdey0A8i17ShA9B5hXs="],
+			},
+			directives: [
+				"default-src 'none'",
+				"img-src 'self'",
+				"connect-src 'self'",
+				"font-src 'self'",
+				"manifest-src 'self'",
+				"form-action 'self'",
+				"base-uri 'self'",
+				"object-src 'none'",
+				"frame-src 'self'",
+				"upgrade-insecure-requests",
+			],
+		},
+	},
 });

@@ -2,7 +2,7 @@
 	font-display: swap;
 	font-family: "Inter UI";
 	font-style: normal;
-	font-weight: 300 400 500;
+	font-weight: 100 900;
 	src: url("/assets/fonts/InterVariable.woff2") format("woff2");
 }
 
@@ -10,38 +10,6 @@
 	font-display: swap;
 	font-family: "Inter UI";
 	font-style: italic;
-	font-weight: 400;
+	font-weight: 100 900;
 	src: url("/assets/fonts/InterVariable-Italic.woff2") format("woff2");
-}
-
-@font-face {
-	font-display: swap;
-	font-family: "iA Writer Duo";
-	font-style: normal;
-	font-weight: 400;
-	src: url("/assets/fonts/iAWriterDuoS-Regular.woff2") format("woff2");
-}
-
-@font-face {
-	font-display: swap;
-	font-family: "iA Writer Duo";
-	font-style: normal;
-	font-weight: 600;
-	src: url("/assets/fonts/iAWriterDuoS-Bold.woff2") format("woff2");
-}
-
-@font-face {
-	font-display: swap;
-	font-family: "iA Writer Duo";
-	font-style: italic;
-	font-weight: 400;
-	src: url("/assets/fonts/iAWriterDuoS-Italic.woff2") format("woff2");
-}
-
-@font-face {
-	font-display: swap;
-	font-family: "iA Writer Duo";
-	font-style: italic;
-	font-weight: 600;
-	src: url("/assets/fonts/iAWriterDuoS-BoldItalic.woff2") format("woff2");
 }

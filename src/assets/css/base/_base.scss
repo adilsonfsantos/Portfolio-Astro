@@ -1,93 +1,74 @@
 @use "../abstracts/mixins";
 @use "../abstracts/variables";
 
+// Root elements
 html {
-	box-sizing: border-box;
+	scrollbar-color: variables.$color-white-70 transparent;
+	scrollbar-width: thin;
+	height: 100%;
 }
 
-*,
-*::before,
-*::after {
-	box-sizing: inherit;
-	margin: 0;
-	padding: 0;
-	min-width: 0;
-}
-
-html,
 body {
-	@include mixins.font-family("Inter");
-
-	background-color: variables.$black;
+	background-color: variables.$color-black;
+	font-family:
+		"Inter UI", "Helvetica Neue", Roboto, "Arial Nova", Arial, system-ui,
+		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+		"Noto Color Emoji";
 	font-feature-settings:
 		"liga" 1,
 		"case" 1,
 		"zero" 1,
 		"calt" 1;
-	height: 100%;
-	scroll-behavior: smooth;
-	text-rendering: optimizelegibility;
+	font-kerning: normal;
+	font-size: 1rem;
+	line-height: 1.6;
+	hanging-punctuation: first allow-end last;
+	min-height: 100%;
 }
 
-article,
-figcaption,
-figure,
-footer,
-header,
-main,
-menu,
-nav,
-picture,
-section,
-summary {
-	display: block;
-}
-
+// Selection
 ::selection {
-	background-color: variables.$primary-20;
-	color: variables.$white;
+	background-color: variables.$color-primary-20;
+	color: variables.$color-white;
 }
 
+// Link
 a,
 a:visited,
 a:active {
-	list-style: none;
 	text-decoration: none;
 }
 
-a:hover {
-	cursor: pointer;
-}
-
-main {
-	position: relative;
-}
-
+// Media elements
 img {
-	background-repeat: no-repeat;
-	background-size: cover;
+	display: block;
 	height: auto;
 	max-width: 100%;
 	object-fit: cover;
-	shape-margin: variables.$space-xs;
-	vertical-align: middle;
-	width: 100%;
 }
 
+// Main wrapper
+.wrapper {
+	position: relative;
+}
+
+/* Skip to main content A11y */
 .skip-to-content-link {
-	@include mixins.transition(all);
+	@include mixins.transition(transform);
 
 	left: 50%;
 	position: absolute;
-	transform: translate(-50%, -100%);
-	z-index: 30;
-	color: variables.$secondary-90;
+	transform: translate(-50%, -150%);
+	z-index: 100;
+	color: variables.$color-secondary-90;
+
+	&:focus-visible {
+		transform: translate(-50%, variables.$space-s);
+		outline: 2px solid variables.$color-secondary-90;
+	}
 }
 
-.skip-to-content-link:focus {
-	transform: translate(-50%, variables.$space-s);
-}
-
-strong {
-	font-weight: 600;
+// Extra scroll margin for elements that have anchors
+:target {
+	scroll-margin-block: variables.$space-2xl;
 }

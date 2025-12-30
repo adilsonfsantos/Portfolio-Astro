@@ -1,21 +1,38 @@
-import { includeIgnoreFile } from "@eslint/compat";
+import { defineConfig } from "eslint/config";
 import js from "@eslint/js";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import eslintConfigPrettier from "eslint-config-prettier";
+import ts from "typescript-eslint";
+import astro from "eslint-plugin-astro";
+import * as mdx from "eslint-plugin-mdx";
+import prettier from "eslint-plugin-prettier/recommended";
+import globals from "globals";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const gitignorePath = path.resolve(__dirname, ".gitignore");
-
-export default [
-	js.configs.recommended,
+export default defineConfig([
+	{
+		ignores: ["**/dist", "**/node_modules", "**/.astro"],
+	},
 	{
 		languageOptions: {
-			ecmaVersion: "latest",
+			ecmaVersion: 2022,
 			sourceType: "module",
+			globals: {
+				...globals.node,
+			},
 		},
 	},
-	eslintConfigPrettier,
-	includeIgnoreFile(gitignorePath),
-];
+	js.configs.recommended,
+	...ts.configs.recommended,
+	...astro.configs.recommended,
+	{
+		files: ["**/*.mdx"],
+		...mdx.flat,
+		processor: mdx.createRemarkProcessor({
+			lintCodeBlocks: true,
+		}),
+		rules: {
+			"@typescript-eslint/no-unused-vars": "off",
+			"@typescript-eslint/no-unused-expressions": "off",
+		},
+	},
+	{ files: ["**/*.mdx"], ...mdx.flatCodeBlocks },
+	prettier,
+]);

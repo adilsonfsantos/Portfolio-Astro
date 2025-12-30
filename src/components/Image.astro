@@ -1,41 +1,68 @@
 ---
 import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
 
-const { src, alt, type } = Astro.props;
+type ImageLayout = "content" | "popout" | "full-width";
+type ImageType = "card" | "banner" | "default";
 
-if (alt === undefined || typeof alt !== "string") {
-	// You bet we throw an error on missing alt (alt="" works okay)
-	throw new Error(`Missing \`alt\` on image from: ${src}`);
+interface Props {
+	src: ImageMetadata;
+	alt?: string;
+	type?: ImageType;
+	layout?: ImageLayout;
+	priority?: boolean;
 }
-let imageSizes: string;
-let loadType: any;
-let imageWidths: number[];
 
-if (type === "card") {
-	imageSizes =
-		"(min-width: 1260px) 470px, (min-width: 620px) calc(42.1vw - 52px), \
-				calc(92.33vw - 64px), 100vw";
-	loadType = "lazy";
-	imageWidths = [320, 480, 768];
-} else if (type === "banner") {
-	imageSizes = "(min-width: 1200px) 1104px, 87.5vw";
-	loadType = "eager";
-	imageWidths = [320, 480, 768, 1104];
-} else {
-	imageSizes = "(min-width: 1200px) 1104px, 87.5vw";
-	loadType = "lazy";
-	imageWidths = [320, 480, 768, 1104];
+const {
+	src,
+	alt = "",
+	type = "default",
+	layout,
+	priority = false,
+} = Astro.props;
+
+// WCAG: alt is required only for informative images
+if (alt === undefined) {
+	throw new Error(`Missing \`alt\` on image: ${src.src}`);
+}
+
+const loading = priority ? "eager" : "lazy";
+const decoding = priority ? "sync" : "async";
+
+const pictureClass = layout ? `${layout}` : undefined;
+
+let sizes: string;
+let widths: number[];
+
+switch (type) {
+	case "card":
+		sizes =
+			"(min-width: 1260px) 470px, (min-width: 620px) calc(42.1vw - 52px), 100vw";
+		widths = [320, 480, 768];
+		break;
+
+	case "banner":
+		sizes = "(min-width: 1200px) 1104px, 100vw";
+		widths = [320, 480, 768, 1104];
+		break;
+
+	default:
+		sizes = "(min-width: 1200px) 1104px, 100vw";
+		widths = [320, 480, 768, 1104];
 }
 ---
 
 <Picture
 	src={src}
 	alt={alt}
-	loading={loadType}
-	sizes={imageSizes}
-	widths={imageWidths}
-	decoding="async"
+	loading={loading}
+	decoding={decoding}
+	sizes={sizes}
+	widths={widths}
 	formats={["webp"]}
 	quality={90}
 	fallbackFormat="webp"
+	pictureAttributes={{
+		class: pictureClass,
+	}}
 />

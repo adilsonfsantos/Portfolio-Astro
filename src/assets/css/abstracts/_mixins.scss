@@ -1,103 +1,169 @@
 @use "sass:list";
-@use "sass:math";
 @use "sass:map";
 @use "variables";
 
-@mixin viewport($size, $orientation: portrait, $width: width) {
-	@if not(list.index(map.keys(variables.$grid-breakpoints-map), $size)) {
+// Media queries
+@mixin viewport($size, $orientation: portrait, $key: width) {
+	$breakpoints: variables.$grid-breakpoints;
+
+	@if not list.index(map.keys($breakpoints), $size) {
 		@warn "Atenção: `#{$size}` não é um breakpoint válido.";
-	} @else if $orientation == landscape {
-		@media (min-width: #{map.get(variables.$grid-breakpoints-map, $size, $width)}) and (orientation: landscape) {
+	}
+
+	$min-width: map.get($breakpoints, $size, $key);
+
+	@if $orientation == landscape {
+		@media (min-width: $min-width) and (orientation: landscape) {
 			@content;
 		}
 	} @else {
-		@media (min-width: #{map.get(variables.$grid-breakpoints-map, $size, $width)}) {
+		@media (min-width: $min-width) {
 			@content;
 		}
-	}
-}
-
-@mixin grid-image {
-	grid-template-columns: minmax(5vw, 1fr) minmax(0, 1024px) minmax(5vw, 1fr);
-}
-
-@mixin grid-post {
-	grid-template-columns: minmax(0, 680px);
-
-	@include viewport(large) {
-		grid-template-columns: 1fr minmax(0, 680px) 1fr;
 	}
 }
 
 // ANIMATION
 @mixin transition(
-	$name: all,
+	$property: all,
 	$duration: variables.$duration-standard,
-	$speed: variables.$animation-standard,
+	$timing: variables.$animation-standard,
 	$delay: 0ms
 ) {
-	transition: $name $duration $speed $delay;
+	transition: $property $duration $timing $delay;
 }
 
 @mixin animation(
 	$name,
 	$duration: variables.$duration-standard,
 	$speed: variables.$animation-standard,
-	$loop: 1,
+	$iteration-count: 1,
 	$delay: 0ms
 ) {
-	animation: $name $duration $speed $loop;
+	animation: $name $duration $speed $iteration-count $delay;
 }
 
-// FONT
-@mixin typescale($size, $weight: 400, $line) {
-	font-size: #{map.get(variables.$type-map, $size, size)};
+// Typography
+@mixin typescale($size, $weight: normal, $line: text) {
+	font-size: map.get(variables.$type-map, $size, size);
 
-	@if $weight == "bold" {
+	@if $weight == bold {
 		font-weight: 600;
-	} @else if $weight == "medium" {
+	} @else if $weight == medium {
 		font-weight: 500;
-	} @else if $weight == "normal" {
+	} @else if $weight == normal {
 		font-weight: 400;
-	} @else if $weight == "light" {
+	} @else if $weight == light {
 		font-weight: 300;
 	} @else {
-		@warn " Atenção: `#{$weight}` não é um valor válido.";
+		@warn "Atenção: `#{$weight}` não é suportado.";
 	}
 
-	@if $line == "title" {
-		line-height: 100%;
-	} @else if $line == "headline" {
-		line-height: 120%;
-	} @else if $line == "text" {
-		line-height: 160%;
+	@if $line == title {
+		line-height: 1.1;
+	} @else if $line == headline {
+		line-height: 1.2;
+	} @else if $line == text {
+		line-height: 1.6;
 	} @else {
-		@warn " atenção: `#{$line}` não é um valor válido.";
+		@warn "Atenção: `#{$line}` não é suportado.";
 	}
 }
 
-@mixin font-family($family) {
-	@if $family == "Inter" {
-		font-family:
-			"Inter UI", "Helvetica Neue", Roboto, "Arial Nova", Arial, system-ui,
-			sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-			"Noto Color Emoji";
-	} @else if $family == "iA Writer" {
-		font-family:
-			"iA Writer Duo", "Helvetica Neue", Roboto, "Arial Nova", Arial, system-ui,
-			sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-			"Noto Color Emoji";
-	} @else {
-		@warn " atenção: `#{$family}` não é um valor válido.";
-	}
-}
-
+// Text alignment
 @mixin font-position($position) {
-	@if $position == center {
-		text-align: center;
-	} @else if $position == right {
-		text-align: right;
-	} @else if $position == left {
-		text-align: left;
+	@if $position == center or $position == right or $position == left {
+		text-align: $position;
+	} @else {
+		@warn "Atenção: Posição `#{$position}` inválida.";
 	}
+}
+
+// Layout wrappers
+@mixin layout-grid($type) {
+	@if $type == site {
+		max-inline-size: variables.$grid-width-site;
+		padding-inline: variables.$grid-gutter;
+		margin-inline: auto;
+	} @else if $type == blog {
+		max-inline-size: variables.$grid-width-post;
+		padding-inline: variables.$grid-gutter;
+		margin-inline: auto;
+	} @else {
+		@warn "Atenção: Layout `#{$type}` não é um valor válido.";
+	}
+}
+
+// abstracts/_grid.scss ou layout/_grid.scss
+@mixin content-grid {
+	display: grid;
+	grid-template-columns:
+		[full-width] minmax(variables.$grid-gutter, 1fr)
+		[popout-start] minmax(0, variables.$space-xl)
+		[content-start] minmax(0, 72ch)
+		[content-end] minmax(0, variables.$space-xl)
+		[popout-end] minmax(variables.$grid-gutter, 1fr)
+		[full-width-end];
+
+	> * {
+		grid-column: content-start / content-end;
+	}
+
+	> .full-width {
+		grid-column: full-width / full-width-end;
+	}
+
+	> .popout {
+		grid-column: popout-start / popout-end;
+	}
+}
+
+// Flow (vertical rhythm)
+@mixin flow($space: variables.$space-s) {
+	> * + * {
+		margin-block-start: var(--flow-space, #{$space});
+	}
+}
+
+// Base for all buttons
+@mixin btn-base {
+	@include typescale(scale-0, medium, headline);
+	@include font-position(center);
+	@include transition(background-color);
+	@include transition(border-color);
+
+	min-inline-size: clamp(120px, 20%, 200px);
+	padding-block: variables.$space-xs;
+	padding-inline: variables.$space-m;
+	inline-size: max-content;
+}
+
+// Mixin para backdrop-filter
+@mixin backdrop-bg($color, $alpha) {
+	background-color: rgba($color, $alpha);
+	backdrop-filter: saturate(180%) blur(variables.$base-size * 0.25);
+}
+
+// Button states
+@mixin btn-state($text-color, $bg-color, $border-color: null) {
+	&:hover,
+	&:active {
+		color: $text-color;
+		background-color: $bg-color;
+
+		@if $border-color {
+			border-color: $border-color;
+		}
+	}
+}
+
+@mixin btn-a11y($color) {
+	&:focus-visible {
+		outline: 2px solid $color;
+		outline-offset: 2px;
+	}
+
+	// Clicable buttons
+	min-block-size: 48px;
+	min-inline-size: 48px;
 }

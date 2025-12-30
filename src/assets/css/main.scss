@@ -1,0 +1,35 @@
+/* ==========================
+   ABSTRACTS (não geram CSS)
+========================== */
+@use "abstracts/variables";
+@use "abstracts/mixins";
+
+/* ==========================
+   BASE (reset + fundamentos)
+========================== */
+@use "base/reset";
+@use "base/typography";
+@use "base/base";
+
+/* ==========================
+   COMPONENTS (reutilizáveis)
+========================== */
+@use "components/btn";
+@use "components/card";
+@use "components/post_nav";
+
+/* ==========================
+   LAYOUT (seções estruturais)
+========================== */
+@use "layout/header";
+@use "layout/footer";
+@use "layout/hero";
+@use "layout/contact";
+
+/* ==========================
+   PAGES (escopo semântico)
+========================== */
+@use "pages/home";
+@use "pages/page";
+@use "pages/post";
+@use "pages/not-found";
