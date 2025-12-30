@@ -2,12 +2,15 @@
 @use "sass:map";
 @use "variables";
 
+// Media queries
 @mixin viewport($size, $orientation: portrait, $key: width) {
-	@if not list.index(map.keys(variables.$grid-breakpoints-map), $size) {
+	$breakpoints: variables.$grid-breakpoints;
+
+	@if not list.index(map.keys($breakpoints), $size) {
 		@warn "Atenção: `#{$size}` não é um breakpoint válido.";
 	}
 
-	$min-width: map.get(variables.$grid-breakpoints-map, $size, $key);
+	$min-width: map.get($breakpoints, $size, $key);
 
 	@if $orientation == landscape {
 		@media (min-width: $min-width) and (orientation: landscape) {
@@ -40,7 +43,7 @@
 	animation: $name $duration $speed $iteration-count $delay;
 }
 
-// FONT
+// Typography
 @mixin typescale($size, $weight: normal, $line: text) {
 	font-size: map.get(variables.$type-map, $size, size);
 
@@ -67,6 +70,7 @@
 	}
 }
 
+// Text alignment
 @mixin font-position($position) {
 	@if $position == center or $position == right or $position == left {
 		text-align: $position;
@@ -75,6 +79,7 @@
 	}
 }
 
+// Layout wrappers
 @mixin layout-grid($type) {
 	@if $type == site {
 		max-inline-size: variables.$grid-width-site;
@@ -89,8 +94,76 @@
 	}
 }
 
+// abstracts/_grid.scss ou layout/_grid.scss
+@mixin content-grid {
+	display: grid;
+	grid-template-columns:
+		[full-width] minmax(variables.$grid-gutter, 1fr)
+		[popout-start] minmax(0, variables.$space-xl)
+		[content-start] minmax(0, 72ch)
+		[content-end] minmax(0, variables.$space-xl)
+		[popout-end] minmax(variables.$grid-gutter, 1fr)
+		[full-width-end];
+
+	> * {
+		grid-column: content-start / content-end;
+	}
+
+	> .full-width {
+		grid-column: full-width / full-width-end;
+	}
+
+	> .popout {
+		grid-column: popout-start / popout-end;
+	}
+}
+
+// Flow (vertical rhythm)
 @mixin flow($space: variables.$space-s) {
 	> * + * {
 		margin-block-start: var(--flow-space, #{$space});
 	}
+}
+
+// Base for all buttons
+@mixin btn-base {
+	@include typescale(scale-0, medium, headline);
+	@include font-position(center);
+	@include transition(background-color);
+	@include transition(border-color);
+
+	min-inline-size: clamp(120px, 20%, 200px);
+	padding-block: variables.$space-xs;
+	padding-inline: variables.$space-m;
+	inline-size: max-content;
+}
+
+// Mixin para backdrop-filter
+@mixin backdrop-bg($color, $alpha) {
+	background-color: rgba($color, $alpha);
+	backdrop-filter: saturate(180%) blur(variables.$base-size * 0.25);
+}
+
+// Button states
+@mixin btn-state($text-color, $bg-color, $border-color: null) {
+	&:hover,
+	&:active {
+		color: $text-color;
+		background-color: $bg-color;
+
+		@if $border-color {
+			border-color: $border-color;
+		}
+	}
+}
+
+@mixin btn-a11y($color) {
+	&:focus-visible {
+		outline: 2px solid $color;
+		outline-offset: 2px;
+	}
+
+	// Clicable buttons
+	min-block-size: 48px;
+	min-inline-size: 48px;
 }

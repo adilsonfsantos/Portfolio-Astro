@@ -4,34 +4,32 @@
 .contato {
 	display: flex;
 	align-items: center;
-	overflow: hidden;
-	min-height: 64svh;
-	padding: variables.$space-3xl 0;
+	justify-content: center;
 	position: relative;
+	overflow: hidden;
+	min-height: clamp(50svh, 64vh, 80svh);
 
 	&__gradient {
+		position: absolute;
+		inset-block: 50% -50%;
+		inset-inline-start: -10%;
+		inline-size: 120%;
+		pointer-events: none;
 		background: linear-gradient(
 			in oklab 45deg,
-			variables.$primary 0%,
-			variables.$secondary 100%
+			variables.$color-primary 0%,
+			variables.$color-secondary 100%
 		);
-		bottom: -50%;
-		left: -10%;
 		mask-image: radial-gradient(
 			ellipse closest-side,
 			rgb(0 0 0 / 40%) 0%,
 			rgb(255 255 255 / 0%) 100%
 		);
-		pointer-events: none;
-		position: absolute;
-		top: 50%;
-		width: 120%;
 	}
 
 	&__content {
 		@include mixins.layout-grid(site);
-
-		align-content: center;
+		@include mixins.flow;
 
 		@include mixins.viewport(small) {
 			text-align: center;
@@ -41,28 +39,33 @@
 	&__cta {
 		@include mixins.typescale(scale-6, medium, headline);
 
-		color: variables.$white;
-		margin-bottom: variables.$space-3xs;
+		color: variables.$color-white;
 	}
 
 	&__subtitle {
 		@include mixins.typescale(scale-1, normal, text);
 
-		color: variables.$white-90;
-		max-width: variables.$base-size * 40;
+		color: variables.$color-white-90;
+		max-inline-size: 64ch;
+		margin-inline: auto;
 		text-wrap: balance;
-		margin-bottom: variables.$space-s;
 	}
 
 	&__email {
 		@include mixins.typescale(scale-1, normal, text);
 
-		color: variables.$secondary-90;
+		color: variables.$color-secondary-90;
 		text-decoration: underline;
 		overflow-wrap: break-word;
+
+		&:focus-visible {
+			outline: 2px solid variables.$color-secondary-90;
+			outline-offset: 2px;
+		}
 	}
 
-	b {
+	/* Explicit utility to hide decorative-only text */
+	&__hidden {
 		display: none;
 	}
 }

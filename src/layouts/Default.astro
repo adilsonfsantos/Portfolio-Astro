@@ -23,18 +23,21 @@ const { title, description, image } = Astro.props;
 			href="/assets/images/noise.webp"
 			type="image/webp"
 		/>
-		<style is:global>
+		<style is:global is:inline>
 			.noise {
 				background-image: url("/assets/images/noise.webp");
+				background-repeat: repeat;
+				background-size: auto;
 				pointer-events: none;
 				position: absolute;
 				inset: 0;
+				z-index: -1;
 			}
 		</style>
 		<Meta title={title} description={description} image={image} />
 	</head>
 	<body>
-		<a class="btn btn__primary skip-to-content-link" href="#main">
+		<a class="btn--primary skip-to-content-link" href="#main">
 			Pular para o conteúdo
 		</a>
 		<Header />
@@ -44,9 +47,9 @@ const { title, description, image } = Astro.props;
 		}
 		<span id="iab-pcm-sdk"></span>
 		<span id="iab-autofill-sdk"></span>
-		<main id="main">
+		<div class="wrapper">
 			<slot />
-		</main>
-		<Footer />
+			<Footer />
+		</div>
 	</body>
 </html>

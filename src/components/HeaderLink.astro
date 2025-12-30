@@ -11,7 +11,11 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 
 <a
 	href={href}
-	class:list={["header__link", className, { "header__link--active": isActive }]}
+	class:list={[
+		"header__link",
+		className,
+		{ "header__link--current": isActive },
+	]}
 	{...props}>
 	<slot />
 </a>

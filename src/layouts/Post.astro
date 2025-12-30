@@ -1,12 +1,13 @@
 ---
-import "@assets/css/base/_reset.scss";
 import "@assets/css/abstracts/_mixins.scss";
 import "@assets/css/abstracts/_variables.scss";
-import "@assets/css/base/_base.scss";
+import "@assets/css/base/_reset.scss";
 import "@assets/css/base/_typography.scss";
-import "@assets/css/components/_navigation.scss";
-import "@assets/css/layout/_footer.scss";
+import "@assets/css/base/_base.scss";
+import "@assets/css/components/_btn.scss";
+import "@assets/css/components/_post_nav.scss";
 import "@assets/css/layout/_header.scss";
+import "@assets/css/layout/_footer.scss";
 import "@assets/css/pages/_post.scss";
 
 import Picture from "@components/Image.astro";
@@ -19,50 +20,52 @@ const { title, image, roles, date, team } = Astro.props as ProjetoData;
 ---
 
 <div class="noise"></div>
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="post__header">
-		<h1 class="post__title" itemprop="name headline">
-			{title}
-		</h1>
-		<div class="post__info">
-			<div>
-				<h3 class="post__info__title">Minha Função</h3>
-				{roles.map((role) => <p class="post__info__text">{role}</p>)}
+<main id="main">
+	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+		<div class="post__header">
+			<h1 class="post__title" itemprop="name headline">
+				{title}
+			</h1>
+			<div class="post__info">
+				<div>
+					<h3 class="post__info__title">Minha Função</h3>
+					{roles.map((role) => <p class="post__info__text">{role}</p>)}
+				</div>
+				{
+					team && (
+						<div>
+							<h3 class="post__info__title">Equipe</h3>
+							{team.map((member) => (
+								<p class="post__info__text">
+									{member.portfolio ? (
+										<a
+											href={member.portfolio}
+											rel="noopener noreferrer"
+											target="_blank">
+											{member.name}, {member.role}
+										</a>
+									) : (
+										<>
+											{member.name}, {member.role}
+										</>
+									)}
+								</p>
+							))}
+						</div>
+					)
+				}
+				<div>
+					<h3 class="post__info__title">Data</h3>
+					<p class="post__info__text">
+						{date.getFullYear()}
+					</p>
+				</div>
 			</div>
-			{
-				team && (
-					<div>
-						<h3 class="post__info__title">Equipe</h3>
-						{team.map((member) => (
-							<p class="post__info__text">
-								{member.portfolio ? (
-									<a
-										href={member.portfolio}
-										rel="noopener noreferrer"
-										target="_blank">
-										{member.name}, {member.role}
-									</a>
-								) : (
-									<>
-										{member.name}, {member.role}
-									</>
-								)}
-							</p>
-						))}
-					</div>
-				)
-			}
-			<div>
-				<h3 class="post__info__title">Data</h3>
-				<p class="post__info__text">
-					{date.getFullYear()}
-				</p>
-			</div>
+			<Picture src={image} alt="" type="banner" priority />
 		</div>
-		<Picture src={image} alt="" type="banner" priority />
-	</div>
-	<div class="post__content" itemprop="articleBody">
-		<slot />
-		<hr />
-	</div>
-</article>
+		<div class="post__content" itemprop="articleBody">
+			<slot />
+			<hr />
+		</div>
+	</article>
+</main>

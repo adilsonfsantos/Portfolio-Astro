@@ -1,14 +1,15 @@
 @use "../abstracts/mixins";
 @use "../abstracts/variables";
 
+// Root elements
 html {
-	scrollbar-color: variables.$white-70 transparent;
+	scrollbar-color: variables.$color-white-70 transparent;
 	scrollbar-width: thin;
 	height: 100%;
 }
 
 body {
-	background-color: variables.$black;
+	background-color: variables.$color-black;
 	font-family:
 		"Inter UI", "Helvetica Neue", Roboto, "Arial Nova", Arial, system-ui,
 		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
@@ -20,48 +21,54 @@ body {
 		"calt" 1;
 	font-kerning: normal;
 	font-size: 1rem;
+	line-height: 1.6;
 	hanging-punctuation: first allow-end last;
+	min-height: 100%;
 }
 
+// Selection
 ::selection {
-	background-color: variables.$primary-20;
-	color: variables.$white;
+	background-color: variables.$color-primary-20;
+	color: variables.$color-white;
 }
 
+// Link
 a,
 a:visited,
 a:active {
-	list-style: none;
 	text-decoration: none;
 }
 
-a:hover {
-	cursor: pointer;
-}
-
-main {
-	position: relative;
-}
-
+// Media elements
 img {
 	display: block;
 	height: auto;
 	max-width: 100%;
 	object-fit: cover;
-	vertical-align: middle;
+}
+
+// Main wrapper
+.wrapper {
+	position: relative;
 }
 
 /* Skip to main content A11y */
 .skip-to-content-link {
-	@include mixins.transition(all);
+	@include mixins.transition(transform);
 
 	left: 50%;
 	position: absolute;
-	transform: translate(-50%, -100%);
-	z-index: 30;
-	color: variables.$secondary-90;
+	transform: translate(-50%, -150%);
+	z-index: 100;
+	color: variables.$color-secondary-90;
+
+	&:focus-visible {
+		transform: translate(-50%, variables.$space-s);
+		outline: 2px solid variables.$color-secondary-90;
+	}
 }
 
-.skip-to-content-link:focus {
-	transform: translate(-50%, variables.$space-s);
+// Extra scroll margin for elements that have anchors
+:target {
+	scroll-margin-block: variables.$space-2xl;
 }

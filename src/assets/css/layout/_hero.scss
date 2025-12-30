@@ -3,45 +3,47 @@
 
 .hero {
 	position: relative;
+	overflow: hidden;
 
 	&__content {
 		@include mixins.layout-grid(site);
 
-		align-content: center;
-		min-height: 88svh;
-		padding-bottom: variables.$space-xs;
-		padding-top: variables.$space-2xl;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: min(88svh, 56rem);
+		padding-block: variables.$space-2xl variables.$space-xs;
 	}
 
 	&__title {
 		@include mixins.typescale(scale-6, medium, title);
 
-		color: variables.$white;
-		margin: 0;
+		color: variables.$color-white;
+		margin-block: 0;
 	}
 
 	&__subtitle {
 		@include mixins.typescale(scale-1, normal, text);
 
-		color: variables.$white-90;
-		margin-top: variables.$space-xs;
-		max-width: variables.$base-size * 40;
+		color: variables.$color-white-90;
+		margin-block-start: variables.$space-xs;
+		max-inline-size: 60ch;
 		text-wrap: balance;
 	}
 
 	&__bg {
-		background:
-			linear-gradient(to right, variables.$black-10 1px, transparent 1px),
-			linear-gradient(to bottom, variables.$black-10 1px, transparent 1px);
-		background-size: 1.5em 1.5em;
-		inset: 0;
 		position: absolute;
+		inset: 0;
+		z-index: -1;
+		background:
+			linear-gradient(to right, variables.$color-black-10 1px, transparent 1px),
+			linear-gradient(to bottom, variables.$color-black-10 1px, transparent 1px);
+		background-size: 1.5em 1.5em;
 		mask-image: linear-gradient(
 			180deg,
-			rgba(variables.$black, 0%) 0%,
-			rgba(variables.$black, 50%) 50%,
-			rgba(variables.$white, 0%) 100%
+			rgba(variables.$color-black, 0%) 0%,
+			rgba(variables.$color-black, 50%) 50%,
+			rgba(variables.$color-white, 0%) 100%
 		);
-		z-index: -1;
 	}
 }

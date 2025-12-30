@@ -9,27 +9,28 @@
 		@include mixins.layout-grid(site);
 
 		@include mixins.viewport(small) {
-			text-align: center;
+			@include mixins.font-position(center);
 		}
 
-		align-content: center;
 		width: 100%;
 	}
 
 	&__link {
 		@include mixins.typescale(scale-1, normal, headline);
 
-		color: variables.$secondary-90;
+		color: variables.$color-secondary-90;
 
 		@include mixins.viewport(medium) {
+			@include mixins.font-position(center);
+
 			margin: auto;
-			text-align: center;
 		}
 	}
 
 	&__title {
 		@include mixins.typescale(scale-5, medium, headline);
 
-		color: variables.$white;
+		color: variables.$color-white;
+		text-decoration: underline;
 	}
 }

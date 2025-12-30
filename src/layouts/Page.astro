@@ -1,13 +1,13 @@
 ---
-import "@assets/css/base/_reset.scss";
 import "@assets/css/abstracts/_mixins.scss";
 import "@assets/css/abstracts/_variables.scss";
-import "@assets/css/base/_base.scss";
+import "@assets/css/base/_reset.scss";
 import "@assets/css/base/_typography.scss";
+import "@assets/css/base/_base.scss";
 import "@assets/css/components/_btn.scss";
-import "@assets/css/layout/_contact.scss";
-import "@assets/css/layout/_footer.scss";
 import "@assets/css/layout/_header.scss";
+import "@assets/css/layout/_footer.scss";
+import "@assets/css/layout/_contact.scss";
 import "@assets/css/pages/_page.scss";
 
 import Contact from "@components/Contact.astro";
@@ -20,14 +20,16 @@ const title = [frontmatter.title, site_name].filter(Boolean).join(" | ");
 
 <Default title={title} description={site_description} image={frontmatter.image}>
 	<div class="noise"></div>
-	<article class="page" role="article">
-		<div class="page__content" itemprop="articleBody">
-			<h1 class="page__title" itemprop="name headline">
-				{frontmatter.title}
-			</h1>
-			<slot />
-		</div>
-		<hr />
-	</article>
+	<main id="main">
+		<article class="page" role="article">
+			<div class="page__content" itemprop="articleBody">
+				<h1 class="page__title" itemprop="name headline">
+					{frontmatter.title}
+				</h1>
+				<slot />
+				<hr />
+			</div>
+		</article>
+	</main>
 	<Contact />
 </Default>

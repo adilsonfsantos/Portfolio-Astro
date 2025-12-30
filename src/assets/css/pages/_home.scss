@@ -5,26 +5,9 @@
 	@include mixins.layout-grid(site);
 
 	display: grid;
-	gap: variables.$space-l;
-	grid-auto-rows: auto;
-	grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-
-	@include mixins.viewport(xsmall, landscape) {
-		grid-template-columns: auto auto;
-	}
-
-	@include mixins.viewport(small) {
-		grid-template-columns: auto;
-	}
-
-	@include mixins.viewport(large) {
-		grid-template-columns: auto auto;
-	}
-
-	hr {
-		height: 1px;
-		background-color: variables.$black-10;
-		border: none;
-		grid-column: -1/1;
-	}
+	gap: variables.$grid-gutter;
+	grid-template-columns: repeat(
+		auto-fit,
+		minmax(clamp(12rem, calc(50% - #{variables.$grid-gutter}), 32rem), 1fr)
+	);
 }

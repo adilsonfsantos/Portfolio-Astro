@@ -4,57 +4,18 @@
 .page {
 	@include mixins.layout-grid(site);
 
-	min-height: 88svh;
+	min-height: clamp(50vh, 72svh, 100vh);
 	padding-block-start: variables.$space-3xl;
 
 	&__title {
 		@include mixins.typescale(scale-6, medium, headline);
 
-		color: variables.$white;
+		color: variables.$color-white;
 	}
 
 	&__content {
 		@include mixins.flow;
-
-		display: grid;
-		grid-template-columns:
-			[full-width] minmax(variables.$grid-gutter, 1fr)
-			[popout-start] minmax(0, variables.$space-xl)
-			[content-start] minmax(0, 72ch)
-			[content-end] minmax(0, variables.$space-xl)
-			[popout-end] minmax(variables.$grid-gutter, 1fr)
-			[full-width-end];
-
-		> *,
-		> .content {
-			grid-column: full-width / full-width-end;
-
-			@include mixins.viewport(small) {
-				grid-column: content-start / content-end;
-			}
-		}
-
-		> .popout {
-			grid-column: full-width / full-width-end;
-
-			@include mixins.viewport(small) {
-				grid-column: popout / popout-end;
-			}
-		}
-
-		> .full-width {
-			grid-column: full-width / full-width-end;
-		}
-
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			color: variables.$white;
-
-			--flow-space: #{variables.$space-2xl};
-		}
+		@include mixins.content-grid;
 
 		h1 {
 			@include mixins.typescale(scale-6, medium, headline);
@@ -80,11 +41,25 @@
 			@include mixins.typescale(scale-0, medium, headline);
 		}
 
+		h1 + * {
+			--flow-space: #{variables.$space-2xl};
+		}
+
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			color: variables.$color-white;
+
+			--flow-space: #{variables.$space-2xl};
+		}
+
 		p,
 		li {
 			@include mixins.typescale(scale-0, normal, text);
 
-			color: variables.$white-90;
+			color: variables.$color-white-90;
 		}
 
 		ul,
@@ -100,15 +75,21 @@
 	}
 
 	a {
-		color: variables.$secondary-90;
+		color: variables.$color-secondary-90;
 		text-decoration: underline;
+
+		&:focus-visible {
+			outline: 2px solid variables.$color-secondary-90;
+			outline-offset: 2px;
+		}
 	}
 
 	hr {
 		border: none;
-		background-color: variables.$black-10;
+		background-color: variables.$color-black-10;
 		height: 1px;
 		margin-block-start: variables.$space-xl;
+		width: 100%;
 	}
 
 	strong {

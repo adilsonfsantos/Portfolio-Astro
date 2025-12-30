@@ -1,15 +1,15 @@
 ---
-import "@assets/css/base/_reset.scss";
 import "@assets/css/abstracts/_mixins.scss";
 import "@assets/css/abstracts/_variables.scss";
-import "@assets/css/base/_base.scss";
+import "@assets/css/base/_reset.scss";
 import "@assets/css/base/_typography.scss";
+import "@assets/css/base/_base.scss";
 import "@assets/css/components/_btn.scss";
 import "@assets/css/components/_card.scss";
-import "@assets/css/layout/_contact.scss";
-import "@assets/css/layout/_footer.scss";
 import "@assets/css/layout/_header.scss";
 import "@assets/css/layout/_hero.scss";
+import "@assets/css/layout/_footer.scss";
+import "@assets/css/layout/_contact.scss";
 import "@assets/css/pages/_home.scss";
 import Contact from "@components/Contact.astro";
 import Hero from "@components/Hero.astro";
@@ -30,26 +30,27 @@ const formatCategories = (values: string[]) =>
 	image={frontmatter.image}>
 	<div class="noise"></div>
 	<Hero />
-	<section class="projetos" id="projetos">
-		{
-			posts.map((post) => (
-				<a href={`/projetos/${post.id}/`} class="card">
-					<div class="noise" />
-					<Picture
-						src={post.data.card}
-						alt={post.data.description}
-						type="card"
-					/>
-					<div class="card__description">
-						<h3 class="card__title">{post.data.title}</h3>
-						<span class="card__tag">
-							{formatCategories(post.data.categories)}
-						</span>
-					</div>
-				</a>
-			))
-		}
-		<hr />
-	</section>
+	<main id="main">
+		<section class="projetos" id="projetos">
+			{
+				posts.map((post) => (
+					<a href={`/projetos/${post.id}/`} class="card">
+						<div class="noise" />
+						<Picture
+							src={post.data.card}
+							alt={post.data.description}
+							type="card"
+						/>
+						<div class="card__description">
+							<h2 class="card__title">{post.data.title}</h2>
+							<span class="card__tag">
+								{formatCategories(post.data.categories)}
+							</span>
+						</div>
+					</a>
+				))
+			}
+		</section>
+	</main>
 	<Contact />
 </Default>

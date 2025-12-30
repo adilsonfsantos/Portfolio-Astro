@@ -2,40 +2,39 @@
 @use "../abstracts/variables";
 
 .footer {
-	align-items: center;
-	display: grid;
-	background: variables.$black;
+	background: variables.$color-black;
 	position: relative;
 
 	&__gradient {
 		background: linear-gradient(
 			in oklab 90deg,
-			variables.$primary 0%,
-			variables.$secondary 100%
+			variables.$color-primary 0%,
+			variables.$color-secondary 100%
 		);
-		height: 1px;
-		grid-column: 1/-1;
+		block-size: 1px;
+		inline-size: 100%;
 	}
 
 	&__container {
 		@include mixins.layout-grid(site);
-
-		width: 100%;
 	}
 
 	&__content {
 		align-items: center;
 		display: flex;
 		flex-wrap: wrap;
-		padding: (variables.$base-size * 2) 0;
+		padding-block: variables.$space-l;
 	}
 
 	&__copyright {
 		@include mixins.typescale(scale--1, normal, text);
 
-		color: variables.$white-90;
-		margin: (variables.$base-size) 0;
-		place-self: center;
+		color: variables.$color-white-90;
+		margin-block: variables.$base-size;
+
+		p {
+			margin-block: 0;
+		}
 	}
 
 	&__spacer {
@@ -45,32 +44,36 @@
 	&__social {
 		display: flex;
 		flex-wrap: wrap;
-		list-style-type: none;
+		gap: variables.$space-m;
+		list-style: none;
+		padding: 0;
+		margin: 0;
 
 		li {
-			margin: variables.$space-2xs 0;
-		}
-
-		> li:not(:last-child) {
-			margin-right: variables.$space-m;
+			margin-block: variables.$space-2xs;
 		}
 
 		a {
-			color: variables.$white-90;
-			padding: variables.$space-2xs 0;
-
 			@include mixins.typescale(scale-0, medium, text);
 			@include mixins.transition(color);
+
+			color: variables.$color-white-90;
+			padding-block: variables.$space-2xs;
 
 			@include mixins.viewport(small) {
 				@include mixins.typescale(scale--1, medium, text);
 			}
-		}
 
-		a:hover,
-		a:focus {
-			color: variables.$white;
-			text-decoration: underline;
+			&:hover,
+			&:active {
+				color: variables.$color-white;
+				text-decoration: underline;
+			}
+
+			&:focus-visible {
+				outline: 2px solid variables.$color-white;
+				outline-offset: 2px;
+			}
 		}
 	}
 }

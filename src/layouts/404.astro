@@ -1,14 +1,14 @@
 ---
-import "@assets/css/base/_reset.scss";
 import "@assets/css/abstracts/_mixins.scss";
 import "@assets/css/abstracts/_variables.scss";
-import "@assets/css/base/_base.scss";
+import "@assets/css/base/_reset.scss";
 import "@assets/css/base/_typography.scss";
-import "@assets/css/layout/_hero.scss";
+import "@assets/css/base/_base.scss";
 import "@assets/css/components/_btn.scss";
-import "@assets/css/layout/_footer.scss";
 import "@assets/css/layout/_header.scss";
-import "@assets/css/pages/_404.scss";
+import "@assets/css/layout/_hero.scss";
+import "@assets/css/layout/_footer.scss";
+import "@assets/css/pages/_not-found.scss";
 import Default from "./Default.astro";
 const { frontmatter } = Astro.props;
 ---
@@ -18,15 +18,15 @@ const { frontmatter } = Astro.props;
 	description={frontmatter.description}
 	image={frontmatter.image}>
 	<div class="noise"></div>
-	<section class="hero">
-		<div class="hero__bg"></div>
-		<div class="hero__content">
-			<h1 class="hero__title">
-				Desculpe, a página que você está procurando não existe.
-			</h1>
-			<a role="button" href="/" class="hero__btn btn btn__primary">
-				Voltar para a home
-			</a>
-		</div>
-	</section>
+	<main id="main">
+		<section class="hero hero--not-found">
+			<div class="hero__bg"></div>
+			<div class="hero__content">
+				<h1 class="hero__title">
+					Desculpe, a página que você está procurando não existe.
+				</h1>
+				<a role="button" href="/" class="btn--primary">Voltar para a home </a>
+			</div>
+		</section>
+	</main>
 </Default>
