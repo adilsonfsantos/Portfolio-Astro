@@ -11,10 +11,22 @@ import "@assets/css/layout/_contact.scss";
 import "@assets/css/pages/_page.scss";
 
 import Contact from "@components/Contact.astro";
-import { site_description, site_name } from "../consts";
 import Default from "./Default.astro";
 
-const { frontmatter } = Astro.props;
+import { site_description, site_name } from "../consts";
+
+interface PageFrontmatter {
+	title: string;
+	image?: string | { src: string };
+}
+
+interface PageProps {
+	frontmatter: PageFrontmatter;
+}
+
+const { frontmatter } = Astro.props as PageProps;
+
+// Combines page title with frontmatter value and site_name
 const title = [frontmatter.title, site_name].filter(Boolean).join(" | ");
 ---
 
