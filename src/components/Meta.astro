@@ -8,11 +8,13 @@ interface MetaProps {
 }
 
 const { title, description, image } = Astro.props as MetaProps;
-const urls = social.links.map((link) => link.url);
 
-const pageImage = typeof image === "string" ? image : image?.src;
+const socialUrls: string[] = social.links.map((link) => link.url);
 
-const canonicalUrl = new URL(Astro.url.pathname, site_url).toString();
+const pageImage: string | undefined =
+	typeof image === "string" ? image : image?.src;
+
+const canonicalUrl: string = new URL(Astro.url.pathname, site_url).toString();
 
 const structuredData = {
 	"@context": "https://schema.org",
@@ -20,12 +22,12 @@ const structuredData = {
 	url: canonicalUrl,
 	headline: title,
 	name: site_name,
-	image: site_url + pageImage,
+	image: pageImage ? site_url + pageImage : undefined,
 	author: {
 		"@type": "Person",
 		name: site_author,
 	},
-	sameAs: urls,
+	sameAs: socialUrls,
 };
 ---
 
