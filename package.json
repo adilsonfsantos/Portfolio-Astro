@@ -15,12 +15,24 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"stylelint": "stylelint 'src/**/*.{css,scss}' --ignore-path .gitignore",
-		"stylelint:fix": "stylelint 'src/**/*.{css,scss}' --ignore-path .gitignore --fix",
-		"eslint": "eslint . --ext .js,.ts,.mjs,.mdx,.astro",
-		"eslint:fix": "eslint . --ext .js,.ts,.mjs,.mdx,.astro --fix",
-		"format": "prettier --check 'src/**/*.{js,ts,astro,scss,mdx,css}'",
-		"format:fix": "prettier --write 'src/**/*.{js,ts,astro,scss,mdx,css}'",
-		"typecheck": "tsc --noEmit"
+		"eslint": "eslint .",
+		"format": "prettier --check --ignore-unknown '*.{js,ts,astro,scss,mdx,css}'",
+		"typecheck": "tsc --noEmit",
+		"prepare": "husky",
+		"csp:hash": "node scripts/generate-csp-hashes.js"
+	},
+	"lint-staged": {
+		"*.{js,ts,astro,mdx}": [
+			"eslint --fix",
+			"prettier --write"
+		],
+		"*.{scss,css}": [
+			"stylelint --fix",
+			"prettier --write"
+		],
+		"*.astro": [
+			"node scripts/generate-csp-hashes.js"
+		]
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.6",
@@ -40,6 +52,8 @@
 		"eslint-plugin-astro": "^1.5.0",
 		"eslint-plugin-mdx": "^3.6.2",
 		"eslint-plugin-prettier": "^5.5.4",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.7",
 		"prettier": "^3.7.4",
 		"prettier-plugin-astro": "^0.14.1",
 		"stylelint": "^16.26.1",
