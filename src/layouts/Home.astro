@@ -11,17 +11,34 @@ import "@assets/css/layout/_hero.scss";
 import "@assets/css/layout/_footer.scss";
 import "@assets/css/layout/_contact.scss";
 import "@assets/css/pages/_home.scss";
+
 import Contact from "@components/Contact.astro";
 import Hero from "@components/Hero.astro";
 import Picture from "@components/Image.astro";
-import { getCollection } from "astro:content";
 import Default from "./Default.astro";
-const { frontmatter } = Astro.props;
-const posts = (await getCollection("projetos")).sort(
-	(b, a) => a.data.date.valueOf() - b.data.date.valueOf(),
-);
-const formatCategories = (values: string[]) =>
-	values.toString().replaceAll(",", " • ");
+
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+interface Frontmatter {
+	title: string;
+	description: string;
+	image?: string | { src: string };
+}
+
+interface HomeProps {
+	frontmatter: Frontmatter;
+}
+
+const { frontmatter } = Astro.props as HomeProps;
+
+// Searches and sorts posts by most recent from "projetos" collection
+const posts: CollectionEntry<"projetos">[] = (
+	await getCollection("projetos")
+).sort((b, a) => a.data.date.valueOf() - b.data.date.valueOf());
+
+// Format categories for cards exibition
+const formatCategories = (values: string[]) => values.join(" • ");
 ---
 
 <Default
