@@ -3,7 +3,7 @@ import path from "path";
 import crypto from "crypto";
 
 // Função para gerar hash SHA-256 em base64
-function generateHash(content) {
+function generateHash(content: string): string {
 	const hash = crypto.createHash("sha256").update(content).digest("base64");
 	return `sha256-${hash}`;
 }
@@ -12,7 +12,7 @@ function generateHash(content) {
 const componentsDir = path.resolve("./src");
 
 // Função para ler todos os arquivos .astro
-function getAstroFiles(dir) {
+function getAstroFiles(dir: string): string[] {
 	return fs.readdirSync(dir).flatMap((file) => {
 		const fullPath = path.join(dir, file);
 		if (fs.statSync(fullPath).isDirectory()) {
@@ -26,7 +26,7 @@ function getAstroFiles(dir) {
 }
 
 // Função para extrair conteúdo de <style> inline
-function extractStyleContent(fileContent) {
+function extractStyleContent(fileContent: string): string[] {
 	const regex = /<style[^>]*>([\s\S]*?)<\/style>/g;
 	const matches = [];
 	let match;
@@ -38,7 +38,7 @@ function extractStyleContent(fileContent) {
 
 // Percorre todos os arquivos e gera hashes
 const astroFiles = getAstroFiles(componentsDir);
-const hashes = [];
+const hashes: string[] = [];
 
 astroFiles.forEach((file) => {
 	const content = fs.readFileSync(file, "utf-8");

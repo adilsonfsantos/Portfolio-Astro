@@ -19,7 +19,7 @@
 		"format": "prettier --check --ignore-unknown '*.{js,ts,astro,scss,mdx,css}'",
 		"typecheck": "tsc --noEmit",
 		"prepare": "husky",
-		"csp:hash": "node scripts/generate-csp-hashes.js"
+		"csp:hash": "node scripts/generate-csp-hashes.ts"
 	},
 	"lint-staged": {
 		"*.{js,ts,astro,mdx}": [
@@ -31,7 +31,7 @@
 			"prettier --write"
 		],
 		"*.astro": [
-			"node scripts/generate-csp-hashes.js"
+			"node scripts/generate-csp-hashes.ts"
 		]
 	},
 	"dependencies": {
