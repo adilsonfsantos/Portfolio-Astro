@@ -23,10 +23,10 @@ export default defineConfig({
 		csp: {
 			styleDirective: {
 				resources: ["'self'"],
+				hashes: ["sha256-9s/TOECwclEt3vdPzARj3lZiXPDmhBueDNCO7NzIpXg="],
 			},
 			scriptDirective: {
 				resources: ["'self'"],
-				hashes: ["sha256-PSKhptkRukXVM85LZ6a5MEeEYdey0A8i17ShA9B5hXs="],
 			},
 			directives: [
 				"default-src 'none'",

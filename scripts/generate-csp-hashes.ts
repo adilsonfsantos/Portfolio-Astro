@@ -31,7 +31,7 @@ function extractStyleContent(fileContent: string): string[] {
 	const matches = [];
 	let match;
 	while ((match = regex.exec(fileContent)) !== null) {
-		matches.push(match[1].trim());
+		matches.push(match[1]);
 	}
 	return matches;
 }
