@@ -5,24 +5,24 @@ import type { CollectionEntry } from "astro:content";
 import Post from "@layouts/Post.astro";
 import Default from "@layouts/Default.astro";
 
+interface Props {
+	post: CollectionEntry<"projetos">;
+	prevPost: CollectionEntry<"projetos"> | null;
+	nextPost: CollectionEntry<"projetos"> | null;
+}
+
 export async function getStaticPaths() {
 	const posts = (await getCollection("projetos")).sort(
-		(b, a) => a.data.date.valueOf() - b.data.date.valueOf(),
+		(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 	);
 	return posts.map((post, index) => ({
 		params: { id: post.id },
 		props: {
+			prevPost: index + 1 < posts.length ? posts[index + 1] : null,
+			nextPost: index > 0 ? posts[index - 1] : null,
 			post,
-			prevPost: index + 1 !== posts.length ? posts[index + 1] : null,
-			nextPost: index !== 0 ? posts[index - 1] : null,
 		},
 	}));
-}
-
-interface Props {
-	post: CollectionEntry<"projetos">;
-	prevPost: CollectionEntry<"projetos">;
-	nextPost: CollectionEntry<"projetos">;
 }
 
 const { post, prevPost } = Astro.props;
@@ -40,7 +40,7 @@ const title = [post.data.title, site_name].filter(Boolean).join(" | ");
 	<section class="postnav">
 		<div class="postnav__content">
 			{
-				(prevPost && (
+				prevPost ? (
 					<a
 						href={`/projetos/${prevPost.id}/`}
 						class="postnav__link"
@@ -49,7 +49,7 @@ const title = [post.data.title, site_name].filter(Boolean).join(" | ");
 						<br />
 						<span class="postnav__title">{prevPost.data.title}</span>
 					</a>
-				)) || (
+				) : (
 					<a href="/" class="postnav__link">
 						Sem mais projetos
 						<br />
