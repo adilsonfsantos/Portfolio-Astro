@@ -26,7 +26,7 @@ export default defineConfig({
 				hashes: ["sha256-9s/TOECwclEt3vdPzARj3lZiXPDmhBueDNCO7NzIpXg="],
 			},
 			scriptDirective: {
-				resources: ["'self'"],
+				resources: ["'self', 'static.cloudflareinsights.com'"],
 			},
 			directives: [
 				"default-src 'none'",
