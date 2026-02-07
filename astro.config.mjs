@@ -19,27 +19,4 @@ export default defineConfig({
 		service: sharpImageService(),
 	},
 	trailingSlash: "always",
-	experimental: {
-		csp: {
-			styleDirective: {
-				resources: ["'self'"],
-				hashes: ["sha256-9s/TOECwclEt3vdPzARj3lZiXPDmhBueDNCO7NzIpXg="],
-			},
-			scriptDirective: {
-				resources: ["'self', static.cloudflareinsights.com"],
-			},
-			directives: [
-				"default-src 'none'",
-				"img-src 'self'",
-				"connect-src 'self'",
-				"font-src 'self'",
-				"manifest-src 'self'",
-				"form-action 'self'",
-				"base-uri 'self'",
-				"object-src 'none'",
-				"frame-src 'self'",
-				"upgrade-insecure-requests",
-			],
-		},
-	},
 });
