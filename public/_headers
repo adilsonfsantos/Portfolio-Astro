@@ -1,13 +1,11 @@
 /*
 	access-control-allow-origin: https://adilsonsantos.pages.dev
-	Cache-Control: no-cache
-	Permissions-Policy: geolocation=(), midi=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), payment=()
+	Cache-Control: no-store, max-age=0
+	Permissions-Policy: geolocation=(), midi=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), payment=(), fullscreen=(), usb=(), bluetooth=()
 	Referrer-Policy: no-referrer
-	Report-To: { "group": "default"," max_age": 31536000, "endpoints": [{"url": "https://adilsonsantos.report-uri.com/a/d/g"}]}
+	Report-To: { "group": "default","max_age": 31536000, "endpoints": [{"url": "https://adilsonsantos.report-uri.com/a/d/g"}]}
 	Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 	X-Content-Type-Options: nosniff
-	X-XSS-Protection: 1; mode=block
-
 
 /
 	Content-Type: text/html; charset=utf-8
@@ -16,10 +14,9 @@
 	Cross-Origin-Opener-Policy: same-origin; report-to=default
 	Cross-Origin-Embedder-Policy: require-corp; report-to=default
 	Cross-Origin-Resource-Policy: same-site
-	X-XSS-Protection: 1; mode=block
 
 /*.(apng|avif|bmp|ico|jpeg|jpg|png|svg|webp)
-	Cache-Control: public, max-age=31536000, immutable
+	Cache-Control: public, max-age=2592000, immutable
 
 /*.(xml|txt)
 	Cache-Control: public, max-age=172800
