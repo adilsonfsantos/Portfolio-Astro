@@ -8,6 +8,7 @@ export default defineConfig({
 	site: "https://adilsonsantos.pages.dev/",
 	prefetch: false,
 	build: { inlineStylesheets: "never" },
+
 	integrations: [
 		mdx(),
 		sitemap({
@@ -15,8 +16,16 @@ export default defineConfig({
 		}),
 		compressor({ brotli: true }),
 	],
+
 	image: {
 		service: sharpImageService(),
 	},
+
 	trailingSlash: "always",
+
+	experimental: {
+		queuedRendering: {
+			enabled: true,
+		},
+	},
 });
