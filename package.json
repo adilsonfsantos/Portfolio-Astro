@@ -19,7 +19,8 @@
 		"format": "prettier --check --ignore-unknown '*.{js,ts,astro,scss,mdx,css}'",
 		"typecheck": "tsc --noEmit",
 		"prepare": "husky",
-		"csp:hash": "node scripts/generate-csp-hashes.ts"
+		"csp:hash": "node scripts/generate-csp-hashes.ts",
+		"generate-types": "wrangler types"
 	},
 	"lint-staged": {
 		"*.{js,ts,astro,mdx}": [
@@ -36,6 +37,7 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.7",
+		"@astrojs/cloudflare": "^13.0.2",
 		"@astrojs/mdx": "^5.0.0",
 		"@astrojs/rss": "^4.0.17",
 		"@astrojs/sitemap": "^3.7.1",
@@ -63,6 +65,6 @@
 		"stylelint-scss": "^7.0.0",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.57.0",
-		"wrangler": "^4.71.0"
+		"wrangler": "^4.72.0"
 	}
 }

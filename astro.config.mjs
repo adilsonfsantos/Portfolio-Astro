@@ -3,11 +3,14 @@ import sitemap from "@astrojs/sitemap";
 import { defineConfig, sharpImageService } from "astro/config";
 import compressor from "astro-compressor";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
 	site: "https://adilsonsantos.pages.dev/",
 	prefetch: false,
 	build: { inlineStylesheets: "never" },
+
 	integrations: [
 		mdx(),
 		sitemap({
@@ -15,8 +18,20 @@ export default defineConfig({
 		}),
 		compressor({ brotli: true }),
 	],
+
 	image: {
 		service: sharpImageService(),
 	},
+
 	trailingSlash: "always",
+
+	experimental: {
+		queuedRendering: {
+			enabled: true,
+		},
+	},
+
+	adapter: cloudflare({
+		imageService: "compile",
+	}),
 });
