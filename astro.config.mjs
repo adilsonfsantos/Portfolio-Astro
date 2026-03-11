@@ -3,8 +3,6 @@ import sitemap from "@astrojs/sitemap";
 import { defineConfig, sharpImageService } from "astro/config";
 import compressor from "astro-compressor";
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
 	site: "https://adilsonsantos.pages.dev/",
@@ -30,8 +28,4 @@ export default defineConfig({
 			enabled: true,
 		},
 	},
-
-	adapter: cloudflare({
-		imageService: "compile",
-	}),
 });
