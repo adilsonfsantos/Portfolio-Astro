@@ -3,16 +3,7 @@ import { site_author_email, site_title, social } from "../consts";
 
 const today = new Date();
 
-interface SocialLink {
-	name: string;
-	url: string;
-}
-
-function encodeEmail(text: string): string {
-	return Array.from(text)
-		.map((char) => "%" + char.charCodeAt(0).toString(16))
-		.join("");
-}
+import { encodeEmail } from "../utils/encodeEmail";
 ---
 
 <footer class="footer">
@@ -33,7 +24,7 @@ function encodeEmail(text: string): string {
 					<a href={`mailto:${encodeEmail(site_author_email)}`}>Email</a>
 				</li>
 				{
-					(social.links as SocialLink[]).map((link) => (
+					social.links.map((link) => (
 						<li>
 							<a href={link.url} rel="noopener" target="_blank">
 								{link.name}
