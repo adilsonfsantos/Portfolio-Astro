@@ -1,7 +1,7 @@
 ---
 import { site_author_email, site_title, social } from "../consts";
 
-const today = new Date();
+const today = new Date().getFullYear();
 
 import { encodeEmail } from "../utils/encodeEmail";
 ---
@@ -13,7 +13,7 @@ import { encodeEmail } from "../utils/encodeEmail";
 		<div class="footer__content">
 			<div class="footer__copyright">
 				<p>
-					&copy;2019 &ndash; {today.getFullYear()}
+					&copy;2019 &ndash; {today}
 					{site_title}<br />
 					Todos os direitos reservados.
 				</p>
