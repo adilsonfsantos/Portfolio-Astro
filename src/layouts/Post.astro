@@ -9,6 +9,7 @@ import "@assets/css/components/_post_nav.scss";
 import "@assets/css/layout/_header.scss";
 import "@assets/css/layout/_footer.scss";
 import "@assets/css/pages/_post.scss";
+import "@assets/css/layout/_hero.scss";
 
 import Picture from "@components/Image.astro";
 
@@ -31,6 +32,7 @@ const { title, image, roles, date, team } = Astro.props as PostProps;
 
 <div class="noise"></div>
 <main id="main">
+	<div class="hero__bg"></div>
 	<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 		<div class="post__header">
 			<h1 class="post__title" itemprop="name headline">{title}</h1>
