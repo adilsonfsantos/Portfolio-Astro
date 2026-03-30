@@ -1,5 +1,5 @@
 ---
-import { site_author_email } from "../consts";
+import { site_author_email, social } from "../consts";
 import { encodeEmail } from "../utils/encodeEmail";
 ---
 
@@ -15,6 +15,39 @@ import { encodeEmail } from "../utils/encodeEmail";
 				class="contato__email">
 				<b class="contato__hidden">blocked</b>{site_author_email}</a
 			>
+			Quer falar sobre um projeto ou precisa de alguém para ajudar na sua equipe?
+			É só me chamar.
 		</p>
+		<p class="contato__subtitle">
+			Quer falar sobre um projeto ou precisa de alguém para ajudar na sua
+			equipe? É só me chamar.
+		</p>
+		<div class="contato__info">
+			<div class="contato__info__container">
+				<h3 class="contato__info__title">E-mail</h3>
+				<div class="contato__info-spacer"></div>
+				<p class="contato__info__text">
+					<a href={"mailto:" + encodeEmail(site_author_email)}>
+						<b class="contato__hidden">blocked</b>{site_author_email}
+					</a>
+				</p>
+			</div>
+			{
+				social.links.map((link) => (
+					<div class="contato__info__container">
+						<h3 class="contato__info__title">{link.name}</h3>
+						<div class="contato__info-spacer" />
+						<ul class="contato__info__text">
+							<li>
+								<a href={link.url} rel="noopener" target="_blank">
+									<b class="contato__hidden">blocked</b>
+									{link?.username}
+								</a>
+							</li>
+						</ul>
+					</div>
+				))
+			}
+		</div>
 	</div>
 </section>
