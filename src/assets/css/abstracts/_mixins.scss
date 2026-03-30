@@ -108,7 +108,7 @@
 	> * {
 		grid-column: full-width / full-width-end;
 
-		@include viewport(desktop) {
+		@include viewport(large) {
 			grid-column: content-start / content-end;
 		}
 	}
@@ -118,7 +118,7 @@
 	}
 
 	> .popout {
-		@include viewport(desktop) {
+		@include viewport(large) {
 			grid-column: popout-start / popout-end;
 		}
 	}
