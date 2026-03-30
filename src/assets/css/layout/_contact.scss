@@ -37,7 +37,7 @@
 	}
 
 	&__cta {
-		@include mixins.typescale(scale-6, medium, headline);
+		@include mixins.typescale(scale-6, medium, title);
 
 		color: variables.$color-white;
 	}
@@ -46,7 +46,7 @@
 		@include mixins.typescale(scale-1, normal, text);
 
 		color: variables.$color-white-90;
-		max-inline-size: 64ch;
+		max-inline-size: 60ch;
 		margin-inline: auto;
 		text-wrap: balance;
 	}
