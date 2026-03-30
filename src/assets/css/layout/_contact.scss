@@ -64,6 +64,61 @@
 		}
 	}
 
+	&__info {
+		text-align: left;
+		max-inline-size: 50ch;
+		margin-inline: auto;
+
+		&__title {
+			@include mixins.typescale(scale-0, normal, text);
+
+			color: variables.$color-white;
+			margin: 0;
+		}
+
+		&__text {
+			@include mixins.typescale(scale-0, normal, text);
+
+			color: variables.$color-white-90;
+			margin: 0;
+
+			b {
+				display: none;
+			}
+		}
+
+		&-spacer {
+			flex-grow: 1;
+			border-top: variables.$color-black-30 1px solid;
+		}
+
+		&__container {
+			display: flex;
+			align-items: center;
+			gap: variables.$space-xs;
+		}
+	}
+
+	a {
+		@include mixins.typescale(scale-0, normal, text);
+
+		color: variables.$color-secondary-90;
+		text-decoration: underline;
+		overflow-wrap: break-word;
+
+		&:focus-visible {
+			outline: 2px solid variables.$color-secondary-90;
+			outline-offset: 2px;
+		}
+	}
+
+	ul,
+	ol {
+		padding-inline-start: 0;
+		margin-block-end: 0;
+		list-style: none;
+	}
+
 	/* Explicit utility to hide decorative-only text */
 	&__hidden {
 		display: none;
