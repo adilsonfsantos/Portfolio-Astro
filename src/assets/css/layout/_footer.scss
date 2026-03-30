@@ -28,7 +28,7 @@
 	}
 
 	&__copyright {
-		@include mixins.typescale(scale--1, normal, text);
+		@include mixins.typescale(scale-0, normal, text);
 
 		color: variables.$color-white-90;
 		margin-block: variables.$base-size;

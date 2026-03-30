@@ -43,7 +43,7 @@
 	}
 
 	&__link {
-		@include mixins.typescale(scale--1, medium, headline);
+		@include mixins.typescale(scale-0, medium, headline);
 		@include mixins.transition(color);
 
 		color: variables.$color-white-90;
