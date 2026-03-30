@@ -61,10 +61,6 @@
 			color: variables.$color-white-90;
 			padding-block: variables.$space-2xs;
 
-			@include mixins.viewport(small) {
-				@include mixins.typescale(scale--1, medium, text);
-			}
-
 			&:hover,
 			&:active {
 				color: variables.$color-white;

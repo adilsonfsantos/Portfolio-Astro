@@ -31,7 +31,7 @@
 		@include mixins.layout-grid(site);
 		@include mixins.flow;
 
-		@include mixins.viewport(small) {
+		@include mixins.viewport(large) {
 			text-align: center;
 		}
 	}
