@@ -106,7 +106,11 @@
 		[full-width-end];
 
 	> * {
-		grid-column: content-start / content-end;
+		grid-column: full-width / full-width-end;
+
+		@include viewport(desktop) {
+			grid-column: content-start / content-end;
+		}
 	}
 
 	> .full-width {
@@ -114,7 +118,9 @@
 	}
 
 	> .popout {
-		grid-column: popout-start / popout-end;
+		@include viewport(desktop) {
+			grid-column: popout-start / popout-end;
+		}
 	}
 }
 
