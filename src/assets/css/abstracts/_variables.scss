@@ -24,30 +24,39 @@ $base-size: 1em;
 $type-map: (
 	scale-6: (
 		size: clamp(2.0273rem, 1.6348rem + 2.7067vw, 3.7325rem),
+		tracking: clamp(-0.0222em, -0.0196em + 0.002vw, -0.0217em),
 	),
 	scale-5: (
 		size: clamp(1.802rem, 1.5009rem + 2.0768vw, 3.1104rem),
+		tracking: clamp(-0.0218em, -0.0192em + 0.0018vw, -0.0205em),
 	),
 	scale-4: (
 		size: clamp(1.6018rem, 1.3739rem + 1.5717vw, 2.592rem),
+		tracking: clamp(-0.0208em, -0.0181em + 0.0015vw, -0.0187em),
 	),
 	scale-3: (
 		size: clamp(1.4238rem, 1.1896rem + 1.6152vw, 2.4414rem),
+		tracking: clamp(-0.0202em, -0.0174em + 0.0014vw, -0.0175em),
 	),
 	scale-2: (
 		size: clamp(1.2656rem, 1.1426rem + 0.8482vw, 1.8rem),
+		tracking: clamp(-0.0182em, -0.0153em + 0.0011vw, -0.0145em),
 	),
 	scale-1: (
 		size: clamp(1.125rem, 1.0387rem + 0.5952vw, 1.5rem),
+		tracking: clamp(-0.0155em, -0.0129em + 0.0008vw, -0.0115em),
 	),
 	scale-0: (
 		size: clamp(1rem, 0.9425rem + 0.3968vw, 1.25rem),
+		tracking: clamp(-0.0125em, -0.0102em + 0.0006vw, -0.0085em),
 	),
 	scale--1: (
 		size: clamp(0.8889rem, 0.8537rem + 0.2425vw, 1.0417rem),
+		tracking: clamp(-0.0095em, -0.0077em + 0.0004vw, -0.0055em),
 	),
 	scale--2: (
 		size: clamp(0.7901rem, 0.7722rem + 0.1237vw, 0.8681rem),
+		tracking: clamp(-0.0065em, -0.0052em + 0.0003vw, -0.0035em),
 	),
 );
 
@@ -80,7 +89,7 @@ $page-width: $base-size * 80; // Max content width
 
 // Grid layout
 $grid-width-site: 77.5rem; // Max general grid width
-$grid-width-post: 72ch; // Max post grid width
+$grid-width-post: 60ch; // Max post grid width
 $grid-gutter: clamp(1rem, 0.6548rem + 2.381vw, 2.5rem);
 
 // Animation
