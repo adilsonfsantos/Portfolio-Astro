@@ -10,12 +10,11 @@
 		"jsx": "preserve",
 		"noErrorTruncation": true,
 		"strictNullChecks": true,
-		"baseUrl": ".",
 		"paths": {
-			"@components/*": ["src/components/*"],
-			"@assets/*": ["src/assets/*"],
-			"@images/*": ["portfolio-static/assets/images/*"],
-			"@layouts/*": ["src/layouts/*"],
+			"@components/*": ["./src/components/*"],
+			"@assets/*": ["./src/assets/*"],
+			"@images/*": ["./portfolio-static/assets/images/*"],
+			"@layouts/*": ["./src/layouts/*"],
 		},
 		"plugins": [
 			{
