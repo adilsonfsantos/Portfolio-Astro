@@ -46,6 +46,7 @@
 // Typography
 @mixin typescale($size, $weight: normal, $line: text) {
 	font-size: map.get(variables.$type-map, $size, size);
+	letter-spacing: map.get(variables.$type-map, $size, tracking);
 
 	@if $weight == bold {
 		font-weight: 600;
@@ -100,7 +101,7 @@
 	grid-template-columns:
 		[full-width] minmax(variables.$grid-gutter, 1fr)
 		[popout-start] minmax(0, variables.$space-xl)
-		[content-start] minmax(0, 72ch)
+		[content-start] minmax(0, variables.$grid-width-post)
 		[content-end] minmax(0, variables.$space-xl)
 		[popout-end] minmax(variables.$grid-gutter, 1fr)
 		[full-width-end];
