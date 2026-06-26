@@ -22,10 +22,4 @@ export default defineConfig({
 	},
 
 	trailingSlash: "always",
-
-	experimental: {
-		queuedRendering: {
-			enabled: true,
-		},
-	},
 });
