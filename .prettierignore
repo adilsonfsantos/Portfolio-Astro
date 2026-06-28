@@ -1,0 +1,16 @@
+# build output
+dist/
+.astro/
+
+# Cache
+.cache/
+
+# dependencies
+node_modules/
+
+# binary assets
+portfolio-static/assets/images/
+portfolio-static/assets/videos/
+
+# fonts
+public/assets/fonts/
