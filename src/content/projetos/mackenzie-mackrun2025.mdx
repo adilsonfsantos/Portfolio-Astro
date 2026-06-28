@@ -1,8 +1,8 @@
 ---
 title: Mackenzie - MACKRUN 2025
 date: 2025-09-18T00:00:00.000Z
-card: /portfolio-static/assets/images/thumbnail.png
-image: /portfolio-static/assets/images/thumbnail.png
+card: /public/assets/images/thumbnail.png
+image: /public/assets/images/thumbnail.png
 description: >-
   Veja como foi a adaptação da campanha Mackrun 2025 do Mackenzie para o metrô.
 categories:
@@ -13,25 +13,39 @@ roles:
 ---
 
 import Picture from "@components/Image.astro";
+import Video from "@components/Video.astro";
 
-/_ eslint-disable-next-line _/
-import mackEscritor1 from "@images/thumbnail.png";
-import mackEscritor2 from "@images/thumbnail.png";
+import mackrunBase from "@videos/mackenzie-mackrun-base.mp4";
+import mackrunStyleframes from "@videos/mackenzie-mackrun-styleframes.mp4";
+import mackrunVert from "@videos/mackenzie-mackrun-vert.mp4";
+import mackrunHor from "@videos/mackenzie-mackrun-hor.mp4";
 
 ## Introdução
 
-O MackRun é uma corrida de rua realizada anualmente, que busca promover a prática de atividades físicas, saúde e integração da comunidade Mackenzistas e a sociedade em geral.
+O MackRun é uma corrida de rua realizada anualmente, que busca promover a
+prática de atividades físicas, saúde e integração da comunidade Mackenzistas e a
+sociedade em geral.
 
-Buscando divulgar o evento a Universidade Mackenzie entrou em contato com a [Agência New Humans](https://www.newhumans.com.br/) para transformar uma arte produzida por eles em uma campanha animada para estações de metrô.
+Buscando divulgar o evento a Universidade Mackenzie entrou em contato com a
+[Agência New Humans](https://www.newhumans.com.br/) para adaptar uma arte
+produzida por eles em uma campanha animada para estações de metrô.
 
 ## Processo
 
-Para atender o pedido do Mackenzie, transformei a arte em um rascunho para isolar cada elemento e planejar como cada elemento seria animado.
+Para atender o pedido do Mackenzie, transformei a arte em um rascunho para
+isolar cada elemento e planejar como cada elemento seria animado.
 
-{/* Espaco imagem */}
+{/* Imagem original criada pelo Mackenzie */}
+
+<Video src={mackrunStyleframes} layout="full-width" poster="" />
+
+<Video src={mackrunBase} layout="full-width" loop />
 
 ## Resultado
 
-{/* Espaco imagem */}
+Após aprovação as peças demonstradas foram expostas nas estações da linha
+amarela e vermelha do metrô de São Paulo.
 
-Após aprovação as peças demonstradas foram expostas nas estações da linha amarela e vermelha do metrô de São Paulo.
+<Video src={mackrunVert} layout="full-width" loop />
+
+<Video src={mackrunHor} layout="full-width" loop />
