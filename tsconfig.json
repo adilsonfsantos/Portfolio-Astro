@@ -3,17 +3,13 @@
 	"include": [".astro/types.d.ts", "**/*"],
 	"exclude": ["dist"],
 	"compilerOptions": {
-		"target": "ES2022",
-		"module": "ESNext",
-		"moduleResolution": "Bundler",
-		"strict": true,
-		"jsx": "preserve",
 		"noErrorTruncation": true,
-		"strictNullChecks": true,
+
 		"paths": {
 			"@components/*": ["./src/components/*"],
 			"@assets/*": ["./src/assets/*"],
 			"@images/*": ["./portfolio-static/assets/images/*"],
+			"@videos/*": ["./portfolio-static/assets/videos/*"],
 			"@layouts/*": ["./src/layouts/*"]
 		},
 		"plugins": [
