@@ -17,6 +17,13 @@ team:
     role: Redator
 ---
 
+import Video from "@components/Video.astro";
+
+import prettyNewFeed from "@videos/prettyNew-Feed.mp4";
+import prettyNewFeedPoster from "@videos/prettyNew-Feed-Poster.webp";
+import prettyNewStories from "@videos/prettyNew-Stories.mp4";
+import prettyNewStoriesPoster from "@videos/prettyNew-Stories-Poster.webp";
+
 ## Introdução
 
 Desde 2014 a PrettyNew busca unir a moda com o consumo consciente, atuando como
@@ -40,16 +47,6 @@ buscando trazer clareza na leitura das informações. Para isso não foram
 utilizados elementos da marca que possam distrair o usuário, apenas o processo e
 os textos possuem destaque em um fundo mais sóbrio.
 
-<video
-  src="/assets/videos/prettyNew-Feed.mp4"
-  preload="none"
-  poster="/assets/videos/prettyNew-Feed-Poster.webp"
-  controls
-  class="popout"></video>
+<Video src={prettyNewFeed} layout="popout" poster={prettyNewFeedPoster} />
 
-<video
-  src="/assets/videos/prettyNew-Stories.mp4"
-  preload="none"
-  poster="/assets/videos/prettyNew-Stories-Poster.webp"
-  controls
-  class="popout"></video>
+<Video src={prettyNewStories} layout="popout" poster={prettyNewStoriesPoster} />
