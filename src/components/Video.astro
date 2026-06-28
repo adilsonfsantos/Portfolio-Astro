@@ -1,0 +1,66 @@
+---
+interface Props {
+	src: string;
+	poster?: string;
+
+	title?: string;
+	caption?: string;
+	controlsList?: string;
+
+	width?: number;
+	height?: number;
+
+	controls?: boolean;
+	autoplay?: boolean;
+	loop?: boolean;
+	muted?: boolean;
+	playsInline?: boolean;
+	disablePictureInPicture?: boolean;
+
+	preload?: "none" | "metadata" | "auto";
+
+	layout: "content" | "popout" | "full-width";
+}
+
+const {
+	src,
+	poster,
+
+	title,
+	caption,
+	width,
+	height,
+
+	layout = "content",
+	controlsList = "nodownload nofullscreen noremoteplayback",
+
+	controls = true,
+	autoplay = false,
+	loop = false,
+	muted = true,
+	playsInline = true,
+	disablePictureInPicture = true,
+
+	preload = "none",
+} = Astro.props;
+---
+
+<figure class={layout}>
+	<video
+		src={src}
+		poster={poster}
+		title={title}
+		width={width}
+		height={height}
+		controls={controls}
+		autoplay={autoplay}
+		loop={loop}
+		muted={muted}
+		playsinline={playsInline}
+		preload={preload}
+		disablepictureinpicture={disablePictureInPicture}
+		controlslist={controlsList}>
+		Seu navegador não suporta vídeos HTML5.
+	</video>
+	{caption && <figcaption>{caption}</figcaption>}
+</figure>
