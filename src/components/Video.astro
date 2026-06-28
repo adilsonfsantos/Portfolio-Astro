@@ -1,7 +1,11 @@
 ---
+import type { ImageMetadata } from "astro";
+
+type Poster = string | ImageMetadata;
+
 interface Props {
 	src: string;
-	poster?: string;
+	poster?: Poster;
 
 	title?: string;
 	caption?: string;
@@ -43,12 +47,14 @@ const {
 
 	preload = "none",
 } = Astro.props;
+
+const posterSrc = typeof poster === "string" ? poster : poster?.src;
 ---
 
 <figure class={layout}>
 	<video
 		src={src}
-		poster={poster}
+		poster={posterSrc}
 		title={title}
 		width={width}
 		height={height}
