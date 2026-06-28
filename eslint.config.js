@@ -3,7 +3,7 @@ import js from "@eslint/js";
 import ts from "typescript-eslint";
 import astro from "eslint-plugin-astro";
 import * as mdx from "eslint-plugin-mdx";
-import prettier from "eslint-plugin-prettier/recommended";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
 import globals from "globals";
 
 export default defineConfig([
@@ -12,7 +12,7 @@ export default defineConfig([
 	},
 	{
 		languageOptions: {
-			ecmaVersion: 2022,
+			ecmaVersion: "latest",
 			sourceType: "module",
 			globals: {
 				...globals.node,
@@ -22,7 +22,6 @@ export default defineConfig([
 	js.configs.recommended,
 	...ts.configs.recommended,
 	...astro.configs.recommended,
-	...astro.configs["jsx-a11y-recommended"],
 	{
 		files: ["**/*.mdx"],
 		...mdx.flat,
@@ -35,5 +34,5 @@ export default defineConfig([
 		},
 	},
 	{ files: ["**/*.mdx"], ...mdx.flatCodeBlocks },
-	prettier,
+	eslintConfigPrettier,
 ]);

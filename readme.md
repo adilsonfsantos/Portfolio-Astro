@@ -46,7 +46,8 @@ chore/lint-staged
 
 ## Commits
 
-Os commits seguem o guia: [How to Write a Git Commit Message](https://cbea.ms/git-commit/)
+Os commits seguem o guia:
+[How to Write a Git Commit Message](https://cbea.ms/git-commit/)
 
 Formato:
 
