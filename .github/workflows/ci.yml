@@ -29,4 +29,4 @@ jobs:
         run: npm run ci
 
       - name: Validate CSP hashes
-        run: npm run csp:hash && git diff --exit-code
+        run: npm run csp && git diff --exit-code
