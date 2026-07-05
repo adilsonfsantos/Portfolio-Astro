@@ -1,0 +1,17 @@
+---
+import Image from "@components/Image.astro";
+type FigureLayout = "content" | "popout" | "full-width";
+
+interface Props {
+	caption: string;
+	layout?: FigureLayout;
+}
+
+const { caption, layout } = Astro.props as Props;
+const figureClass = layout ?? undefined;
+---
+
+<figure class={figureClass}>
+	<Image {...Astro.props} />
+	<figcaption>{caption}</figcaption>
+</figure>
