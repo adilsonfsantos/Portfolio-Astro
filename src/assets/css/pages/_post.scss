@@ -93,6 +93,7 @@
 		ol {
 			margin-block-end: 0;
 			padding-inline-start: variables.$space-s;
+			list-style-type: square;
 		}
 
 		li:not(:last-child) {
@@ -141,6 +142,7 @@
 	a {
 		color: variables.$color-secondary-90;
 		text-decoration: underline;
+		text-underline-offset: 4px;
 
 		&:focus-visible {
 			outline: 2px solid variables.$color-secondary-90;

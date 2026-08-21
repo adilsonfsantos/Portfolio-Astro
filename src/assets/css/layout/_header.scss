@@ -46,14 +46,13 @@
 		@include mixins.typescale(scale-0, medium, headline);
 		@include mixins.transition(color);
 
-		color: variables.$color-white-90;
+		color: variables.$color-white-70;
 		padding-block: variables.$base-size;
 
 		&:hover,
 		&:active,
 		&--current {
 			color: variables.$color-white;
-			text-decoration: underline;
 		}
 
 		&:focus-visible {
