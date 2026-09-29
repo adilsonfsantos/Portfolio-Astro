@@ -14,7 +14,8 @@ import { encodeEmail } from "../utils/encodeEmail";
 			<div class="footer__copyright">
 				<p>
 					&copy;2019 &ndash; {today}&nbsp
-					{site_title}<br />
+					{site_title}
+					<br />
 					Todos os direitos reservados.
 				</p>
 			</div>
@@ -23,15 +24,13 @@ import { encodeEmail } from "../utils/encodeEmail";
 				<li>
 					<a href={`mailto:${encodeEmail(site_author_email)}`}>Email</a>
 				</li>
-				{
-					social.links.map((link) => (
-						<li>
-							<a href={link.url} rel="noopener" target="_blank">
-								{link.name}
-							</a>
-						</li>
-					))
-				}
+				{social.links.map((link) => (
+					<li>
+						<a href={link.url} rel="noopener" target="_blank">
+							{link.name}
+						</a>
+					</li>
+				))}
 				<li>
 					<a href="/uses/">Uses</a>
 				</li>

@@ -49,24 +49,22 @@ const formatCategories = (values: string[]) => values.join(" • ");
 	<Hero />
 	<main id="main">
 		<section class="projetos" id="projetos">
-			{
-				posts.map((post) => (
-					<a href={`/projetos/${post.id}/`} class="card">
-						<div class="noise" />
-						<Picture
-							src={post.data.card}
-							alt={post.data.description}
-							type="card"
-						/>
-						<div class="card__description">
-							<h2 class="card__title">{post.data.title}</h2>
-							<span class="card__tag">
-								{formatCategories(post.data.categories)}
-							</span>
-						</div>
-					</a>
-				))
-			}
+			{posts.map((post) => (
+				<a href={`/projetos/${post.id}/`} class="card">
+					<div class="noise" />
+					<Picture
+						src={post.data.card}
+						alt={post.data.description}
+						type="card"
+					/>
+					<div class="card__description">
+						<h2 class="card__title">{post.data.title}</h2>
+						<span class="card__tag">
+							{formatCategories(post.data.categories)}
+						</span>
+					</div>
+				</a>
+			))}
 		</section>
 	</main>
 	<Contact />
