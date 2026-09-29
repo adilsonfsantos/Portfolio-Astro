@@ -39,24 +39,19 @@ const title = [post.data.title, site_name].filter(Boolean).join(" | ");
 	</Post>
 	<section class="postnav">
 		<div class="postnav__content">
-			{
-				prevPost ? (
-					<a
-						href={`/projetos/${prevPost.id}/`}
-						class="postnav__link"
-						rel="next">
-						Próximo projeto
-						<br />
-						<span class="postnav__title">{prevPost.data.title}</span>
-					</a>
-				) : (
-					<a href="/" class="postnav__link">
-						Sem mais projetos
-						<br />
-						<span class="postnav__title">Voltar para a home</span>
-					</a>
-				)
-			}
+			{prevPost ? (
+				<a href={`/projetos/${prevPost.id}/`} class="postnav__link" rel="next">
+					Próximo projeto
+					<br />
+					<span class="postnav__title">{prevPost.data.title}</span>
+				</a>
+			) : (
+				<a href="/" class="postnav__link">
+					Sem mais projetos
+					<br />
+					<span class="postnav__title">Voltar para a home</span>
+				</a>
+			)}
 		</div>
-	</section></Default
->
+	</section>
+</Default>

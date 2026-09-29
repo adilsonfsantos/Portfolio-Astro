@@ -9,7 +9,8 @@ import { encodeEmail } from "../utils/encodeEmail";
 		<h2 class="contato__cta">Vamos conversar!</h2>
 		<p class="contato__subtitle">
 			Quer falar sobre um projeto ou precisa de alguém para ajudar na sua
-			equipe?<br />É só me chamar.
+			equipe?
+			<br />É só me chamar.
 		</p>
 		<div class="contato__info">
 			<div class="contato__info__container">
@@ -17,26 +18,25 @@ import { encodeEmail } from "../utils/encodeEmail";
 				<div class="contato__info-spacer"></div>
 				<p class="contato__info__text">
 					<a href={"mailto:" + encodeEmail(site_author_email)}>
-						<b class="contato__hidden">blocked</b>{site_author_email}
+						<b class="contato__hidden">blocked</b>
+						{site_author_email}
 					</a>
 				</p>
 			</div>
-			{
-				social.links.map((link) => (
-					<div class="contato__info__container">
-						<h3 class="contato__info__title">{link.name}</h3>
-						<div class="contato__info-spacer" />
-						<ul class="contato__info__text">
-							<li>
-								<a href={link.url} rel="noopener" target="_blank">
-									<b class="contato__hidden">blocked</b>
-									{link?.username}
-								</a>
-							</li>
-						</ul>
-					</div>
-				))
-			}
+			{social.links.map((link) => (
+				<div class="contato__info__container">
+					<h3 class="contato__info__title">{link.name}</h3>
+					<div class="contato__info-spacer" />
+					<ul class="contato__info__text">
+						<li>
+							<a href={link.url} rel="noopener" target="_blank">
+								<b class="contato__hidden">blocked</b>
+								{link?.username}
+							</a>
+						</li>
+					</ul>
+				</div>
+			))}
 		</div>
 	</div>
 </section>
