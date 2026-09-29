@@ -12,9 +12,9 @@ jobs:
         run: |
           BRANCH_NAME="${GITHUB_HEAD_REF}"
 
-          if [[ ! "$BRANCH_NAME" =~ ^(feat|fix|refactor|chore)/[a-z0-9-]+$ ]]; then
+          if [[ ! "$BRANCH_NAME" =~ ^(feat|fix|refactor|chore|dependabot)/[a-z0-9-]+$ ]]; then
             echo "Invalid branch name: $BRANCH_NAME"
             echo "Allowed patterns:"
-            echo "feat/*, fix/*, refactor/*, chore/*"
+            echo "feat/*, fix/*, refactor/*, chore/*, dependabot/*"
             exit 1
           fi
