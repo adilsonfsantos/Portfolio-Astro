@@ -8,7 +8,7 @@
 	},
 	"private": true,
 	"browserslist": [
-		"defaults"
+		"baseline newly available with downstream"
 	],
 	"scripts": {
 		"dev": "astro dev",
@@ -18,13 +18,14 @@
 		"eslint": "eslint . --cache --cache-location .cache/eslint",
 		"eslint:fix": "eslint . --fix --cache --cache-location .cache/eslint",
 		"stylelint": "stylelint 'src/**/*.{css,scss}' --cache --cache-location .cache/stylelint",
-		"stylelint:fix": "stylelint --write 'src/**/*.{css,scss}' --cache --cache-location .cache/stylelint",
+		"stylelint:fix": "stylelint 'src/**/*.{css,scss}' --cache --cache-location .cache/stylelint --fix",
 		"format": "prettier --check . --cache --cache-location .cache/prettier",
 		"format:fix": "prettier --write . --cache --cache-location .cache/prettier",
 		"check": "npm run typecheck && npm run eslint && npm run stylelint && npm run format",
 		"ci": "npm run check && npm run build",
 		"csp": "node scripts/generate-csp-hashes.ts",
-		"prepare": "husky"
+		"prepare": "husky",
+		"knip": "knip"
 	},
 	"lint-staged": {
 		"*.{js,ts,astro,mdx}": [
