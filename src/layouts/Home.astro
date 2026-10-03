@@ -11,40 +11,38 @@ import "@assets/css/layout/_hero.scss";
 import "@assets/css/layout/_footer.scss";
 import "@assets/css/layout/_contact.scss";
 import "@assets/css/pages/_home.scss";
-
 import Contact from "@components/Contact.astro";
 import Hero from "@components/Hero.astro";
 import Picture from "@components/Image.astro";
 import Default from "./Default.astro";
 
+import type { ImageMetadata } from "astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
-interface Frontmatter {
+interface HomeProps {
 	title: string;
 	description: string;
-	image?: string | { src: string };
+	image?: ImageMetadata;
 }
 
-interface HomeProps {
-	frontmatter: Frontmatter;
-}
+const { title, description, image } = Astro.props as HomeProps;
 
-const { frontmatter } = Astro.props as HomeProps;
-
-// Searches and sorts posts by most recent from "projetos" collection
+/*
+ * Fetch all published project entries and sort them by date, showing the
+ * most recent projects first.
+ */
 const posts: CollectionEntry<"projetos">[] = (
 	await getCollection("projetos")
 ).sort((b, a) => a.data.date.valueOf() - b.data.date.valueOf());
 
-// Format categories for cards exibition
+/*
+ * Format project categories for display in project cards.
+ */
 const formatCategories = (values: string[]) => values.join(" • ");
 ---
 
-<Default
-	title={frontmatter.title}
-	description={frontmatter.description}
-	image={frontmatter.image}>
+<Default title={title} description={description} image={image}>
 	<div class="noise"></div>
 	<Hero />
 	<main id="main">
