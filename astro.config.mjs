@@ -6,7 +6,7 @@ import compressor from "astro-compressor";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://adilsonsantos.pages.dev/",
-	prefetch: false,
+	prefetch: true,
 	build: { inlineStylesheets: "never" },
 
 	integrations: [
@@ -19,6 +19,12 @@ export default defineConfig({
 
 	image: {
 		service: sharpImageService(),
+	},
+
+	security: {
+		csp: {
+			algorithm: "SHA-256",
+		},
 	},
 
 	trailingSlash: "always",
