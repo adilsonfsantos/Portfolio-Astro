@@ -1,13 +1,12 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import { defineConfig, sharpImageService } from "astro/config";
+import { defineConfig } from "astro/config";
 import compressor from "astro-compressor";
 
 // https://astro.build/config
 export default defineConfig({
 	site: "https://adilsonsantos.pages.dev/",
 	prefetch: false,
-	build: { inlineStylesheets: "never" },
 
 	integrations: [
 		mdx(),
@@ -18,7 +17,20 @@ export default defineConfig({
 	],
 
 	image: {
-		service: sharpImageService(),
+		service: {
+			config: {
+				avif: {
+					effort: 2,
+				},
+				jpeg: {
+					chromaSubsampling: "4:4:4",
+					progressive: true,
+				},
+				webp: {
+					effort: 6,
+				},
+			},
+		},
 	},
 
 	trailingSlash: "always",
