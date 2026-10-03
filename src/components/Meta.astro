@@ -1,20 +1,50 @@
 ---
+import { getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import { site_author, site_lang, site_name, site_url, social } from "../consts";
 
 interface MetaProps {
 	title: string;
 	description: string;
-	image?: { src: string } | string;
+	image?: ImageMetadata | string;
 }
 
 const { title, description, image } = Astro.props as MetaProps;
 
 const socialUrls: string[] = social.links.map((link) => link.url);
 
-const pageImage: string | undefined =
-	typeof image === "string" ? image : image?.src;
-
 const canonicalUrl: string = new URL(Astro.url.pathname, site_url).toString();
+
+/*
+Resolve images referenced by standalone MDX pages.
+
+Images from content collections are already returned as ImageMetadata,
+while images defined in page frontmatter are plain paths. The glob maps
+those paths to Astro image assets so they can be processed by getImage().
+ */
+const pageImages = import.meta.glob<{ default: ImageMetadata }>(
+	"@images/**/*.{png,jpg,jpeg,webp,avif}",
+	{
+		eager: true,
+	},
+);
+
+const imageMetadata =
+	typeof image === "string" ? pageImages[`${image}`]?.default : image;
+
+const socialImage = imageMetadata
+	? await getImage({
+			src: imageMetadata,
+			width: 1200,
+			height: 630,
+			format: "jpeg",
+			fit: "cover",
+		})
+	: undefined;
+
+const socialImageUrl = socialImage
+	? new URL(socialImage.src, site_url).toString()
+	: undefined;
 
 const structuredData = {
 	"@context": "https://schema.org",
@@ -22,7 +52,7 @@ const structuredData = {
 	url: canonicalUrl,
 	headline: title,
 	name: site_name,
-	image: pageImage ? site_url + pageImage : undefined,
+	image: socialImageUrl,
 	author: {
 		"@type": "Person",
 		name: site_author,
@@ -43,17 +73,17 @@ const structuredData = {
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:creator" content={site_author} />
-<meta name="twitter:image" content={site_url + pageImage} />
+<meta name="twitter:image" content={socialImageUrl} />
 <meta name="twitter:dnt" content="on" />
 
 <!-- Open Graph -->
-<meta name="og:title" content={title} />
-<meta name="og:description" content={description} />
-<meta name="og:image" content={site_url + pageImage} />
-<meta name="og:url" content={canonicalUrl} />
-<meta name="og:site_name" content={site_name} />
-<meta name="og:locale" content={site_lang} />
-<meta name="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={socialImageUrl} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:site_name" content={site_name} />
+<meta property="og:locale" content={site_lang} />
+<meta property="og:type" content="website" />
 
 <!-- Icons -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
