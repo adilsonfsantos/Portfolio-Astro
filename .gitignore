@@ -22,6 +22,10 @@ pnpm-debug.log*
 # OS-specific files
 .DS_Store
 Thumbs.db
+Desktop.ini
+.Spotlight-V100
+.Trashes
+.Trash-*
 
 # IDE / Editor
 .vscode/*
