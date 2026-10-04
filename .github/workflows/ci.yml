@@ -28,8 +28,8 @@ jobs:
       - name: Restore npm cache
         uses: actions/cache@v6
         with:
-            path: .npm
-            key: build-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          path: .npm
+          key: build-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
       - name: Install dependencies
         run: npm ci
@@ -37,8 +37,8 @@ jobs:
       - name: Restore astro cache
         uses: actions/cache@v6
         with:
-            path: node_modules/.astro
-            key: build-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          path: node_modules/.astro
+          key: build-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
       - name: Check and Build Astro
         run: npm run ci
