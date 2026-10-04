@@ -48,7 +48,7 @@ const formatCategories = (values: string[]) => values.join(" • ");
 	<main id="main">
 		<section class="projetos" id="projetos">
 			{posts.map((post) => (
-				<a href={`/projetos/${post.id}/`} class="card">
+				<a href={`/projetos/${post.id}/`} class="card" data-astro-prefetch>
 					<div class="noise" />
 					<Picture
 						src={post.data.card}
