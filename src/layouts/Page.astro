@@ -26,7 +26,10 @@ interface PageProps {
 
 const { frontmatter } = Astro.props as PageProps;
 
-// Combines page title with frontmatter value and site_name
+/*
+ * Combine the page title with the site name for the document title.
+ * Empty values are excluded from the resulting title.
+ */
 const title = [frontmatter.title, site_name].filter(Boolean).join(" | ");
 ---
 
