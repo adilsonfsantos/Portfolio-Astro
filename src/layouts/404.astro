@@ -10,20 +10,17 @@ import "@assets/css/layout/_hero.scss";
 import "@assets/css/layout/_footer.scss";
 import "@assets/css/pages/_not-found.scss";
 import Default from "./Default.astro";
+import { site_description } from "../consts";
 
 interface NotFoundFrontmatter {
 	title: string;
-	description: string;
 	image?: string;
 }
 
-const { frontmatter } = Astro.props as { frontmatter: NotFoundFrontmatter };
+const { title, image } = Astro.props as NotFoundFrontmatter;
 ---
 
-<Default
-	title={frontmatter.title}
-	description={frontmatter.description}
-	image={frontmatter.image}>
+<Default title={title} description={site_description} image={image}>
 	<div class="noise"></div>
 	<main id="main">
 		<section class="hero hero--not-found">
