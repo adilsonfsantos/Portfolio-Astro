@@ -23,30 +23,11 @@
 	}
 }
 
-// ANIMATION
-@mixin transition(
-	$property: all,
-	$duration: variables.$duration-standard,
-	$timing: variables.$animation-standard,
-	$delay: 0ms
-) {
-	transition: $property $duration $timing $delay;
-}
-
-@mixin animation(
-	$name,
-	$duration: variables.$duration-standard,
-	$speed: variables.$animation-standard,
-	$iteration-count: 1,
-	$delay: 0ms
-) {
-	animation: $name $duration $speed $iteration-count $delay;
-}
-
 // Typography
 @mixin typescale($size, $weight: normal, $line: text) {
 	font-size: map.get(variables.$type-map, $size, size);
 	letter-spacing: map.get(variables.$type-map, $size, tracking);
+	text-box: trim-both cap alphabetic;
 
 	@if $weight == bold {
 		font-weight: 600;
@@ -68,15 +49,6 @@
 		line-height: 1.6;
 	} @else {
 		@warn "Atenção: `#{$line}` não é suportado.";
-	}
-}
-
-// Text alignment
-@mixin font-position($position) {
-	@if $position == center or $position == right or $position == left {
-		text-align: $position;
-	} @else {
-		@warn "Atenção: Posição `#{$position}` inválida.";
 	}
 }
 
@@ -132,45 +104,14 @@
 	}
 }
 
-// Base for all buttons
-@mixin btn-base {
-	@include typescale(scale-0, medium, headline);
-	@include font-position(center);
-	@include transition(background-color);
-	@include transition(border-color);
-
-	min-inline-size: clamp(120px, 20%, 200px);
-	padding-block: variables.$space-xs;
-	padding-inline: variables.$space-m;
-	inline-size: max-content;
-}
-
 // Mixin para backdrop-filter
-@mixin backdrop-bg($color, $alpha) {
-	background-color: rgba($color, $alpha);
+@mixin translucent-backdrop() {
 	backdrop-filter: saturate(180%) blur(variables.$base-size * 0.25);
 }
 
-// Button states
-@mixin btn-state($text-color, $bg-color, $border-color: null) {
-	&:hover,
-	&:active {
-		color: $text-color;
-		background-color: $bg-color;
-
-		@if $border-color {
-			border-color: $border-color;
-		}
-	}
-}
-
-@mixin btn-a11y($color) {
+@mixin focus-visible($color) {
 	&:focus-visible {
-		outline: 2px solid $color;
-		outline-offset: 2px;
+		outline-color: $color;
+		@content;
 	}
-
-	// Clicable buttons
-	min-block-size: 48px;
-	min-inline-size: 48px;
 }

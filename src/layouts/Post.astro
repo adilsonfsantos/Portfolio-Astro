@@ -39,14 +39,14 @@ const { title, image, roles, date, team } = Astro.props as PostProps;
 				{title}
 			</h1>
 			<div class="post__info">
-				<div>
+				<div class="post__info__container">
 					<h3 class="post__info__title">Minha Função</h3>
 					{roles.map((role) => (
 						<p class="post__info__text">{role}</p>
 					))}
 				</div>
 				{team && (
-					<div>
+					<div class="post__info__container">
 						<h3 class="post__info__title">Equipe</h3>
 						{team.map((member) => (
 							<p class="post__info__text">
@@ -66,7 +66,7 @@ const { title, image, roles, date, team } = Astro.props as PostProps;
 						))}
 					</div>
 				)}
-				<div>
+				<div class="post__info__container">
 					<h3 class="post__info__title">Data</h3>
 					<p class="post__info__text">{date.getFullYear()}</p>
 				</div>
@@ -75,7 +75,6 @@ const { title, image, roles, date, team } = Astro.props as PostProps;
 		</div>
 		<div class="post__content" itemprop="articleBody">
 			<slot />
-			<hr />
 		</div>
 	</article>
 </main>

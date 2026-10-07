@@ -6,6 +6,7 @@
 
 	display: grid;
 	gap: variables.$grid-gutter;
+	padding-block-start: variables.$space-l;
 	grid-template-columns: repeat(
 		auto-fit,
 		minmax(clamp(12rem, calc(50% - #{variables.$grid-gutter}), 32rem), 1fr)

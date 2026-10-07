@@ -3,8 +3,14 @@
 
 // Root elements
 html {
-	scrollbar-color: variables.$color-white-70 transparent;
-	scrollbar-width: thin;
+	@supports (scrollbar-color: feature-exists) {
+		scrollbar-color: variables.$color-white-70 transparent;
+	}
+
+	@supports (scrollbar-width: feature-exists) {
+		scrollbar-width: thin;
+	}
+
 	height: 100%;
 }
 
@@ -22,14 +28,19 @@ body {
 	font-kerning: normal;
 	font-size: 1rem;
 	line-height: 1.6;
-	hanging-punctuation: first allow-end last;
 	min-height: 100%;
+
+	@supports (hanging-punctuation: feature-exists) {
+		hanging-punctuation: first allow-end last;
+	}
 }
 
 // Selection
-::selection {
-	background-color: variables.$color-primary-20;
-	color: variables.$color-white;
+@supports selector(::selection) {
+	::selection {
+		background-color: variables.$color-primary-20;
+		color: variables.$color-white;
+	}
 }
 
 // Link
@@ -52,23 +63,20 @@ img {
 	position: relative;
 }
 
-/* Skip to main content A11y */
-.skip-to-content-link {
-	@include mixins.transition(transform);
-
-	left: 50%;
-	position: absolute;
-	transform: translate(-50%, -150%);
-	z-index: 100;
-	color: variables.$color-secondary-90;
-
-	&:focus-visible {
-		transform: translate(-50%, variables.$space-s);
-		outline: 2px solid variables.$color-secondary-90;
-	}
+main {
+	scroll-padding-block-start: variables.$space-xl;
+	overflow: auto;
 }
 
-// Extra scroll margin for elements that have anchors
-:target {
-	scroll-margin-block: variables.$space-2xl;
+// Skip to main content A11y
+.skip-to-content-link {
+	inset-inline: 0;
+	margin-inline: auto;
+	position: absolute;
+	transform: translateY(-150%);
+	z-index: 100;
+
+	&:focus-visible {
+		transform: translateY(20%);
+	}
 }

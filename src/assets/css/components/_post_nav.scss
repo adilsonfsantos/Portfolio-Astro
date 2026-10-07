@@ -3,13 +3,13 @@
 
 .postnav {
 	display: grid;
-	padding: variables.$space-3xl 0;
+	padding-block: variables.$space-3xl;
 
 	&__content {
 		@include mixins.layout-grid(site);
 
 		@include mixins.viewport(large) {
-			@include mixins.font-position(center);
+			text-align: center;
 		}
 
 		width: 100%;

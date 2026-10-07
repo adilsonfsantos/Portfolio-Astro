@@ -4,45 +4,29 @@
 .page {
 	@include mixins.layout-grid(site);
 
-	min-height: clamp(50vh, 72svh, 100vh);
 	padding-block-start: variables.$space-3xl;
 
 	&__title {
 		@include mixins.typescale(scale-6, medium, headline);
 
 		color: variables.$color-white;
+		margin-block: 0;
+
+		+ p {
+			margin-block-start: variables.$space-xl;
+		}
 	}
 
 	&__content {
-		@include mixins.flow;
+		@include mixins.flow(variables.$space-l);
 		@include mixins.content-grid;
+
+		@include mixins.viewport(large) {
+			padding-block-start: variables.$space-3xl;
+		}
 
 		h1 {
 			@include mixins.typescale(scale-6, medium, headline);
-		}
-
-		h2 {
-			@include mixins.typescale(scale-3, medium, headline);
-		}
-
-		h3 {
-			@include mixins.typescale(scale-2, medium, headline);
-		}
-
-		h4 {
-			@include mixins.typescale(scale-1, medium, headline);
-		}
-
-		h5 {
-			@include mixins.typescale(scale-0, medium, headline);
-		}
-
-		h6 {
-			@include mixins.typescale(scale-0, medium, headline);
-		}
-
-		h1 + * {
-			--flow-space: #{variables.$space-2xl};
 		}
 
 		h2,
@@ -50,9 +34,11 @@
 		h4,
 		h5,
 		h6 {
-			color: variables.$color-white;
+			@include mixins.typescale(scale-2, medium, headline);
 
-			--flow-space: #{variables.$space-2xl};
+			--flow-space: #{variables.$space-xl};
+
+			color: variables.$color-white;
 		}
 
 		p,
@@ -60,6 +46,11 @@
 			@include mixins.typescale(scale-0, normal, text);
 
 			color: variables.$color-white-90;
+			text-wrap: balance;
+
+			@include mixins.viewport(large) {
+				text-wrap: stable;
+			}
 		}
 
 		ul,
@@ -69,7 +60,7 @@
 		}
 
 		li:not(:last-child) {
-			margin-bottom: variables.$space-2xs;
+			margin-bottom: variables.$space-m;
 		}
 	}
 

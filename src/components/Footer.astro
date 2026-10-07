@@ -6,19 +6,16 @@ const today = new Date().getFullYear();
 import { encodeEmail } from "../utils/encodeEmail";
 ---
 
-<footer class="footer">
+<footer class="footer noise">
 	<div class="footer__gradient"></div>
-	<div class="noise"></div>
 	<div class="footer__container">
 		<div class="footer__content">
-			<div class="footer__copyright">
-				<p>
-					&copy;2019 &ndash; {today}&nbsp
-					{SITE_TITLE}
-					<br />
-					Todos os direitos reservados.
-				</p>
-			</div>
+			<p class="footer__copyright">
+				&copy;2019 &ndash; {today}&nbsp
+				{SITE_TITLE}
+				<br />
+				Todos os direitos reservados.
+			</p>
 			<div class="footer__spacer"></div>
 			<ul class="footer__social">
 				<li>

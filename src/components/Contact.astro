@@ -27,14 +27,12 @@ import { encodeEmail } from "../utils/encodeEmail";
 				<div class="contato__info__container">
 					<h3 class="contato__info__title">{link.name}</h3>
 					<div class="contato__info-spacer" />
-					<ul class="contato__info__text">
-						<li>
-							<a href={link.url} rel="noopener" target="_blank">
-								<b class="contato__hidden">blocked</b>
-								{link?.username}
-							</a>
-						</li>
-					</ul>
+					<p class="contato__info__text">
+						<a href={link.url} rel="noopener" target="_blank">
+							<b class="contato__hidden">blocked</b>
+							{link?.username}
+						</a>
+					</p>
 				</div>
 			))}
 		</div>
