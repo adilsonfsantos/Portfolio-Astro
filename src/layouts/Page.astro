@@ -13,7 +13,7 @@ import "@assets/css/pages/_page.scss";
 import Contact from "@components/Contact.astro";
 import Default from "./Default.astro";
 
-import { site_description, site_name } from "../consts";
+import { SITE_DESCRIPTION, SITE_NAME } from "../consts";
 
 interface PageFrontmatter {
 	title: string;
@@ -26,14 +26,12 @@ interface PageProps {
 
 const { frontmatter } = Astro.props as PageProps;
 
-/*
- * Combine the page title with the site name for the document title.
- * Empty values are excluded from the resulting title.
- */
-const title = [frontmatter.title, site_name].filter(Boolean).join(" | ");
+// Combine the page title with the site name for the document title.
+// Empty values are excluded from the resulting title.
+const title = [frontmatter.title, SITE_NAME].filter(Boolean).join(" | ");
 ---
 
-<Default title={title} description={site_description} image={frontmatter.image}>
+<Default title={title} description={SITE_DESCRIPTION} image={frontmatter.image}>
 	<div class="noise"></div>
 	<main id="main">
 		<article class="page">

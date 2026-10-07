@@ -4,9 +4,13 @@ on:
   pull_request:
     branches: [main]
 
+permissions: {}
+
 jobs:
   ci:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout
@@ -15,21 +19,14 @@ jobs:
           submodules: recursive
           token: ${{ secrets.GH_actions_PAT }}
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup Node
         uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
-          package-manager-cache: false
-
-      - name: Configure npm cache
-        run: npm config set cache .npm
-
-      - name: Restore npm cache
-        uses: actions/cache@v6
-        with:
-          path: .npm
-          key: build-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          cache: npm
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -38,7 +35,11 @@ jobs:
         uses: actions/cache@v6
         with:
           path: node_modules/.astro
-          key: build-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          key: astro-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            astro-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+            astro-${{ runner.os }}-
+            astro-
 
       - name: Check and Build Astro
         run: npm run ci
