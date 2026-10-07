@@ -16,8 +16,8 @@ pnpm-debug.log*
 
 # environment variables
 .env
-.env.*
-!.env.example
+.env.local
+.env.*.local
 
 # OS-specific files
 .DS_Store

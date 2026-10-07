@@ -4,17 +4,20 @@ import { defineConfig } from "astro/config";
 import compressor from "astro-compressor";
 import { satteri } from "@astrojs/markdown-satteri";
 import satteriExternalLinks from "satteri-external-links";
+import { loadEnv } from "vite";
+
+const { PUBLIC_SITE_URL } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://adilsonsantos.pages.dev/",
+	site: PUBLIC_SITE_URL,
 	prefetch: true,
 	build: { inlineStylesheets: "never" },
 
 	integrations: [
 		mdx(),
 		sitemap({
-			filter: (page) => page !== "https://adilsonsantos.pages.dev/404/",
+			filter: (page) => page !== PUBLIC_SITE_URL + "/404/",
 		}),
 		compressor({ brotli: true }),
 	],
