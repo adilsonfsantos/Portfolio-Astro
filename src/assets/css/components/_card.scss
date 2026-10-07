@@ -2,9 +2,6 @@
 @use "../abstracts/variables";
 
 .card {
-	@include mixins.transition(background-color);
-	@include mixins.transition(border-color);
-
 	background-color: variables.$color-black;
 	border: 1px solid variables.$color-black-10;
 	display: flex;
@@ -12,6 +9,8 @@
 	max-inline-size: 100%;
 	position: relative;
 	isolation: isolate;
+	transition: 0.3s ease;
+	transition-property: border-color, background-color;
 
 	picture {
 		padding-inline: variables.$space-m;
@@ -29,13 +28,14 @@
 		flex: 1;
 		justify-content: space-between;
 		padding: variables.$space-m;
+		gap: variables.$space-l;
 	}
 
 	&__title {
 		@include mixins.typescale(scale-2, medium, headline);
 
 		color: variables.$color-white;
-		margin-block-end: variables.$space-m;
+		margin-block: 0;
 	}
 
 	&__tag {
@@ -45,7 +45,13 @@
 		text-transform: uppercase;
 	}
 
-	&:hover,
+	@media (hover: hover) and (pointer: fine) {
+		&:hover {
+			background-color: variables.$color-black-10;
+			border-color: variables.$color-black-20;
+		}
+	}
+
 	&:focus-visible {
 		background-color: variables.$color-black-10;
 		border-color: variables.$color-black-20;

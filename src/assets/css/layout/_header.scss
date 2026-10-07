@@ -6,11 +6,11 @@
 	inset-block-start: 0;
 	inline-size: 100%;
 	z-index: 4;
-	background-color: variables.$color-black;
+	background-color: rgb(variables.$color-black, 0.8);
 	border-bottom: 1px solid variables.$color-black-10;
 
 	@supports (backdrop-filter: blur(1px)) {
-		@include mixins.backdrop-bg(variables.$color-black, 0.8);
+		@include mixins.translucent-backdrop;
 	}
 
 	&__content {
@@ -22,12 +22,12 @@
 
 		&-logo {
 			color: variables.$color-white;
+			padding-block: variables.$space-s;
 		}
 
 		&-logo > svg {
 			display: block;
 			fill: currentcolor;
-			margin-block: variables.$base-size;
 			inline-size: auto;
 			block-size: 24px;
 		}
@@ -44,12 +44,17 @@
 
 	&__link {
 		@include mixins.typescale(scale-0, medium, headline);
-		@include mixins.transition(color);
 
 		color: variables.$color-white-70;
-		padding-block: variables.$base-size;
+		padding-block: variables.$space-s;
+		transition: color 0.3s ease;
 
-		&:hover,
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				color: variables.$color-white;
+			}
+		}
+
 		&:active,
 		&--current {
 			color: variables.$color-white;

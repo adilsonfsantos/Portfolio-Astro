@@ -1,4 +1,6 @@
-/* consistent box sizing  */
+@use "../abstracts/variables";
+
+// consistent box sizing
 *,
 *::before,
 *::after {
@@ -8,30 +10,32 @@
 html {
 	scroll-behavior: smooth;
 
-	/* Reserve space for scrollbar and prevents unwanted layout movement
-	https://www.zachleat.com/web/stable-scrollbar-gutters/ */
+	// Reserve space for scrollbar and prevents unwanted layout movement
+	// https://www.zachleat.com/web/stable-scrollbar-gutters
 	scrollbar-gutter: stable;
 
-	/* Prevent font size inflation
-	https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
-	text-size-adjust: none;
+	// Prevent font size inflation
+	// https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably
+	@supports (text-size-adjust: none) {
+		text-size-adjust: none;
+	}
 }
 
 body {
 	min-height: 100vh;
 	margin: 0;
 
-	/* Base accessible line-height */
+	// Base accessible line-height
 	line-height: 1.5;
 
-	/* Prevents unwanted horizontal overflow */
+	// Prevents unwanted horizontal overflow
 	overflow-x: clip;
 
-	/* Improve word breaking */
+	// Improve word breaking
 	overflow-wrap: break-word;
 }
 
-/* Non aggressive controlled margins */
+// Non aggressive controlled margins
 body,
 h1,
 h2,
@@ -47,7 +51,7 @@ dd {
 	margin-block-end: 0;
 }
 
-/* Improvements for text and headings */
+// Improvements for text and headings
 h1,
 h2,
 h3,
@@ -58,18 +62,20 @@ h6 {
 	text-wrap: balance;
 }
 
-p {
-	text-wrap: pretty;
+@supports (text-wrap: pretty) {
+	p {
+		text-wrap: pretty;
+	}
 }
 
-/* Accessible lists */
+// Accessible lists
 ul[role="list"],
 ol[role="list"] {
 	list-style: none;
 	padding: 0;
 }
 
-/* Link styling */
+// Link styling
 a {
 	color: inherit;
 	text-decoration-skip-ink: auto;
@@ -80,7 +86,7 @@ a:not([class]) {
 	text-underline-offset: 0.15em;
 }
 
-/* Visible focus  (WCAG 2.4.7) */
+// Visible focus  (WCAG 2.4.7)
 :focus-visible {
 	outline: 2px solid currentcolor;
 	outline-offset: 2px;
@@ -90,7 +96,7 @@ a:not([class]) {
 	outline: none;
 }
 
-/* Media */
+// Media
 img,
 picture,
 video,
@@ -101,7 +107,7 @@ svg {
 	height: auto;
 }
 
-/* Forms */
+// Forms
 input,
 button,
 textarea,
@@ -114,12 +120,13 @@ textarea:not([rows]) {
 	min-height: 8em;
 }
 
-/* Anchor and navigation */
+// Anchor and navigation
+// Extra scroll margin for elements that have anchors
 :target {
-	scroll-margin-block: 5ex;
+	scroll-margin-block: variables.$space-xl;
 }
 
-/* Motion options from User preferences */
+// Motion options from User preferences
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,

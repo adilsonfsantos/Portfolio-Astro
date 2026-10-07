@@ -18,22 +18,25 @@
 
 	&__container {
 		@include mixins.layout-grid(site);
+
+		padding-block: variables.$space-l;
 	}
 
 	&__content {
 		align-items: center;
 		display: flex;
 		flex-wrap: wrap;
-		padding-block: variables.$space-l;
+		justify-content: space-between;
 	}
 
 	&__copyright {
 		@include mixins.typescale(scale-0, normal, text);
 
 		color: variables.$color-white-90;
-		margin-block: variables.$base-size;
+		margin-block: 0;
+		margin-block-end: variables.$space-m;
 
-		p {
+		@include mixins.viewport(large) {
 			margin-block: 0;
 		}
 	}
@@ -50,26 +53,27 @@
 		padding: 0;
 		margin: 0;
 
-		li {
-			margin-block: variables.$space-2xs;
-		}
-
 		a {
 			@include mixins.typescale(scale-0, medium, text);
-			@include mixins.transition(color);
 
 			color: variables.$color-white-70;
-			padding-block: variables.$space-2xs;
-
-			&:hover,
-			&:active {
-				color: variables.$color-white;
-			}
+			padding-block: variables.$space-xs;
+			transition: color 0.3s ease;
 
 			&:focus-visible {
 				outline: 2px solid variables.$color-white;
 				outline-offset: 2px;
 			}
+		}
+
+		@media (hover: hover) and (pointer: fine) {
+			a:hover {
+				color: variables.$color-white;
+			}
+		}
+
+		a:active {
+			color: variables.$color-white;
 		}
 	}
 }

@@ -7,7 +7,7 @@
 	padding-block-start: variables.$space-3xl;
 
 	&__header {
-		min-height: clamp(50vh, 72svh, 100vh);
+		padding-block-start: variables.$space-xl;
 
 		img {
 			color: variables.$color-white;
@@ -18,7 +18,8 @@
 		@include mixins.typescale(scale-6, medium, headline);
 
 		color: variables.$color-white;
-		margin-block-end: variables.$space-xl;
+		margin-block: 0;
+		padding-block-end: variables.$space-xl;
 	}
 
 	&__info {
@@ -30,36 +31,44 @@
 		);
 		margin-block-end: variables.$space-xl;
 
+		&__container {
+			border-top: 1px solid variables.$color-black-10;
+		}
+
 		&__title {
 			@include mixins.typescale(scale--1, medium, text);
 
-			border-top: 1px solid variables.$color-black-10;
-			color: variables.$color-white;
-			padding-block-start: variables.$space-s;
+			color: variables.$color-white-90;
+			margin-block: 0;
+			margin-block-start: variables.$space-m;
 		}
 
 		&__text {
 			@include mixins.typescale(scale-0, normal, text);
 
-			margin-block-start: variables.$space-3xs;
-			color: variables.$color-white-90;
+			margin-block-start: variables.$space-s;
+			color: variables.$color-white;
 		}
 	}
 
 	&__content {
-		@include mixins.flow;
+		@include mixins.flow(variables.$space-m);
 		@include mixins.content-grid;
 
-		margin-block-start: #{variables.$space-xl};
+		margin-block-start: variables.$space-2xl;
+
+		:first-child {
+			margin-block: 0;
+		}
 
 		h2,
 		h3,
 		h4,
 		h5,
 		h6 {
-			color: variables.$color-white;
+			--flow-space: #{variables.$space-xl};
 
-			--flow-space: #{variables.$space-2xl};
+			color: variables.$color-white;
 		}
 
 		h2 {
@@ -70,10 +79,7 @@
 			@include mixins.typescale(scale-1, medium, headline);
 		}
 
-		h4 {
-			@include mixins.typescale(scale-0, medium, headline);
-		}
-
+		h4,
 		h5 {
 			@include mixins.typescale(scale-0, medium, headline);
 		}
@@ -111,13 +117,13 @@
 			max-height: 80dvh;
 		}
 
-		picture,
-		video {
-			--flow-space: #{variables.$space-l};
+		figure,
+		picture {
+			margin-inline: 0;
 		}
 
 		blockquote {
-			border-left: 2px solid variables.$color-primary;
+			border-inline-start: 2px solid variables.$color-primary;
 			padding-inline-start: variables.$space-m;
 
 			--flow-space: #{variables.$space-xl};
@@ -157,13 +163,6 @@
 
 	img {
 		color: variables.$color-white-90;
-	}
-
-	hr {
-		border: none;
-		background-color: variables.$color-black-10;
-		height: 1px;
-		margin-block-start: variables.$space-xl;
 	}
 
 	strong {

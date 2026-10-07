@@ -12,7 +12,7 @@
 		flex-direction: column;
 		justify-content: center;
 		min-height: min(88svh, 56rem);
-		padding-block: variables.$space-2xl variables.$space-xs;
+		padding-block: variables.$space-3xl variables.$space-l;
 	}
 
 	&__title {
@@ -26,7 +26,7 @@
 		@include mixins.typescale(scale-1, normal, text);
 
 		color: variables.$color-white-90;
-		margin-block-start: variables.$space-xs;
+		margin-block-start: variables.$space-m;
 		max-inline-size: 60ch;
 		text-wrap: balance;
 	}

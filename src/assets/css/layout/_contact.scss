@@ -29,9 +29,14 @@
 
 	&__content {
 		@include mixins.layout-grid(site);
-		@include mixins.flow;
+
+		display: flex;
+		flex-wrap: wrap;
+		gap: variables.$space-l;
+		padding-block: variables.$space-2xl;
 
 		@include mixins.viewport(large) {
+			justify-content: center;
 			text-align: center;
 		}
 	}
@@ -40,6 +45,7 @@
 		@include mixins.typescale(scale-6, medium, title);
 
 		color: variables.$color-white;
+		margin-block-start: 0;
 	}
 
 	&__subtitle {
@@ -48,6 +54,7 @@
 		color: variables.$color-white-90;
 		max-inline-size: 60ch;
 		margin-inline: auto;
+		margin-block: 0;
 		text-wrap: balance;
 	}
 
@@ -65,7 +72,9 @@
 	}
 
 	&__info {
-		text-align: left;
+		display: flex;
+		flex-wrap: wrap;
+		gap: variables.$space-m;
 		max-inline-size: 50ch;
 		margin-inline: auto;
 
@@ -95,14 +104,17 @@
 		&__container {
 			display: flex;
 			align-items: center;
-			gap: variables.$space-xs;
+			gap: variables.$space-2xs;
+			flex-wrap: wrap;
+			inline-size: 100%;
 		}
 	}
 
 	a {
-		@include mixins.typescale(scale-0, normal, text);
+		@include mixins.typescale(scale-0, medium, text);
 
 		color: variables.$color-secondary-90;
+		padding-block: variables.$space-xs;
 		text-decoration: underline;
 		overflow-wrap: break-word;
 
