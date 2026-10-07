@@ -1,7 +1,7 @@
 ---
 import { getImage } from "astro:assets";
 import type { ImageMetadata } from "astro";
-import { site_author, site_lang, site_name, site_url, social } from "../consts";
+import { SITE_AUTHOR, SITE_LANG, SITE_NAME, SITE_URL, social } from "../consts";
 
 interface MetaProps {
 	title: string;
@@ -13,7 +13,7 @@ const { title, description, image } = Astro.props as MetaProps;
 
 const socialUrls: string[] = social.links.map((link) => link.url);
 
-const canonicalUrl: string = new URL(Astro.url.pathname, site_url).toString();
+const canonicalUrl: string = new URL(Astro.url.pathname, SITE_URL).toString();
 
 /*
 Resolve images referenced by standalone MDX pages.
@@ -43,7 +43,7 @@ const socialImage = imageMetadata
 	: undefined;
 
 const socialImageUrl = socialImage
-	? new URL(socialImage.src, site_url).toString()
+	? new URL(socialImage.src, SITE_URL).toString()
 	: undefined;
 
 const structuredData = {
@@ -51,11 +51,11 @@ const structuredData = {
 	"@type": "WebPage",
 	url: canonicalUrl,
 	headline: title,
-	name: site_name,
+	name: SITE_NAME,
 	image: socialImageUrl,
 	author: {
 		"@type": "Person",
-		name: site_author,
+		name: SITE_AUTHOR,
 	},
 	sameAs: socialUrls,
 };
@@ -64,7 +64,7 @@ const structuredData = {
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
 <meta name="title" content={title} />
-<meta name="author" content={site_author} />
+<meta name="author" content={SITE_AUTHOR} />
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalUrl} />
 
@@ -72,7 +72,7 @@ const structuredData = {
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:creator" content={site_author} />
+<meta name="twitter:creator" content={SITE_AUTHOR} />
 <meta name="twitter:image" content={socialImageUrl} />
 <meta name="twitter:dnt" content="on" />
 
@@ -81,8 +81,8 @@ const structuredData = {
 <meta property="og:description" content={description} />
 <meta property="og:image" content={socialImageUrl} />
 <meta property="og:url" content={canonicalUrl} />
-<meta property="og:site_name" content={site_name} />
-<meta property="og:locale" content={site_lang} />
+<meta property="og:siteName" content={SITE_NAME} />
+<meta property="og:locale" content={SITE_LANG} />
 <meta property="og:type" content="website" />
 
 <!-- Icons -->

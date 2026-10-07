@@ -1,5 +1,5 @@
 ---
-import { site_author_email, social } from "../consts";
+import { SITE_AUTHOR_EMAIL, social } from "../consts";
 import { encodeEmail } from "../utils/encodeEmail";
 ---
 
@@ -17,9 +17,9 @@ import { encodeEmail } from "../utils/encodeEmail";
 				<h3 class="contato__info__title">E-mail</h3>
 				<div class="contato__info-spacer"></div>
 				<p class="contato__info__text">
-					<a href={"mailto:" + encodeEmail(site_author_email)}>
+					<a href={"mailto:" + encodeEmail(SITE_AUTHOR_EMAIL)}>
 						<b class="contato__hidden">blocked</b>
-						{site_author_email}
+						{SITE_AUTHOR_EMAIL}
 					</a>
 				</p>
 			</div>
