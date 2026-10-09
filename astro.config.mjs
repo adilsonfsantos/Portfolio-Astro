@@ -41,6 +41,9 @@ export default defineConfig({
 	security: {
 		csp: {
 			algorithm: "SHA-256",
+			scriptDirective: {
+				resources: ["'self'", "static.cloudflareinsights.com"],
+			},
 		},
 	},
 
