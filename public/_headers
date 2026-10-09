@@ -7,7 +7,7 @@
 	Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 	X-Content-Type-Options: nosniff
 
-/
+/*.html
 	Content-Type: text/html; charset=utf-8
 	Cache-Control: no-cache
 	Content-Security-Policy: default-src 'none'; script-src 'self' static.cloudflareinsights.com; style-src 'self' 'sha256-Zk32o7FR0WCjHGs5PISA1+t2s93yi+J3DXbNCV2AL4Q='; img-src 'self'; connect-src 'self' cloudflareinsights.com; font-src 'self'; manifest-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'self'; upgrade-insecure-requests; require-trusted-types-for 'script'; report-to default
