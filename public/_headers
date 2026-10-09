@@ -7,10 +7,10 @@
 	Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 	X-Content-Type-Options: nosniff
 
-/
+/*.html
 	Content-Type: text/html; charset=utf-8
 	Cache-Control: no-cache
-	Content-Security-Policy: default-src 'none'; img-src 'self'; connect-src 'self' cloudflareinsights.com; font-src 'self'; manifest-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'self'; upgrade-insecure-requests; require-trusted-types-for 'script'; report-to default
+	Content-Security-Policy: default-src 'none'; script-src 'self' static.cloudflareinsights.com; style-src 'self' 'sha256-4MnabZ3/ZOd7ZbC+tDyFIU+MeqmElLPOk7l1b/wP7G4=' 'sha256-g8hdYV3yd8Y/JRHlsPQoNqCsEobHxiBnSGmhcwAW6OU=' 'sha256-hKHIdemDHvVPHJhdToQuQhULXDBGBmtTjCK6ZAcWZMI=' 'sha256-Xk/hp/Ri1GXLbUnHUEBIE2nV/ieQkLuSF+FFiY9xM7A=' 'sha256-Zk32o7FR0WCjHGs5PISA1+t2s93yi+J3DXbNCV2AL4Q='; img-src 'self'; connect-src 'self' cloudflareinsights.com; font-src 'self'; manifest-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'self'; object-src 'none'; frame-src 'self'; upgrade-insecure-requests; require-trusted-types-for 'script'; report-to default
 	Cross-Origin-Opener-Policy: same-origin; report-to=default
 	Cross-Origin-Embedder-Policy: require-corp; report-to=default
 	Cross-Origin-Resource-Policy: same-site
