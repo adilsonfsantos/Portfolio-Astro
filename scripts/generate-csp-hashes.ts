@@ -9,7 +9,7 @@ function generateHash(content: string): string {
 }
 
 // Caminho para os componentes Astro
-const componentsDir = path.resolve("./src");
+const componentsDir = path.resolve("./dist");
 
 // Função para ler todos os arquivos .astro
 function getAstroFiles(dir: string): string[] {
@@ -17,7 +17,7 @@ function getAstroFiles(dir: string): string[] {
 		const fullPath = path.join(dir, file);
 		if (fs.statSync(fullPath).isDirectory()) {
 			return getAstroFiles(fullPath);
-		} else if (fullPath.endsWith(".astro")) {
+		} else if (fullPath.endsWith(".html")) {
 			return [fullPath];
 		} else {
 			return [];

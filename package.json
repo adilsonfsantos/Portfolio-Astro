@@ -36,7 +36,7 @@
 			"stylelint --fix",
 			"prettier --write"
 		],
-		"*.astro": [
+		"*.{astro,scss,css}": [
 			"node scripts/generate-csp-hashes.ts"
 		]
 	},
