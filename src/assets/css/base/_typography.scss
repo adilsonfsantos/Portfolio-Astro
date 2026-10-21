@@ -4,7 +4,7 @@
 	font-optical-sizing: auto;
 	font-style: normal;
 	font-weight: 100 900;
-	src: url("/assets/fonts/InterVariable.woff2") format("woff2");
+	src: url("/assets/fonts/InterVariable-subset.woff2") format("woff2");
 	font-feature-settings:
 		"liga" 1,
 		"case" 1,
@@ -18,7 +18,7 @@
 	font-family: Inter;
 	font-style: italic;
 	font-weight: 100 900;
-	src: url("/assets/fonts/InterVariable-Italic.woff2") format("woff2");
+	src: url("/assets/fonts/InterVariable-Italic-subset.woff2") format("woff2");
 	font-feature-settings:
 		"liga" 1,
 		"case" 1,
@@ -33,6 +33,6 @@
 	font-optical-sizing: auto;
 	font-style: normal;
 	font-weight: 200 700;
-	src: url("/assets/fonts/ClashGrotesk-Variable.woff2") format("woff2");
+	src: url("/assets/fonts/ClashGrotesk-Variable-subset.woff2") format("woff2");
 	font-feature-settings: "dlig", "liga";
 }
