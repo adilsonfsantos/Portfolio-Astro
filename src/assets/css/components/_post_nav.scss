@@ -25,6 +25,7 @@
 		@include mixins.typescale(scale-5, medium, headline);
 
 		color: variables.$color-white;
+		font-family: variables.$font-headline;
 		text-decoration: underline;
 	}
 }

@@ -18,6 +18,7 @@
 		@include mixins.typescale(scale-6, medium, headline);
 
 		color: variables.$color-white;
+		font-family: variables.$font-headline;
 		margin-block: 0;
 		padding-block-end: variables.$space-xl;
 	}
@@ -69,6 +70,7 @@
 			--flow-space: #{variables.$space-xl};
 
 			color: variables.$color-white;
+			font-family: variables.$font-headline;
 		}
 
 		h2 {
