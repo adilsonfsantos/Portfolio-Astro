@@ -14,6 +14,16 @@ $color-primary-20: #6f0e10;
 $color-primary-40: #d40d1c;
 $color-secondary-90: #fddb7d;
 
+// Typography
+$font-headline:
+	"Clash Grotesk", "Helvetica Neue", "Roboto", "Arial Nova", "Arial",
+	"system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji",
+	"Segoe UI Symbol", "Noto Color Emoji";
+$font-body:
+	inter, "Helvetica Neue", "Roboto", "Arial Nova", "Arial", "system-ui",
+	"sans-serif", "Apple Color Emoji", "``Segoe UI Emoji", "Segoe UI Symbol",
+	"Noto Color Emoji";
+
 // Sizes
 $base-size: 1em;
 
