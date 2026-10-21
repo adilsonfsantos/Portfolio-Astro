@@ -19,6 +19,7 @@
 		@include mixins.typescale(scale-6, medium, title);
 
 		color: variables.$color-white;
+		font-family: variables.$font-headline;
 		margin-block: 0;
 	}
 
