@@ -30,6 +30,7 @@ const { title, description, image } = Astro.props as DefaultLayoutProps;
 			as="image"
 			href="/assets/images/noise.svg"
 			type="image/webp"
+			fetchpriority="high"
 		/>
 		<style is:global is:inline>
 			.noise {
