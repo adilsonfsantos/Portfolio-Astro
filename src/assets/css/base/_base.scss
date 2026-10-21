@@ -16,15 +16,7 @@ html {
 
 body {
 	background-color: variables.$color-black;
-	font-family:
-		"Inter UI", "Helvetica Neue", Roboto, "Arial Nova", Arial, system-ui,
-		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-		"Noto Color Emoji";
-	font-feature-settings:
-		"liga" 1,
-		"case" 1,
-		"zero" 1,
-		"calt" 1;
+	font-family: variables.$font-body;
 	font-kerning: normal;
 	font-size: 1rem;
 	line-height: 1.6;
