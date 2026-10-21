@@ -161,6 +161,10 @@
 	picture,
 	figure {
 		--flow-space: #{variables.$space-xl};
+
+		+ p {
+			--flow-space: #{variables.$space-xl};
+		}
 	}
 
 	img {
