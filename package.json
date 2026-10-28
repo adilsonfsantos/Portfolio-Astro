@@ -50,7 +50,7 @@
 		"satteri-external-links": "^0.1.1"
 	},
 	"devDependencies": {
-		"@astrojs/check": "^0.9.11",
+		"@astrojs/check": "^0.9.12",
 		"@astrojs/ts-plugin": "^1.10.12",
 		"@eslint/js": "^10.0.1",
 		"@types/node": "^26.6.5",
