@@ -50,7 +50,7 @@
 		"satteri-external-links": "^0.1.1"
 	},
 	"devDependencies": {
-		"@astrojs/check": "^0.9.11",
+		"@astrojs/check": "^0.9.12",
 		"@astrojs/ts-plugin": "^1.10.12",
 		"@eslint/js": "^10.0.1",
 		"@types/node": "^26.6.5",
@@ -64,7 +64,7 @@
 		"knip": "^6.42.1",
 		"lint-staged": "^17.6.0",
 		"prettier": "^3.9.10",
-		"prettier-plugin-astro": "^1.1.1",
+		"prettier-plugin-astro": "^1.1.2",
 		"stylelint": "^17.16.0",
 		"stylelint-browser-compat": "^1.0.0-beta.180",
 		"stylelint-config-standard-scss": "^17.0.0",
