@@ -46,7 +46,7 @@
 		"@astrojs/sitemap": "^3.7.4",
 		"astro": "^7.4.2",
 		"astro-compressor": "^2.0.1",
-		"sass": "^1.106.0",
+		"sass": "^1.106.1",
 		"satteri-external-links": "^0.1.1"
 	},
 	"devDependencies": {
