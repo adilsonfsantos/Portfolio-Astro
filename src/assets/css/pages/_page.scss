@@ -59,12 +59,10 @@
 
 		ul,
 		ol {
+			@include mixins.flow(variables.$space-m);
+
 			margin-block-end: 0;
 			padding-inline-start: variables.$space-s;
-		}
-
-		li:not(:last-child) {
-			margin-bottom: variables.$space-m;
 		}
 	}
 

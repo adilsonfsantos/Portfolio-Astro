@@ -99,13 +99,11 @@
 
 		ul,
 		ol {
+			@include mixins.flow(variables.$space-m);
+
 			margin-block-end: 0;
 			padding-inline-start: variables.$space-s;
 			list-style-type: square;
-		}
-
-		li:not(:last-child) {
-			margin-bottom: variables.$space-2xs;
 		}
 
 		img,
