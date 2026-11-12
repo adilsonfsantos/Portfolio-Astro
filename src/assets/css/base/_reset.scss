@@ -7,6 +7,10 @@
 	box-sizing: border-box;
 }
 
+*:not(dialog) {
+	margin: 0;
+}
+
 html {
 	scroll-behavior: smooth;
 
@@ -23,7 +27,6 @@ html {
 
 body {
 	min-height: 100vh;
-	margin: 0;
 
 	// Base accessible line-height
 	line-height: 1.5;
@@ -104,7 +107,6 @@ canvas,
 svg {
 	display: block;
 	max-width: 100%;
-	height: auto;
 }
 
 // Forms
@@ -112,12 +114,12 @@ input,
 button,
 textarea,
 select {
-	font: inherit;
+	font-family: inherit;
 	line-height: inherit;
 }
 
 textarea:not([rows]) {
-	min-height: 8em;
+	min-height: 10em;
 }
 
 // Anchor and navigation
@@ -135,6 +137,12 @@ textarea:not([rows]) {
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
 		scroll-behavior: auto !important;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		interpolate-size: allow-keywords;
 	}
 }
 
