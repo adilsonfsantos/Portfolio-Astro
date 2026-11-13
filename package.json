@@ -44,9 +44,9 @@
 		"@astrojs/mdx": "^8.1.2",
 		"@astrojs/rss": "^4.0.19",
 		"@astrojs/sitemap": "^3.7.4",
-		"astro": "^7.4.4",
+		"astro": "^7.4.7",
 		"astro-compressor": "^2.0.1",
-		"sass": "^1.106.1",
+		"sass": "^1.108.0",
 		"satteri-external-links": "^0.1.1"
 	},
 	"devDependencies": {
@@ -61,7 +61,7 @@
 		"eslint-plugin-jsx-a11y-x": "^0.2.0",
 		"eslint-plugin-mdx": "^3.8.3",
 		"husky": "^9.1.7",
-		"knip": "^6.44.0",
+		"knip": "^6.44.1",
 		"lint-staged": "^17.6.0",
 		"prettier": "^3.9.10",
 		"prettier-plugin-astro": "^1.1.2",
