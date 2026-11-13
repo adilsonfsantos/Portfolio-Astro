@@ -2,8 +2,9 @@
 @use "../abstracts/variables";
 
 .projetos {
-	@include mixins.layout-grid(site);
-
+	max-inline-size: variables.$viewport-max;
+	padding-inline: variables.$grid-gutter;
+	margin-inline: auto;
 	display: grid;
 	gap: variables.$grid-gutter;
 	padding-block-start: variables.$space-l;

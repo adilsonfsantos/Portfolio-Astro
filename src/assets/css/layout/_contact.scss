@@ -33,9 +33,12 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: variables.$space-l;
+		margin-inline: auto;
+		max-inline-size: variables.$viewport-max;
 		padding-block: variables.$space-2xl;
+		padding-inline: variables.$grid-gutter;
 
-		@include mixins.viewport(large) {
+		@media (width >= 33rem) {
 			justify-content: center;
 			text-align: center;
 		}

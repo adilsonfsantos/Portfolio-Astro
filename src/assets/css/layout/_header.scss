@@ -14,11 +14,12 @@
 	}
 
 	&__content {
-		@include mixins.layout-grid(site);
-
 		align-items: center;
 		display: flex;
 		inline-size: 100%;
+		margin-inline: auto;
+		max-inline-size: variables.$viewport-max;
+		padding-inline: variables.$grid-gutter;
 
 		&-logo {
 			color: variables.$color-white;

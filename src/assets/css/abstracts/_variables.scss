@@ -106,28 +106,11 @@ $space-xl: calc(3rem + (3.75rem - 3rem) * $progress);
 $space-2xl: calc(4rem + (5rem - 4rem) * $progress);
 $space-3xl: calc(6rem + (7.5rem - 6rem) * $progress);
 
-// Default flow spacing
-$space-flow: $space-s;
-
-// Breakpoints
-$grid-breakpoints: (
-	default: (
-		width: 231,
-	),
-	small: (
-		width: 319px,
-	),
-	large: (
-		width: 799px,
-	),
-);
-
-// Layout
-$page-width: $base-size * 80; // Max content width
+// Breakpoint https://viewports.fyi/
+$breakpoint-desktop: 800px;
 
 // Grid layout
-$grid-width-site: 77.5rem; // Max general grid width
-$grid-width-post: 60ch; // Max post grid width
+$grid-width-post: 60ch;
 $grid-gutter: calc(1rem + (2.5rem - 1rem) * $progress);
 
 // Animation
