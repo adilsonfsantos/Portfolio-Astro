@@ -10,7 +10,7 @@
 	border-bottom: 1px solid variables.$color-black-10;
 
 	@supports (backdrop-filter: blur(1px)) {
-		@include mixins.translucent-backdrop;
+		backdrop-filter: saturate(180%) blur(4px);
 	}
 
 	&__content {

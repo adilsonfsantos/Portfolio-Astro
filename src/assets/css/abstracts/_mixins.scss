@@ -80,15 +80,3 @@
 		margin-block-start: var(--flow-space, #{$space});
 	}
 }
-
-// Mixin para backdrop-filter
-@mixin translucent-backdrop() {
-	backdrop-filter: saturate(180%) blur(variables.$base-size * 0.25);
-}
-
-@mixin focus-visible($color) {
-	&:focus-visible {
-		outline-color: $color;
-		@content;
-	}
-}

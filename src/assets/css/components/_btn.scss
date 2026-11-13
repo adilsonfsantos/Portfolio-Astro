@@ -43,7 +43,7 @@
 		background-color: rgb(variables.$color-secondary-90, 0.2);
 
 		@supports (backdrop-filter: blur(1px)) {
-			@include mixins.translucent-backdrop;
+			backdrop-filter: saturate(180%) blur(4px);
 		}
 
 		@include btn-hover(
@@ -56,7 +56,10 @@
 			variables.$color-secondary-90,
 			variables.$color-secondary-90
 		);
-		@include mixins.focus-visible(variables.$color-secondary-90);
+
+		&:focus-visible {
+			outline-color: variables.$color-secondary-90;
+		}
 	}
 
 	&--secondary {
@@ -67,7 +70,7 @@
 		border: 1px solid variables.$color-white-70;
 
 		@supports (backdrop-filter: blur(1px)) {
-			@include mixins.translucent-backdrop;
+			backdrop-filter: saturate(180%) blur(4px);
 		}
 
 		@include btn-hover(
@@ -80,6 +83,9 @@
 			variables.$color-white,
 			variables.$color-white
 		);
-		@include mixins.focus-visible(variables.$color-white);
+
+		&:focus-visible {
+			outline-color: variables.$color-white;
+		}
 	}
 }
