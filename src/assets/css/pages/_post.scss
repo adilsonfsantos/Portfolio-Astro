@@ -129,7 +129,7 @@
 			--flow-space: #{variables.$space-xl};
 
 			p {
-				@include mixins.typescale(scale-1, bold, text);
+				@include mixins.typescale(scale-1, semibold, text);
 
 				color: variables.$color-white;
 				margin: 0;
