@@ -7,7 +7,7 @@
 	justify-content: center;
 	position: relative;
 	overflow: hidden;
-	min-height: clamp(50svh, 64vh, 80svh);
+	min-block-size: clamp(20rem, 88svh, 30rem);
 
 	&__gradient {
 		position: absolute;
@@ -47,7 +47,6 @@
 
 		color: variables.$color-white;
 		font-family: variables.$font-headline;
-		margin-block-start: 0;
 	}
 
 	&__subtitle {
@@ -56,7 +55,6 @@
 		color: variables.$color-white-90;
 		max-inline-size: 60ch;
 		margin-inline: auto;
-		margin-block: 0;
 		text-wrap: balance;
 	}
 
@@ -79,23 +77,22 @@
 		gap: variables.$space-m;
 		max-inline-size: 50ch;
 		margin-inline: auto;
+		inline-size: 100%;
 
 		&__title {
 			@include mixins.typescale(scale-0, normal, text);
 
 			color: variables.$color-white;
-			margin: 0;
 		}
 
 		&__text {
 			@include mixins.typescale(scale-0, normal, text);
 
 			color: variables.$color-white-90;
-			margin: 0;
+		}
 
-			b {
-				display: none;
-			}
+		b {
+			display: none;
 		}
 
 		&-spacer {
@@ -124,13 +121,6 @@
 			outline: 2px solid variables.$color-secondary-90;
 			outline-offset: 2px;
 		}
-	}
-
-	ul,
-	ol {
-		padding-inline-start: 0;
-		margin-block-end: 0;
-		list-style: none;
 	}
 
 	/* Explicit utility to hide decorative-only text */

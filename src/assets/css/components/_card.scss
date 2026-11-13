@@ -18,6 +18,7 @@
 		width: 100%;
 
 		img {
+			aspect-ratio: 1/1;
 			color: variables.$color-white;
 		}
 	}
@@ -35,7 +36,6 @@
 		@include mixins.typescale(scale-2, medium, headline);
 
 		color: variables.$color-white;
-		margin-block: 0;
 	}
 
 	&__tag {

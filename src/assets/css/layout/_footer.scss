@@ -28,6 +28,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
+		gap: variables.$space-m;
 	}
 
 	&__copyright {
@@ -46,7 +47,6 @@
 		gap: variables.$space-m;
 		list-style: none;
 		padding: 0;
-		margin: 0;
 
 		a {
 			@include mixins.typescale(scale-0, medium, text);
