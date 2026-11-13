@@ -17,9 +17,10 @@
 	}
 
 	&__container {
-		@include mixins.layout-grid(site);
-
+		margin-inline: auto;
+		max-inline-size: variables.$viewport-max;
 		padding-block: variables.$space-l;
+		padding-inline: variables.$grid-gutter;
 	}
 
 	&__content {
@@ -33,12 +34,6 @@
 		@include mixins.typescale(scale-0, normal, text);
 
 		color: variables.$color-white-90;
-		margin-block: 0;
-		margin-block-end: variables.$space-m;
-
-		@include mixins.viewport(large) {
-			margin-block: 0;
-		}
 	}
 
 	&__spacer {

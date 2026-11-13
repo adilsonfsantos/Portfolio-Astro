@@ -6,8 +6,9 @@
 	overflow: hidden;
 
 	&__content {
-		@include mixins.layout-grid(site);
-
+		max-inline-size: variables.$viewport-max;
+		padding-inline: variables.$grid-gutter;
+		margin-inline: auto;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
