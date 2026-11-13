@@ -2,8 +2,9 @@
 @use "../abstracts/mixins";
 
 .page {
-	@include mixins.layout-grid(site);
-
+	max-inline-size: variables.$viewport-max;
+	padding-inline: variables.$grid-gutter;
+	margin-inline: auto;
 	padding-block-start: variables.$space-3xl;
 
 	&__title {
@@ -22,7 +23,7 @@
 		@include mixins.flow(variables.$space-l);
 		@include mixins.content-grid;
 
-		@include mixins.viewport(large) {
+		@media (width >= variables.$breakpoint-desktop) {
 			padding-block-start: variables.$space-3xl;
 		}
 
@@ -52,7 +53,7 @@
 			color: variables.$color-white-90;
 			text-wrap: balance;
 
-			@include mixins.viewport(large) {
+			@media (width >= variables.$breakpoint-desktop) {
 				text-wrap: stable;
 			}
 		}

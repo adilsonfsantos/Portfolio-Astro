@@ -2,27 +2,6 @@
 @use "sass:map";
 @use "variables";
 
-// Media queries
-@mixin viewport($size, $orientation: portrait, $key: width) {
-	$breakpoints: variables.$grid-breakpoints;
-
-	@if not list.index(map.keys($breakpoints), $size) {
-		@warn "Atenção: `#{$size}` não é um breakpoint válido.";
-	}
-
-	$min-width: map.get($breakpoints, $size, $key);
-
-	@if $orientation == landscape {
-		@media (min-width: $min-width) and (orientation: landscape) {
-			@content;
-		}
-	} @else {
-		@media (min-width: $min-width) {
-			@content;
-		}
-	}
-}
-
 // Typography
 @mixin typescale($size, $weight: normal, $line: text) {
 	$type-map: variables.$type-map;
@@ -65,28 +44,13 @@
 	}
 }
 
-// Layout wrappers
-@mixin layout-grid($type) {
-	@if $type == site {
-		max-inline-size: variables.$grid-width-site;
-		padding-inline: variables.$grid-gutter;
-		margin-inline: auto;
-	} @else if $type == blog {
-		max-inline-size: variables.$grid-width-post;
-		padding-inline: variables.$grid-gutter;
-		margin-inline: auto;
-	} @else {
-		@warn "Atenção: Layout `#{$type}` não é um valor válido.";
-	}
-}
-
 // abstracts/_grid.scss ou layout/_grid.scss
 @mixin content-grid {
 	display: grid;
 	grid-template-columns:
 		[full-width] minmax(variables.$grid-gutter, 1fr)
 		[popout-start] minmax(0, variables.$space-xl)
-		[content-start] minmax(0, variables.$grid-width-post)
+		[content-start] minmax(0, variables.$grid-content-size)
 		[content-end] minmax(0, variables.$space-xl)
 		[popout-end] minmax(variables.$grid-gutter, 1fr)
 		[full-width-end];
@@ -94,7 +58,7 @@
 	> * {
 		grid-column: full-width / full-width-end;
 
-		@include viewport(large) {
+		@media (width >= variables.$breakpoint-desktop) {
 			grid-column: content-start / content-end;
 		}
 	}
@@ -104,7 +68,7 @@
 	}
 
 	> .popout {
-		@include viewport(large) {
+		@media (width >= variables.$breakpoint-desktop) {
 			grid-column: popout-start / popout-end;
 		}
 	}

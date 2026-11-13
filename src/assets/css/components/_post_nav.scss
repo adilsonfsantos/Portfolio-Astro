@@ -6,9 +6,11 @@
 	padding-block: variables.$space-3xl;
 
 	&__content {
-		@include mixins.layout-grid(site);
+		max-inline-size: variables.$viewport-max;
+		padding-inline: variables.$grid-gutter;
+		margin-inline: auto;
 
-		@include mixins.viewport(large) {
+		@media (width >= variables.$breakpoint-desktop) {
 			text-align: center;
 		}
 
