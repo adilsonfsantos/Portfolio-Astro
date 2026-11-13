@@ -25,11 +25,24 @@
 
 // Typography
 @mixin typescale($size, $weight: normal, $line: text) {
-	font-size: map.get(variables.$type-map, $size, size);
-	letter-spacing: map.get(variables.$type-map, $size, tracking);
+	$type-map: variables.$type-map;
+
+	@if not list.index(map.keys($type-map), $size) {
+		@warn "Atenção: `#{$size}` não é um tamanho válido.";
+	}
+
+	$font-min: map.get($type-map, $size, min-size);
+	$font-max: map.get($type-map, $size, max-size);
+	$tracking-min: map.get($type-map, $size, min-tracking);
+	$tracking-max: map.get($type-map, $size, max-tracking);
+
+	font-size: calc($font-min + ($font-max - $font-min) * variables.$progress);
+	letter-spacing: calc(
+		$tracking-min + ($tracking-max - $tracking-min) * variables.$progress
+	);
 	text-box: trim-both cap alphabetic;
 
-	@if $weight == bold {
+	@if $weight == semibold {
 		font-weight: 600;
 	} @else if $weight == medium {
 		font-weight: 500;
@@ -38,7 +51,7 @@
 	} @else if $weight == light {
 		font-weight: 300;
 	} @else {
-		@warn "Atenção: `#{$weight}` não é suportado.";
+		@warn "Atenção: `#{$weight}` não é um valor válido.";
 	}
 
 	@if $line == title {
@@ -48,7 +61,7 @@
 	} @else if $line == text {
 		line-height: 1.6;
 	} @else {
-		@warn "Atenção: `#{$line}` não é suportado.";
+		@warn "Atenção: `#{$line}` não é um valor válido.";
 	}
 }
 

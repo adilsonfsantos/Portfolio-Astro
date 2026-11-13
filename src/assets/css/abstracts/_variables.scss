@@ -27,59 +27,84 @@ $font-body:
 // Sizes
 $base-size: 1em;
 
-// Font Size
 // https://utopia.fyi/grid/calculator/?c=232,16,1.125,1240,20,1.2,6,2,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12
 
-/* $font-size: $base-size; */
+$viewport-min: 14.5rem; // 232px;
+$viewport-max: 77.5rem; // 1240px
+$font-size-min: 1rem;
+$font-size-max: 1.25rem;
+$type-scale-min: 1.125;
+$type-scale-max: 1.2;
+$progress: progress(100vw, $viewport-min, $viewport-max);
+
+// Font Size
 $type-map: (
 	scale-6: (
-		size: clamp(2.0273rem, 1.6348rem + 2.7067vw, 3.7325rem),
-		tracking: clamp(-0.0222em, -0.0196em + 0.002vw, -0.0217em),
+		min-size: 2.0273rem,
+		max-size: 3.7325rem,
+		min-tracking: -0.0222em,
+		max-tracking: -0.0217em,
 	),
 	scale-5: (
-		size: clamp(1.802rem, 1.5009rem + 2.0768vw, 3.1104rem),
-		tracking: clamp(-0.0218em, -0.0192em + 0.0018vw, -0.0205em),
+		min-size: 1.802rem,
+		max-size: 3.1104rem,
+		min-tracking: -0.0218em,
+		max-tracking: -0.0205em,
 	),
 	scale-4: (
-		size: clamp(1.6018rem, 1.3739rem + 1.5717vw, 2.592rem),
-		tracking: clamp(-0.0208em, -0.0181em + 0.0015vw, -0.0187em),
+		min-size: 1.6018rem,
+		max-size: 2.592rem,
+		min-tracking: -0.0208em,
+		max-tracking: -0.0187em,
 	),
 	scale-3: (
-		size: clamp(1.4238rem, 1.1896rem + 1.6152vw, 2.4414rem),
-		tracking: clamp(-0.0202em, -0.0174em + 0.0014vw, -0.0175em),
+		min-size: 1.4238rem,
+		max-size: 2.4414rem,
+		min-tracking: -0.0202em,
+		max-tracking: -0.0175em,
 	),
 	scale-2: (
-		size: clamp(1.2656rem, 1.1426rem + 0.8482vw, 1.8rem),
-		tracking: clamp(-0.0182em, -0.0153em + 0.0011vw, -0.0145em),
+		min-size: 1.2656rem,
+		max-size: 1.8rem,
+		min-tracking: -0.0182em,
+		max-tracking: -0.0145em,
 	),
 	scale-1: (
-		size: clamp(1.125rem, 1.0387rem + 0.5952vw, 1.5rem),
-		tracking: clamp(-0.0155em, -0.0129em + 0.0008vw, -0.0115em),
+		min-size: 1.125rem,
+		max-size: 1.5rem,
+		min-tracking: -0.0155em,
+		max-tracking: -0.0115em,
 	),
 	scale-0: (
-		size: clamp(1rem, 0.9425rem + 0.3968vw, 1.25rem),
-		tracking: clamp(-0.0125em, -0.0102em + 0.0006vw, -0.0085em),
+		min-size: 1rem,
+		max-size: 1.25rem,
+		min-tracking: -0.0125em,
+		max-tracking: -0.0085em,
 	),
 	scale--1: (
-		size: clamp(0.8889rem, 0.8537rem + 0.2425vw, 1.0417rem),
-		tracking: clamp(-0.0095em, -0.0077em + 0.0004vw, -0.0055em),
+		min-size: 0.8889rem,
+		max-size: 1.0417rem,
+		min-tracking: -0.0095em,
+		max-tracking: -0.0055em,
 	),
 	scale--2: (
-		size: clamp(0.7901rem, 0.7722rem + 0.1237vw, 0.8681rem),
-		tracking: clamp(-0.0065em, -0.0052em + 0.0003vw, -0.0035em),
+		min-size: 0.7901rem,
+		max-size: 0.8681rem,
+		min-tracking: -0.0065em,
+		max-tracking: -0.0035em,
 	),
 );
 
 // Spacing
-$space-3xs: clamp(0.25rem, 0.2356rem + 0.0992vw, 0.3125rem);
-$space-2xs: clamp(0.5rem, 0.4712rem + 0.1984vw, 0.625rem);
-$space-xs: clamp(0.75rem, 0.7068rem + 0.2976vw, 0.9375rem);
-$space-s: clamp(1rem, 0.9425rem + 0.3968vw, 1.25rem);
-$space-m: clamp(1.5rem, 1.4137rem + 0.5952vw, 1.875rem);
-$space-l: clamp(2rem, 1.8849rem + 0.7937vw, 2.5rem);
-$space-xl: clamp(3rem, 2.8274rem + 1.1905vw, 3.75rem);
-$space-2xl: clamp(4rem, 3.7698rem + 1.5873vw, 5rem);
-$space-3xl: clamp(6rem, 5.6548rem + 2.381vw, 7.5rem);
+$space-3xs: calc(0.25rem + (0.3125rem - 0.25rem) * $progress);
+$space-2xs: calc(0.5rem + (0.625rem - 0.5rem) * $progress);
+$space-xs: calc(0.75rem + (0.9375rem - 0.75rem) * $progress);
+$space-s: calc(1rem + (1.25rem - 1rem) * $progress);
+$space-m: calc(1.5rem + (1.875rem - 1.5rem) * $progress);
+$space-l: calc(2rem + (2.5rem - 2rem) * $progress);
+$space-xl: calc(3rem + (3.75rem - 3rem) * $progress);
+$space-2xl: calc(4rem + (5rem - 4rem) * $progress);
+$space-3xl: calc(6rem + (7.5rem - 6rem) * $progress);
 
 // Default flow spacing
 $space-flow: $space-s;
@@ -103,7 +128,7 @@ $page-width: $base-size * 80; // Max content width
 // Grid layout
 $grid-width-site: 77.5rem; // Max general grid width
 $grid-width-post: 60ch; // Max post grid width
-$grid-gutter: clamp(1rem, 0.6548rem + 2.381vw, 2.5rem);
+$grid-gutter: calc(1rem + (2.5rem - 1rem) * $progress);
 
 // Animation
 $animation-standard: cubic-bezier(0.22, 1, 0.36, 1) !default;
