@@ -20,7 +20,6 @@
 
 		color: variables.$color-white;
 		font-family: variables.$font-headline;
-		margin-block: 0;
 		padding-block-end: variables.$space-xl;
 	}
 
@@ -41,7 +40,6 @@
 			@include mixins.typescale(scale--1, medium, text);
 
 			color: variables.$color-white-90;
-			margin-block: 0;
 			margin-block-start: variables.$space-m;
 		}
 
@@ -58,10 +56,6 @@
 		@include mixins.content-grid;
 
 		margin-block-start: variables.$space-2xl;
-
-		:first-child {
-			margin-block: 0;
-		}
 
 		h2,
 		h3,
@@ -102,7 +96,6 @@
 		ol {
 			@include mixins.flow(variables.$space-m);
 
-			margin-block-end: 0;
 			padding-inline-start: variables.$space-s;
 			list-style-type: square;
 		}
@@ -118,31 +111,25 @@
 			max-height: 80dvh;
 		}
 
-		figure,
-		picture {
-			margin-inline: 0;
-		}
-
 		blockquote {
 			border-inline-start: 2px solid variables.$color-primary;
 			padding-inline-start: variables.$space-m;
 
 			--flow-space: #{variables.$space-xl};
+		}
 
-			p {
-				@include mixins.typescale(scale-1, semibold, text);
+		blockquote > p {
+			@include mixins.typescale(scale-1, semibold, text);
 
-				color: variables.$color-white;
-				margin: 0;
-			}
+			color: variables.$color-white;
+		}
 
-			cite {
-				@include mixins.typescale(scale-0, normal, text);
+		blockquote > cite {
+			@include mixins.typescale(scale-0, normal, text);
 
-				font-style: italic;
-				color: variables.$color-white-90;
-				margin-block-start: variables.$space-xs;
-			}
+			font-style: italic;
+			color: variables.$color-white-90;
+			margin-block-start: variables.$space-xs;
 		}
 	}
 
