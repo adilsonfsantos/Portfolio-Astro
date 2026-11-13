@@ -53,7 +53,7 @@
 			color: variables.$color-white-90;
 			text-wrap: balance;
 
-			@include mixins.viewport(large) {
+			@media (width >= variables.$breakpoint-desktop) {
 				text-wrap: stable;
 			}
 		}

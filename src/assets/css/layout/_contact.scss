@@ -28,8 +28,6 @@
 	}
 
 	&__content {
-		@include mixins.layout-grid(site);
-
 		display: flex;
 		flex-wrap: wrap;
 		gap: variables.$space-l;
