@@ -65,7 +65,7 @@
 		"lint-staged": "^17.6.0",
 		"prettier": "^3.9.10",
 		"prettier-plugin-astro": "^1.1.2",
-		"stylelint": "^17.16.0",
+		"stylelint": "^18.0.0",
 		"stylelint-browser-compat": "^1.0.0-beta.180",
 		"stylelint-config-standard-scss": "^17.0.0",
 		"stylelint-scss": "^7.4.0",
