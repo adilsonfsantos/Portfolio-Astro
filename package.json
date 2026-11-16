@@ -2,9 +2,9 @@
 	"name": "portfolio-astro",
 	"description": "Portfolio of Adilson Santos using Astro",
 	"type": "module",
-	"version": "0.0.1",
+	"version": "3.4.0",
 	"engines": {
-		"node": ">=24 <25"
+		"node": "^24 || ^26"
 	},
 	"private": true,
 	"browserslist": [
