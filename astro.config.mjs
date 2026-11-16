@@ -26,7 +26,11 @@ export default defineConfig({
 		service: {
 			config: {
 				avif: {
+					// https://imageloadlab.com/avif-encoder-effort-speed-vs-size/#what-it-means
 					effort: 2,
+					// https://imageloadlab.com/jpeg-webp-avif-quality-equivalence/
+					// https://eng.aurelienpierre.com/2021/10/webp-is-so-great-except-its-not/
+					quality: 70,
 				},
 				jpeg: {
 					chromaSubsampling: "4:4:4",
@@ -34,6 +38,8 @@ export default defineConfig({
 				},
 				webp: {
 					effort: 6,
+					// https://imageloadlab.com/chroma-subsampling-420-vs-444/#decision
+					smartSubsample: true,
 				},
 			},
 		},
