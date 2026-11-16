@@ -13,14 +13,22 @@ interface ImageProps {
 
 const {
 	src,
-	alt = "",
+	alt,
 	type = "default",
 	priority = false,
 } = Astro.props as ImageProps;
 
 // WCAG: alt is required only for informative images
 if (alt === undefined) {
-	throw new Error(`Missing \`alt\` on image: ${src.src}`);
+	throw new Error(`Missing alt on image: ${src.src}`);
+}
+
+if (alt !== "" && !alt.endsWith(".")) {
+	throw new Error(`Image alt must end with a period: ${src.src}`);
+}
+
+if (alt.length > 150) {
+	throw new Error(`Image alt exceeds 150 characters: ${src.src}`);
 }
 
 const loading = priority ? "eager" : "lazy";

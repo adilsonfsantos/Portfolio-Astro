@@ -37,11 +37,7 @@ const formatCategories = (values: string[]) => values.join(" • ");
 					href={`/projetos/${post.id}/`}
 					class="card noise"
 					data-astro-prefetch>
-					<Picture
-						src={post.data.card}
-						alt={post.data.description}
-						type="card"
-					/>
+					<Picture src={post.data.card} alt="" type="card" />
 					<div class="card__description">
 						<h2 class="card__title">{post.data.title}</h2>
 						<span class="card__tag">
