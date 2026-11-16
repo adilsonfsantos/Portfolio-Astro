@@ -11,8 +11,8 @@ const projetos = defineCollection({
 	schema: ({ image }) =>
 		z
 			.object({
-				title: z.string(),
-				description: z.string(),
+				title: z.string().max(50 - 17),
+				description: z.string().max(160),
 				date: z
 					.union([z.string(), z.date()])
 					.transform((val) => (val instanceof Date ? val : new Date(val))),
@@ -26,7 +26,7 @@ const projetos = defineCollection({
 						z.object({
 							name: z.string(),
 							role: z.string(),
-							portfolio: z.string().optional(),
+							portfolio: z.httpUrl().optional(),
 						}),
 					)
 					.optional(),
