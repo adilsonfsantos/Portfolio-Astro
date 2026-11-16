@@ -19,7 +19,10 @@
 	letter-spacing: calc(
 		$tracking-min + ($tracking-max - $tracking-min) * variables.$progress
 	);
-	text-box: trim-both cap alphabetic;
+
+	@supports (text-box: trim-both cap alphabetic) {
+		text-box: trim-both cap alphabetic;
+	}
 
 	@if $weight == semibold {
 		font-weight: 600;
