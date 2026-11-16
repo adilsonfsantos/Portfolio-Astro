@@ -21,24 +21,19 @@
 		"stylelint:fix": "stylelint 'src/**/*.{css,scss}' --cache --cache-location .cache/stylelint --fix",
 		"format": "prettier --check . --cache --cache-location .cache/prettier",
 		"format:fix": "prettier --write . --cache --cache-location .cache/prettier",
-		"check": "npm run typecheck && npm run eslint && npm run stylelint && npm run format",
-		"ci": "npm run check && npm run build",
+		"lint": "npm run typecheck && npm run eslint && npm run stylelint && npm run format",
+		"ci": "npm run lint && npm run build",
 		"csp": "node scripts/generate-csp-hashes.ts",
-		"prepare": "husky",
-		"knip": "knip"
+		"prepare": "husky"
 	},
 	"lint-staged": {
 		"*.{js,ts,astro,mdx}": [
-			"eslint --fix",
-			"prettier --write"
+			"npm run typecheck",
+			"npm run eslint"
 		],
-		"*.{scss,css}": [
-			"stylelint --fix",
-			"prettier --write"
-		],
-		"*.{astro,scss,css}": [
-			"node scripts/generate-csp-hashes.ts"
-		]
+		"*.{scss,css}": "npm run stylelint",
+		"*.{astro,js,ts,json,mdx,scss,css}": "npm run format",
+		"*.{astro,scss,css}": "npm run csp"
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^8.1.2",
@@ -61,7 +56,6 @@
 		"eslint-plugin-jsx-a11y-x": "^0.2.0",
 		"eslint-plugin-mdx": "^3.8.3",
 		"husky": "^9.1.7",
-		"knip": "^6.44.1",
 		"lint-staged": "^17.6.0",
 		"prettier": "^3.9.10",
 		"prettier-plugin-astro": "^1.1.2",
