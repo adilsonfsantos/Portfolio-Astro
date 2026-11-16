@@ -8,10 +8,10 @@ function generateHash(content: string): string {
 	return `sha256-${hash}`;
 }
 
-// Caminho para os componentes Astro
+// Caminho para os arquivos html
 const componentsDir = path.resolve("./dist");
 
-// Função para ler todos os arquivos .astro
+// Função para ler todos os arquivos .html
 function getAstroFiles(dir: string): string[] {
 	return fs.readdirSync(dir).flatMap((file) => {
 		const fullPath = path.join(dir, file);
