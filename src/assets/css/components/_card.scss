@@ -6,15 +6,15 @@
 	border: 1px solid variables.$color-black-10;
 	display: flex;
 	flex-direction: column;
+	gap: variables.$space-m;
 	max-inline-size: 100%;
+	padding: variables.$space-m;
 	position: relative;
 	isolation: isolate;
 	transition: 0.3s ease;
 	transition-property: border-color, background-color;
 
 	picture {
-		padding-inline: variables.$space-m;
-		padding-block-start: variables.$space-m;
 		width: 100%;
 
 		img {
@@ -28,7 +28,6 @@
 		flex-direction: column;
 		flex: 1;
 		justify-content: space-between;
-		padding: variables.$space-m;
 		gap: variables.$space-l;
 	}
 
