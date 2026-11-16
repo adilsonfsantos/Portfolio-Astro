@@ -145,16 +145,17 @@
 	}
 
 	picture,
-	figure {
+	figure,
+	img {
+		@include mixins.typescale(scale-0, normal, text);
+
 		--flow-space: #{variables.$space-xl};
+
+		color: variables.$color-white-90;
 
 		+ p {
 			--flow-space: #{variables.$space-xl};
 		}
-	}
-
-	img {
-		color: variables.$color-white-90;
 	}
 
 	strong {
