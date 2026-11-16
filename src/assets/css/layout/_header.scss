@@ -7,7 +7,7 @@
 	inline-size: 100%;
 	z-index: 4;
 	background-color: rgb(variables.$color-black, 0.8);
-	border-bottom: 1px solid variables.$color-black-10;
+	border-block-end: 1px solid variables.$color-black-10;
 
 	@supports (backdrop-filter: blur(1px)) {
 		backdrop-filter: saturate(180%) blur(4px);
