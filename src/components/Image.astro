@@ -1,12 +1,12 @@
 ---
-import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 
 type ImageType = "card" | "banner" | "default" | "popout" | "full-width";
 
 interface ImageProps {
 	src: ImageMetadata;
-	alt?: string;
+	alt: string;
 	type?: ImageType;
 	priority?: boolean;
 }
@@ -33,6 +33,7 @@ if (alt.length > 150) {
 
 const loading = priority ? "eager" : "lazy";
 const decoding = priority ? "sync" : "async";
+const fetch = priority ? "high" : undefined;
 
 interface ResponsiveConfig {
 	layout?: string;
@@ -73,16 +74,14 @@ const responsiveConfig: Record<ImageType, ResponsiveConfig> = {
 const { layout, sizes, widths } = responsiveConfig[type];
 ---
 
-<Picture
+<Image
 	src={src}
 	alt={alt}
+	fetchpriority={fetch}
 	loading={loading}
 	decoding={decoding}
 	sizes={sizes}
 	widths={widths}
-	formats={["avif"]}
-	fallbackFormat="avif"
-	pictureAttributes={{
-		class: layout,
-	}}
+	format={"avif"}
+	class={layout}
 />
