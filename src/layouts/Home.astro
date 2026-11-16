@@ -4,7 +4,7 @@ import "@assets/css/components/_card.scss";
 
 import Default from "./Default.astro";
 import Hero from "@components/Hero.astro";
-import Picture from "@components/Image.astro";
+import Image from "@components/Image.astro";
 import Contact from "@components/Contact.astro";
 
 import type { ImageMetadata } from "astro";
@@ -37,7 +37,7 @@ const formatCategories = (values: string[]) => values.join(" • ");
 					href={`/projetos/${post.id}/`}
 					class="card noise"
 					data-astro-prefetch>
-					<Picture src={post.data.card} alt="" type="card" />
+					<Image src={post.data.card} alt="" type="card" />
 					<div class="card__description">
 						<h2 class="card__title">{post.data.title}</h2>
 						<span class="card__tag">
