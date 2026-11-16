@@ -3,14 +3,8 @@
 
 // Root elements
 html {
-	@supports (scrollbar-color: feature-exists) {
-		scrollbar-color: variables.$color-white-70 transparent;
-	}
-
-	@supports (scrollbar-width: feature-exists) {
-		scrollbar-width: thin;
-	}
-
+	scrollbar-color: variables.$color-white-70 transparent;
+	scrollbar-width: thin;
 	height: 100%;
 }
 
@@ -20,7 +14,6 @@ body {
 	font-kerning: normal;
 	font-size: 1rem;
 	line-height: 1.6;
-	min-height: 100%;
 
 	@supports (hanging-punctuation: feature-exists) {
 		hanging-punctuation: first allow-end last;
@@ -44,9 +37,7 @@ a:active {
 
 // Media elements
 img {
-	display: block;
 	height: auto;
-	max-width: 100%;
 	object-fit: cover;
 }
 
