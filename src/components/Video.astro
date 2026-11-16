@@ -23,7 +23,7 @@ interface Props {
 
 	preload?: "none" | "metadata" | "auto";
 
-	layout: "content" | "popout" | "full-width";
+	type?: "popout" | "full-width";
 }
 
 const {
@@ -35,7 +35,7 @@ const {
 	width,
 	height,
 
-	layout = "content",
+	type,
 	controlsList = "nodownload nofullscreen noremoteplayback",
 
 	controls = true,
@@ -51,7 +51,7 @@ const {
 const posterSrc = typeof poster === "string" ? poster : poster?.src;
 ---
 
-<figure class={layout}>
+<figure class={type}>
 	<video
 		src={src}
 		poster={posterSrc}
