@@ -14,13 +14,10 @@
 	transition: 0.3s ease;
 	transition-property: border-color, background-color;
 
-	picture {
+	img {
+		aspect-ratio: 1/1;
+		color: variables.$color-white;
 		width: 100%;
-
-		img {
-			aspect-ratio: 1/1;
-			color: variables.$color-white;
-		}
 	}
 
 	&__description {
