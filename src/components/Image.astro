@@ -2,14 +2,12 @@
 import { Picture } from "astro:assets";
 import type { ImageMetadata } from "astro";
 
-type ImageLayout = "content" | "popout" | "full-width";
 type ImageType = "card" | "banner" | "default" | "popout" | "full-width";
 
 interface ImageProps {
 	src: ImageMetadata;
 	alt?: string;
 	type?: ImageType;
-	layout?: ImageLayout;
 	priority?: boolean;
 }
 
@@ -17,7 +15,6 @@ const {
 	src,
 	alt = "",
 	type = "default",
-	layout,
 	priority = false,
 } = Astro.props as ImageProps;
 
@@ -29,9 +26,8 @@ if (alt === undefined) {
 const loading = priority ? "eager" : "lazy";
 const decoding = priority ? "sync" : "async";
 
-const pictureClass = layout ?? undefined;
-
 interface ResponsiveConfig {
+	layout?: string;
 	sizes: string;
 	widths: number[];
 }
@@ -53,18 +49,20 @@ const responsiveConfig: Record<ImageType, ResponsiveConfig> = {
 		widths: [320, 600, 880, 1160, 1540, 1920],
 	},
 	popout: {
+		layout: "popout",
 		sizes:
 			"auto, calc(100vw - 2 * clamp(16px, calc(10.476px + 2.381vw), 40px)), (min-width: 800px) calc(60ch + 2 * clamp(48px, calc(45.238px + 1.1905vw), 60px)), (min-width: 1272px) calc(60ch + 120px)",
 		widths: [320, 600, 880, 1160, 1540, 1920],
 	},
 	"full-width": {
+		layout: "full-width",
 		sizes:
 			"auto, calc(100vw - 2 * clamp(16px, calc(10.476px + 2.381vw), 40px)), (min-width: 1272px) 1160px",
 		widths: [320, 600, 880, 1160, 1540, 1920],
 	},
 };
 
-const { sizes, widths } = responsiveConfig[type];
+const { layout, sizes, widths } = responsiveConfig[type];
 ---
 
 <Picture
@@ -77,6 +75,6 @@ const { sizes, widths } = responsiveConfig[type];
 	formats={["avif"]}
 	fallbackFormat="avif"
 	pictureAttributes={{
-		class: pictureClass,
+		class: layout,
 	}}
 />
