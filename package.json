@@ -36,7 +36,7 @@
 		"*.{astro,scss,css}": "npm run csp"
 	},
 	"dependencies": {
-		"@astrojs/mdx": "^8.1.2",
+		"@astrojs/mdx": "^8.1.3",
 		"@astrojs/rss": "^4.0.19",
 		"@astrojs/sitemap": "^3.7.4",
 		"astro": "^7.4.7",
